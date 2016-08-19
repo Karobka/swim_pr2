@@ -1,14 +1,13 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-
 var config = require('./config');
-
 var app = express();
 
 //body-parse the requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
+//serve static files from public folder
 app.use(express.static('public'));
 
 //Connect to the db
@@ -35,8 +34,7 @@ if (require.main === module) {
     });
 };
 
-exports.app = app;
-exports.runServer = runServer;
+
 
 //get our user models
 var User = require('./models/user');
@@ -49,7 +47,7 @@ app.get('/users', function(req, res) {
                 message: 'Boom!  Internal Server Error'
             });
         }
-        res.json(users);
+        res.status(200).json(users);
     });
 });
 
@@ -74,3 +72,6 @@ app.use('*', function(req, res) {
         message: 'Nothing Found.  Youre way off the path.'
     });
 });
+
+exports.app = app;
+exports.runServer = runServer;

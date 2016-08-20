@@ -54,7 +54,8 @@ app.get('/users', function(req, res) {
 //CREATE endpoint
 app.post('/users', function(req, res) {
     User.create({
-        name: req.body.name
+        name: req.body.name,
+        swim_history: []
     }, function(err, user) {
         if (err) {
             return res.status(500).json({
@@ -65,6 +66,20 @@ app.post('/users', function(req, res) {
     });
 });
 
+
+//DELETE USER endpoint
+app.delete('/users', function(req, res) {
+    User.findOneAndRemove({
+     name: req.body.name   
+    }, function(err, user) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Cant delete that...'
+            });
+        }
+        res.status(201).json(user);
+    });
+});
 
 //Catch all enpoint
 app.use('*', function(req, res) {

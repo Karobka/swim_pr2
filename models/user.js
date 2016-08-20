@@ -6,6 +6,9 @@ var userSchema = mongoose.Schema({
         type: String,
         required: true,
         unique: true
+    },
+    swim_history: {
+        type: Array
     }
 });
 

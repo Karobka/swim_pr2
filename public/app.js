@@ -23,7 +23,7 @@ function displayItem(item) {
 }
 
 function retrieveItems(callbackFn) {
-    $.ajax('/getitems').done(callbackFn());
+    $.ajax('/users').done(callbackFn());
     }
 
 function getdisplayItems() {
@@ -55,7 +55,7 @@ function displayRecords(records){
 $(document).ready(function(){
 
     //Auto get records on page load
-    $.ajax('/getitems').done(displayItem);
+    $.ajax('/users').done(displayItem);
 
     //edit swimrName
     var edit_swimrName;
@@ -70,7 +70,7 @@ $(document).ready(function(){
         event.preventDefault();
         var newname = $(".swimr_name").val();
         $.ajax({
-            url: "/addswimr",
+            url: "/users",
             type: "POST",
             name: newname
         }).done(displayItem);

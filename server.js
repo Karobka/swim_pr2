@@ -39,6 +39,8 @@ if (require.main === module) {
 //get our user models
 var User = require('./models/user');
 
+
+
 //READ endpoint
 app.get('/users', function(req, res) {
     User.find({},function(err, users) {
@@ -51,7 +53,7 @@ app.get('/users', function(req, res) {
     });
 });
 
-//CREATE endpoint
+//CREATE USER endpoint
 app.post('/users', function(req, res) {
     User.create({
         name: req.body.name,
@@ -66,12 +68,36 @@ app.post('/users', function(req, res) {
     });
 });
 
+//CREATE swim record endpoint
+app.post('/user/history', function(req, res) {
+    User.findOneAndUpdate(
+        {"name" : req.body.name},
+        {$push: {
+            swim_history: {
+                $each: [
+                    { event: req.body.eventname, stroke: req.body.stroke, time: req.body.time}
+                ]
+            }
+        }
+    },
+    {returnNewDocument : true},
+    function(err, historyupdate) {
+        if (err) {
+            return res.status(500).json({
+                message: 'You oops forgot to plug something in...'
+            });
+        }
+        res.status(201).json(historyupdate);
+    }
+    );
+});
+
 //UPDATE USER endpoint
 app.put('/users', function(req, res) {
     User.findOneAndUpdate(
         {"name" : req.body.name},
         {$set: {"name" : req.body.nameupdate}},
-        //{returnNewDocument : true}, <---this doesnt work
+        {returnNewDocument : true},
         function(err, userupdate){
             if (err) {
                 return res.status(500).json({

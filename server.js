@@ -34,12 +34,13 @@ if (require.main === module) {
     });
 };
 
-
-
 //get our user models
 var User = require('./models/user');
 
 
+/**
+ * USER endpoints
+ */
 
 //READ USERS endpoint
 app.get('/users', function(req, res) {
@@ -68,7 +69,43 @@ app.post('/users', function(req, res) {
     });
 });
 
-//CREATE swim record endpoint
+//UPDATE USER endpoint
+app.put('/users', function(req, res) {
+    User.findOneAndUpdate(
+        {"name" : req.body.name},
+        {$set: {"name" : req.body.nameupdate}},
+        {returnNewDocument : true},
+        function(err, userupdate){
+            if (err) {
+                return res.status(500).json({
+                    message: 'Well that didnt work...'
+                });
+            }
+            res.status(201).json(userupdate);
+        }
+    );
+});
+
+//DELETE USER endpoint
+app.delete('/users', function(req, res) {
+    User.findOneAndRemove({
+     name: req.body.name   
+    }, function(err, user) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Cant delete that...'
+            });
+        }
+        res.status(201).json(user);
+    });
+});
+
+
+/**
+ * SWIM record endpoints
+ */
+
+//CREATE SWIM record endpoint
 app.post('/user/history', function(req, res) {
     User.findOneAndUpdate(
         {"name" : req.body.name},
@@ -92,7 +129,17 @@ app.post('/user/history', function(req, res) {
     );
 });
 
-//DELETE swim record endpoint
+
+/**UPDATE SWIM record endpoint
+app.put('/user/history', function(req, res){
+    User.findOneAndUpdate(
+        {"name" : req.body.name},
+
+    )
+}) */
+
+
+//DELETE SWIM record endpoint
 app.delete('/user/history', function(req, res) {
     User.findOneAndUpdate(
         {"name" : req.body.name},
@@ -108,41 +155,6 @@ app.delete('/user/history', function(req, res) {
             res.status(201).json(historyupdate);
         }
     );
-});
-
-//UPDATE USER endpoint
-app.put('/users', function(req, res) {
-    User.findOneAndUpdate(
-        {"name" : req.body.name},
-        {$set: {"name" : req.body.nameupdate}},
-        {returnNewDocument : true},
-        function(err, userupdate){
-            if (err) {
-                return res.status(500).json({
-                    message: 'Well that didnt work...'
-                });
-            }
-            res.status(201).json(userupdate);
-        }
-    );
-});
-
-
-
-
-
-//DELETE USER endpoint
-app.delete('/users', function(req, res) {
-    User.findOneAndRemove({
-     name: req.body.name   
-    }, function(err, user) {
-        if (err) {
-            return res.status(500).json({
-                message: 'Cant delete that...'
-            });
-        }
-        res.status(201).json(user);
-    });
 });
 
 //Catch all enpoint

@@ -66,6 +66,26 @@ app.post('/users', function(req, res) {
     });
 });
 
+//UPDATE USER endpoint
+app.put('/users', function(req, res) {
+    User.findOneAndUpdate(
+        {"name" : req.body.name},
+        {$set: {"name" : req.body.nameupdate}},
+        //{returnNewDocument : true}, <---this doesnt work
+        function(err, userupdate){
+            if (err) {
+                return res.status(500).json({
+                    message: 'Well that didnt work...'
+                });
+            }
+            res.status(201).json(userupdate);
+        }
+    );
+});
+
+
+
+
 
 //DELETE USER endpoint
 app.delete('/users', function(req, res) {

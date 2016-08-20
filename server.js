@@ -41,7 +41,7 @@ var User = require('./models/user');
 
 
 
-//READ endpoint
+//READ USERS endpoint
 app.get('/users', function(req, res) {
     User.find({},function(err, users) {
         if (err) {
@@ -89,6 +89,24 @@ app.post('/user/history', function(req, res) {
         }
         res.status(201).json(historyupdate);
     }
+    );
+});
+
+//DELETE swim record endpoint
+app.delete('/user/history', function(req, res) {
+    User.findOneAndUpdate(
+        {"name" : req.body.name},
+        {$pull: {
+            swim_history: { event: req.body.eventname }
+        }},
+        function(err, historyupdate) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Cant delete for some reason...'
+                });
+            }
+            res.status(201).json(historyupdate);
+        }
     );
 });
 

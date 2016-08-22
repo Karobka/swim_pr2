@@ -1,39 +1,28 @@
-
+var local_storage = [];
 
 //function that displays records from the array
-function displayItem(item) {
-    $(".swimr_list").children().remove();
-    for (index in item){
-        $('.swimr_list').append(
-                '<li class="swimr_record" value=' + item[index].swimrId + '>' + 
-                    item[index].swimrName +
+function display(users) {
+    //$(".swimr_list").children().remove();
+    for (var index in users){
+        $(".swimr_list").append(
+                '<li class="swimr_record" value="' + users[index].name + '">' + 
+                    users[index].name +
                     '<div>' +
                         '<button class="btn_deleteswimr">' + 'Delete Swimmerrr' + '</button>' +
                         '<button class="btn_show_records">Show Records</button>' +
                     '</div>' +
-                    /**item.swim_history[index].itemDate + ' ' +
-                    item.swim_history[index].itemName + ' ' +
-                    item.swim_history[index].itemDistance + ' meters ' +
-                    item.swim_history[index].itemStroke + ' ' +
-                    item.swim_history[index].finishTime + ' ' +
-                    item.swim_history[index].ranking +  */
                 '</li>'
             );
     }
 }
 
-function retrieveItems(callbackFn) {
-    $.ajax('/users').done(callbackFn());
+function retrieveUsers() {
+    $.ajax('/users').done(function (users) {
+        $(".swimr_list").children().remove();
+        display(users);
+    });
     }
 
-function getdisplayItems() {
-    retrieveItems(displayItem);
-}
-
-//function to update swimrName
-function edit_swimrName() {
-    
-}
 
 //display swimrs records
 function displayRecords(records){
@@ -52,10 +41,13 @@ function displayRecords(records){
     }
 }
 
+
+
+
 $(document).ready(function(){
 
     //Auto get records on page load
-    $.ajax('/users').done(displayItem);
+    retrieveUsers();
 
     //edit swimrName
     var edit_swimrName;
@@ -65,37 +57,41 @@ $(document).ready(function(){
         $('<input type="text" placeholder=' + original_name + '>').prependTo($(this).parent()).focus();
     });
 
-    //Form Submit
+    //ADD user
     $(".add_record").submit(function (event) {
         event.preventDefault();
         var newname = $(".swimr_name").val();
+        $(".swimr_name").val("");
         $.ajax({
             url: "/users",
-            type: "POST",
-            name: newname
-        }).done(displayItem);
-
-        $(".swimr_list").children().remove();
-        $(".swimr_name").val("");
+            data: {
+                name: newname
+            },
+            method: "POST"
+        }).done(retrieveUsers);
     });
 
     //Item DELETE
     $("ul").on("click", ".btn_deleteswimr", function(event) {
-        var tempid = $($(this).parent()).parent().attr("value");
-        console.log("you clicked an item with id " + tempid);
+        //var tempid = $($(this).parent()).parent().attr("value");
+        var swimrname = $($(this).parent()).parent().attr("value");
+        console.log("you clicked an item with name of " + swimrname);
         $.ajax({
-            url: "/swimrdel/" + tempid,
-            type: "DELETE"
-        }).done(displayItem);
+            url: "/users",
+            method: "DELETE",
+            data: {name: swimrname}
+        }).done(retrieveUsers);
     });
 
     //Show records for swimr
     $("ul").on("click", ".btn_show_records", function() {
-        var tempid = $($(this).parent()).parent().attr("value");
+        //var tempid = $($(this).parent()).parent().attr("value");
+        var swimrname = $($(this).parent).val();
         $.ajax({
-            url: "/getevents/" + tempid,
-            type: "GET"
-        }).done(displayRecords)
-    })
+            url: "/user/history",
+            method: "GET",
+            user: swimrname
+        }).done();
+    });
 
 });

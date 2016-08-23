@@ -152,8 +152,11 @@ $(document).ready(function () {
         }
     }
 
+/*var SwimRecord = function() {
 
-var SwimRecord = function(eventName, eventDate, eventStroke, eventDistance, eventTime, eventRank) {
+}
+
+SwimRecord.prototype.add = function(eventName, eventDate, eventStroke, eventDistance, eventTime, eventRank) {
     this.eventName = eventName;
     this.eventDate = eventDate;
     this.eventStroke = eventStroke;
@@ -161,16 +164,28 @@ var SwimRecord = function(eventName, eventDate, eventStroke, eventDistance, even
     this.eventTime = eventTime;
     this.eventRank = eventRank;
 }
-var swimrecord = new SwimRecord();
+var swimrecord = new SwimRecord();*/
+
+function SwimRecord (eventName, eventDate, eventStroke, eventDistance, eventTime, eventRank) {
+    this.eventName = eventName;
+    this.eventDate = eventDate;
+    this.eventStroke = eventStroke;
+    this.eventDistance = eventDistance;
+    this.eventTime = eventTime;
+    this.eventRank = eventRank;
+}
+
 
     //Add new swim record event for swimr
     $(".add_record").submit(function(event) {
         event.preventDefault();
-        swimrecord($(".event_name").val(), $(".event_date").val(), $(".event_stroke").val(), $(".event_distance").val(), $(".event_time").val(), $(".event_rank").val());
+        tempswimrecord = new SwimRecord($(".event_name").val(), $(".event_date").val(), $(".event_stroke").val(), $(".event_distance").val(), $(".event_time").val(), $(".event_rank").val());
+        //console.log(tempswimrecord);
+        pushtostorage(temp_storage, tempswimrecord);
         displayRecords(temp_storage);
         $.ajax({
             url: "/user/history",
-            method: "PUT",
+            method: "POST",
             data: {
                 name: current_swimr,
                 eventName: $(".event_name").val(),

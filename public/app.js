@@ -102,6 +102,7 @@ $(document).ready(function () {
         //var swimrname = $($(this).parent()).parent().attr("value");
         console.log(current_swimr);
         displayRecords(temp_storage);
+        $(".event_time").min="00:00:00.00";
     });
 
 

@@ -112,7 +112,12 @@ app.post('/user/history', function(req, res) {
         {$push: {
             swim_history: {
                 $each: [
-                    { event: req.body.eventname, stroke: req.body.stroke, time: req.body.time}
+                    { eventType: req.body.eventType,
+                        eventName: req.body.eventName,
+                        eventStroke: req.body.eventStroke,
+                        eventTime: req.body.eventTime,
+                        eventRank: req.body.eventRank
+                    }
                 ]
             }
         }
@@ -128,6 +133,24 @@ app.post('/user/history', function(req, res) {
     }
     );
 });
+
+/*//READ SWIM record endpoint
+app.get('/user/history', function(req, res) {
+    User.find({
+        name : req.body.name,
+        swim_history : ['boo']},
+        function(err, swim_history) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Couldnt find swim history...'
+                });
+            }
+            res.status(200).json(swim_history);
+        }
+        //db.students.find( { score: { $gt: 0, $lt: 2 } } )
+        //{ field1: <value>, field2: <value> ... }
+    );
+});*/
 
 
 /**UPDATE SWIM record endpoint

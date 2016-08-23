@@ -1,4 +1,45 @@
-var local_storage = [];
+/*
+
+        var itemId = null;
+        var swimrId = null;
+        var swimrName = null;
+        var itemDate = null;
+        var itemType = null;
+        var itemName = null;
+        var itemStroke = null;
+        var itemDistance = null;
+        var finishTime = null;
+        var ranking = null;
+
+
+var LocalStorage = function() {
+    this.records = [];
+}
+
+LocalStorage.prototype.add = function(itemId, swimrId, swimrName, itemDate, itemType, itemName, itemStroke, itemDistance, finishTime, ranking) {
+    var record_info = {
+        itemId: this.itemId,
+        swimrId: this.swimrId,
+        swimrName: this.swimrName,
+        itemDate: this.itemDate,
+        itemType: this.itemType,
+        itemName: this.itemName,
+        itemStroke: this.itemStroke,
+        itemDistance: this.itemDistance,
+        finishTime: this.finishTime,
+        ranking: this.ranking,
+    };
+    this.records.push(record_info);
+    console.log(record_info);
+    return record_info;
+};
+
+var makerecord = new LocalStorage();*/
+
+var current_swimr;
+
+var temp_storage;
+
 
 //function that displays records from the array
 function display(users) {
@@ -20,25 +61,39 @@ function retrieveUsers() {
     $.ajax('/users').done(function (users) {
         $(".swimr_list").children().remove();
         display(users);
+        //assign results array to temp_storage variable
+        temp_storage = users;
+        console.log(temp_storage);
     });
+    
     }
 
 
 //display swimrs records
 function displayRecords(records){
     $(".swimr_records").children().remove();
-    for (index in records){
+    for (var i = 0; i < records.length; i++) {
+        if (records[i].name === current_swimr) {
+            var tempnum = i; 
+            //console.log(records[i].name);
+            for (var e = 0; e < records[tempnum].swim_history.length; e++) {
+                console.log(records[tempnum].swim_history[e]);
             $(".swimr_records").append(
                 '<li>' +
-                records[index].itemType + ' ' +
-                records[index].itemName + ' ' +
-                records[index].itemStroke + ' ' +
-                records[index].itemDistance + ' ' +
-                records[index].finishTime + ' ' +
-                records[index].ranking + ' ' +
+                records[tempnum].swim_history[e].eventType + ' ' +
+                records[tempnum].swim_history[e].eventName + ' ' +
+                records[tempnum].swim_history[e].eventStroke + ' ' +
+                records[tempnum].swim_history[e].eventDistance + ' ' +
+                records[tempnum].swim_history[e].eventTime + ' ' +
+                records[tempnum].swim_history[e].eventRanking + ' ' +
                 '</li>'
             );
     }
+        }
+        //var element = array[index];
+        
+    }
+    
 }
 
 
@@ -49,16 +104,8 @@ $(document).ready(function(){
     //Auto get records on page load
     retrieveUsers();
 
-    //edit swimrName
-    var edit_swimrName;
-    $("ul").on("click", ".btn_editswimr", function(){
-        var original_name = $(this).parent().text();
-        $($(this).parent()).text("");
-        $('<input type="text" placeholder=' + original_name + '>').prependTo($(this).parent()).focus();
-    });
-
     //ADD user
-    $(".add_record").submit(function (event) {
+    $(".add_user").submit(function (event) {
         event.preventDefault();
         var newname = $(".swimr_name").val();
         $(".swimr_name").val("");
@@ -83,15 +130,22 @@ $(document).ready(function(){
         }).done(retrieveUsers);
     });
 
+
+
+
     //Show records for swimr
     $("ul").on("click", ".btn_show_records", function() {
-        //var tempid = $($(this).parent()).parent().attr("value");
-        var swimrname = $($(this).parent).val();
-        $.ajax({
+        $(".add_record").css("display", "block");
+        current_swimr = $($(this).parent()).parent().attr("value");
+        //var swimrname = $($(this).parent()).parent().attr("value");
+        console.log(current_swimr);
+        
+        displayRecords(temp_storage);
+/*        $.ajax({
             url: "/user/history",
             method: "GET",
-            user: swimrname
-        }).done();
+            user: current_swimr
+        }).done();*/
     });
 
 });

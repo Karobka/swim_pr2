@@ -2,16 +2,21 @@
 <html lang="en-US">
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="/main.css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
         <title>SwimPR</title>
     </head>
     <body>
         <p>Hi Everybody!</p>
-        <form action="" class="add_record">
+        <form action="" class="add_user">
             <label for="">
                 <input type="text" class="swimr_name" name="swimr_name" placeholder="Swimmer's Name" required>
             </label>
-            <!--<label for="">
+            <button type="submit" value="Submit">Add User</button>
+        </form>
+
+        <form action="" class="add_record">
+            <label for="">
                 <input type="date" class="item_date" name="item_date" placeholder="Date">
             </label>
             <label for="">
@@ -26,8 +31,8 @@
                     <option value="backstroke">backstroke</option>
                     <option value="butterfly">butterfly</option>
                 </select>
-            </label>-->
-            <button type="submit" value="Submit">Add</button>
+            </label>
+            <button type="submit" value="RecordSubmit">Add Event</button>
         </form>
 
         <ul class="swimr_list">

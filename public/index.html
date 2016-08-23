@@ -8,38 +8,51 @@
     </head>
     <body>
         <p>Hi Everybody!</p>
+
+        <!-- User Form -->
         <form action="" class="add_user">
             <label for="">
                 <input type="text" class="swimr_name" name="swimr_name" placeholder="Swimmer's Name" required>
             </label>
-            <button type="submit" value="Submit">Add User</button>
+            <button type="submit" value="Submit">Add A User</button>
         </form>
 
+        <!-- Record Form -->
         <form action="" class="add_record">
             <label for="">
-                <input type="date" class="item_date" name="item_date" placeholder="Date">
+                <input type="text" class="event_name" name="event_name" placeholder="Event Name">
             </label>
             <label for="">
-                <input type="text" class="item_name" name="item_name" placeholder="Event Name">
+                <input type="date" class="event_date" name="event_date" placeholder="Date">
             </label>
             <label for="">
-                <input type="number" class="item_distance" name="item_distance" placeholder="Distance">
+                <input type="number" class="event_distance" name="event_distance" placeholder="Distance">
             </label>
             <label for="">
                 <select name="stroke" class="item_stroke">
+                    <option value="im">IM</option>
                     <option value="freestyle">freestyle</option>
                     <option value="backstroke">backstroke</option>
                     <option value="butterfly">butterfly</option>
+                    <option value="breaststroke">breaststroke</option>
                 </select>
             </label>
-            <button type="submit" value="RecordSubmit">Add Event</button>
+            <label for="">
+                <input type="number" class="event_time" name="event_time" placeholder="Time">
+            </label>
+            <label for="">
+                <input type="text" class="event_rank" name="event_rank" placeholder="Rank">
+            </label>
+            <button type="submit" value="add_swimrecord">Add Event For Selected Swimmer</button>
         </form>
 
+        <!-- Swimmer List -->
         <ul class="swimr_list">
 
         </ul>
 
         <div>
+            <!-- Records List -->
             <ul class="swimr_records">
                 
             </ul>

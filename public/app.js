@@ -41,7 +41,7 @@ var current_swimr;
 var temp_storage;
 
 
-//function that displays records from the array
+//function that displays records from the temp storage
 function display(users) {
     //$(".swimr_list").children().remove();
     for (var index in users){
@@ -49,8 +49,8 @@ function display(users) {
                 '<li class="swimr_record" value="' + users[index].name + '">' + 
                     users[index].name +
                     '<div>' +
-                        '<button class="btn_deleteswimr">' + 'Delete Swimmerrr' + '</button>' +
-                        '<button class="btn_show_records">Show Records</button>' +
+                        '<button class="btn_deleteswimr">' + 'Delete Swimmer' + '</button>' +
+                        '<button class="btn_show_records">Select Swimmer</button>' +
                     '</div>' +
                 '</li>'
             );
@@ -65,41 +65,36 @@ function retrieveUsers() {
         temp_storage = users;
         console.log(temp_storage);
     });
-    
-    }
+}
 
 
 //display swimrs records
-function displayRecords(records){
+function displayRecords(records) {
     $(".swimr_records").children().remove();
     for (var i = 0; i < records.length; i++) {
         if (records[i].name === current_swimr) {
-            var tempnum = i; 
+            var tempnum = i;
             //console.log(records[i].name);
             for (var e = 0; e < records[tempnum].swim_history.length; e++) {
                 console.log(records[tempnum].swim_history[e]);
-            $(".swimr_records").append(
-                '<li>' +
-                records[tempnum].swim_history[e].eventType + ' ' +
-                records[tempnum].swim_history[e].eventName + ' ' +
-                records[tempnum].swim_history[e].eventStroke + ' ' +
-                records[tempnum].swim_history[e].eventDistance + ' ' +
-                records[tempnum].swim_history[e].eventTime + ' ' +
-                records[tempnum].swim_history[e].eventRanking + ' ' +
-                '</li>'
-            );
-    }
+                $(".swimr_records").append(
+                    '<li>' +
+                    records[tempnum].swim_history[e].eventName + ' ' +
+                    records[tempnum].swim_history[e].eventStroke + ' ' +
+                    records[tempnum].swim_history[e].eventDistance + ' ' +
+                    records[tempnum].swim_history[e].eventTime + ' ' +
+                    records[tempnum].swim_history[e].eventRank + ' ' +
+                    '</li>'
+                );
+            }
         }
-        //var element = array[index];
-        
     }
-    
 }
 
 
 
 
-$(document).ready(function(){
+$(document).ready(function () {
 
     //Auto get records on page load
     retrieveUsers();
@@ -119,33 +114,74 @@ $(document).ready(function(){
     });
 
     //Item DELETE
-    $("ul").on("click", ".btn_deleteswimr", function(event) {
+    $("ul").on("click", ".btn_deleteswimr", function (event) {
         //var tempid = $($(this).parent()).parent().attr("value");
         var swimrname = $($(this).parent()).parent().attr("value");
         console.log("you clicked an item with name of " + swimrname);
         $.ajax({
             url: "/users",
             method: "DELETE",
-            data: {name: swimrname}
+            data: { name: swimrname }
         }).done(retrieveUsers);
     });
 
-
-
-
     //Show records for swimr
-    $("ul").on("click", ".btn_show_records", function() {
+    $("ul").on("click", ".btn_show_records", function () {
         $(".add_record").css("display", "block");
         current_swimr = $($(this).parent()).parent().attr("value");
         //var swimrname = $($(this).parent()).parent().attr("value");
         console.log(current_swimr);
-        
+
         displayRecords(temp_storage);
-/*        $.ajax({
+        /*        $.ajax({
+                    url: "/user/history",
+                    method: "GET",
+                    user: current_swimr
+                }).done();*/
+    });
+
+
+    //Push new record to temp storage
+    function pushtostorage(temprecords, newrecord) {
+        for (var i = 0; i < temprecords.length; i++) {
+            if (temprecords[i].name === current_swimr) {
+                var tempnum = i;
+                //console.log(records[i].name);
+                temprecords[i].swim_history.unshift(newrecord);
+            }
+        }
+    }
+
+
+var SwimRecord = function(eventName, eventDate, eventStroke, eventDistance, eventTime, eventRank) {
+    this.eventName = eventName;
+    this.eventDate = eventDate;
+    this.eventStroke = eventStroke;
+    this.eventDistance = eventDistance;
+    this.eventTime = eventTime;
+    this.eventRank = eventRank;
+}
+var swimrecord = new SwimRecord();
+
+    //Add new swim record event for swimr
+    $(".add_record").submit(function(event) {
+        event.preventDefault();
+        swimrecord($(".event_name").val(), $(".event_date").val(), $(".event_stroke").val(), $(".event_distance").val(), $(".event_time").val(), $(".event_rank").val());
+        displayRecords(temp_storage);
+        $.ajax({
             url: "/user/history",
-            method: "GET",
-            user: current_swimr
-        }).done();*/
+            method: "PUT",
+            data: {
+                name: current_swimr,
+                eventName: $(".event_name").val(),
+                eventDate: $(".event_date").val(),
+                eventStroke: $(".event_stroke").val(),
+                eventDistance: $(".event_distance").val(),
+                eventTime: $(".event_time").val(),
+                eventRank: $(".event_rank").val()
+            }
+        });
+        console.log("you tried to add a record");
     });
 
 });

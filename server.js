@@ -112,9 +112,10 @@ app.post('/user/history', function(req, res) {
         {$push: {
             swim_history: {
                 $each: [
-                    { eventType: req.body.eventType,
-                        eventName: req.body.eventName,
+                    { eventName: req.body.eventName,
+                        eventDate: req.body.eventDate,
                         eventStroke: req.body.eventStroke,
+                        eventDistance: req.body.eventDistance,
                         eventTime: req.body.eventTime,
                         eventRank: req.body.eventRank
                     }

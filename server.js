@@ -168,7 +168,7 @@ app.delete('/user/history', function(req, res) {
     User.findOneAndUpdate(
         {"name" : req.body.name},
         {$pull: {
-            swim_history: { event: req.body.eventname }
+            swim_history: { eventName: req.body.eventName }
         }},
         function(err, historyupdate) {
             if (err) {

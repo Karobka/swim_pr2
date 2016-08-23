@@ -69,7 +69,7 @@ function retrieveUsers() {
 }
 
 
-//display swimrs records
+//display event records
 function displayRecords(records) {
     $(".swimr_records").children().remove();
     for (var i = 0; i < records.length; i++) {
@@ -119,7 +119,7 @@ $(document).ready(function () {
         }).done(retrieveUsers);
     });
 
-    //Item DELETE
+    //Swimmer/User DELETE
     $("ul").on("click", ".btn_deleteswimr", function (event) {
         //var tempid = $($(this).parent()).parent().attr("value");
         var swimrname = $($(this).parent()).parent().attr("value");
@@ -208,11 +208,19 @@ $(document).ready(function () {
 
     //Delete swim record event for swimr
     $("ul").on("click", ".btn_remove_event", function(event) {
-        //event.preventDefault();
         console.log("You clicked for delete " + $(this).parent().text());
-        //event_del_name = $(this).parent().text();
         event_del_name = $(this).parent().attr("value");
         delete_temp_event(temp_storage, event_del_name);
+        $.ajax({
+            url: "/user/history",
+            method: "DELETE",
+            data: {
+                name: current_swimr,
+                eventName: event_del_name
+            }
+        }).done(retrieveUsers);
+        displayRecords(temp_storage);
+        console.log("you tried to delete a swim record");
     });
 
 });

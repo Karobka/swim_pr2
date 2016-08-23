@@ -1,40 +1,4 @@
-/*
 
-        var itemId = null;
-        var swimrId = null;
-        var swimrName = null;
-        var itemDate = null;
-        var itemType = null;
-        var itemName = null;
-        var itemStroke = null;
-        var itemDistance = null;
-        var finishTime = null;
-        var ranking = null;
-
-
-var LocalStorage = function() {
-    this.records = [];
-}
-
-LocalStorage.prototype.add = function(itemId, swimrId, swimrName, itemDate, itemType, itemName, itemStroke, itemDistance, finishTime, ranking) {
-    var record_info = {
-        itemId: this.itemId,
-        swimrId: this.swimrId,
-        swimrName: this.swimrName,
-        itemDate: this.itemDate,
-        itemType: this.itemType,
-        itemName: this.itemName,
-        itemStroke: this.itemStroke,
-        itemDistance: this.itemDistance,
-        finishTime: this.finishTime,
-        ranking: this.ranking,
-    };
-    this.records.push(record_info);
-    console.log(record_info);
-    return record_info;
-};
-
-var makerecord = new LocalStorage();*/
 
 var current_swimr;
 
@@ -166,7 +130,8 @@ $(document).ready(function () {
     //Add new swim record event for swimr
     $(".add_record").submit(function(event) {
         event.preventDefault();
-        tempswimrecord = new SwimRecord($(".event_name").val(), $(".event_date").val(), $(".event_stroke").val(), $(".event_distance").val(), $(".event_time").val(), $(".event_rank").val());
+        console.log($("select.event_stroke").val());
+        tempswimrecord = new SwimRecord($(".event_name").val(), $(".event_date").val(), $("select.event_stroke").val(), $(".event_distance").val(), $(".event_time").val(), $(".event_rank").val());
         //console.log(tempswimrecord);
         pushtostorage(temp_storage, tempswimrecord);
         displayRecords(temp_storage);
@@ -177,7 +142,7 @@ $(document).ready(function () {
                 name: current_swimr,
                 eventName: $(".event_name").val(),
                 eventDate: $(".event_date").val(),
-                eventStroke: $(".event_stroke").val(),
+                eventStroke: $("select.event_stroke").val(),
                 eventDistance: $(".event_distance").val(),
                 eventTime: $(".event_time").val(),
                 eventRank: $(".event_rank").val()

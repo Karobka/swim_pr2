@@ -1,3 +1,7 @@
 .add_record {
     display: none;
 }
+
+.hidden {
+    display: none;
+}

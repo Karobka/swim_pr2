@@ -102,7 +102,7 @@ $(document).ready(function () {
         //var swimrname = $($(this).parent()).parent().attr("value");
         console.log(current_swimr);
         displayRecords(temp_storage);
-        $(".event_time").min="00:00:00.00";
+        //$(".event_time").min="00:00:00.00";
     });
 
 
@@ -150,6 +150,13 @@ $(document).ready(function () {
             }
         });
         console.log("you tried to add a record");
+        //reset forms
+        $(".event_name").val("");
+        $(".event_date").val("");
+        $("select.event_stroke").val("");
+        $(".event_distance").val("");
+        $(".event_time").val("");
+        $(".event_rank").val("");
     });
 
     function delete_temp_event(temp_storage, event_del_name){

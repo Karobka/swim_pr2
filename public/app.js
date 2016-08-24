@@ -36,14 +36,56 @@ function retrieveUsers() {
 //display event records
 function displayRecords(records) {
     $(".swimr_records").children().remove();
+    $(".records_results").children().remove();
     for (var i = 0; i < records.length; i++) {
         if (records[i].name === current_swimr) {
             var tempnum = i;
-            //$('.records_template').clone().appendTo(".records_results");
-            
-            
+            var temp_history = records[tempnum].swim_history;
             for (var e = 0; e < records[tempnum].swim_history.length; e++) {
-                var temp_history = records[tempnum].swim_history;
+                var showEvents = function (e, temp_history) {
+                    console.log("I am " + e);
+                    var swim_template = $('.hidden .records_template').clone();
+
+                    var date_elem = swim_template.find('.event_date');
+                    date_elem.text(temp_history[e].eventDate);
+                    var name_elem = swim_template.find('.event_name');
+                    name_elem.text("name should go here " + temp_history[e].eventName);
+                    var distance_elem = swim_template.find('.event_distance');
+                    distance_elem.text(temp_history[e].eventDistance);
+                    var stroke_elem = swim_template.find('event_stroke');
+                    stroke_elem.text(temp_history[e].eventStroke);
+                    var time_elem = swim_template.find('.event_time');
+                    time_elem.text(temp_history[e].eventTime);
+                    var rank_elm = swim_template.find('.event_rank');
+                    rank_elm.text(temp_history[e].eventRank);
+
+                    return swim_template;
+                }
+                var hist_record = showEvents(e, temp_history);
+                $(".records_results").append(hist_record);
+            }
+
+/*
+            console.log(i);
+            //$('.records_template').clone().appendTo(".records_results");
+            var temp_history = records[tempnum].swim_history;
+            console.log(temp_history[0]);
+            var showEvents = function (i, records) {
+                    console.log("I am " + i);
+                    var swim_template = $('.records_template').clone();
+                    var name_elem = swim_template.find('.event_name');
+                    name_elem.text("name should go here " + temp_history.eventName);
+                    return swim_template;
+                }
+            $.each(temp_history, function() {
+                console.log('bam');
+                var hist_record = showEvents(temp_history);
+                $(".records_results").append(hist_record);
+            });*/
+            
+            /*for (var e = 0; e < records[tempnum].swim_history.length; e++) {
+                console.log(records[tempnum].swim_history.length);
+                
                 console.log(temp_history);//array is correct
                 var showEvents = function (records) {
                     console.log("I am " + records);
@@ -54,27 +96,9 @@ function displayRecords(records) {
                 }
                 var hist_record = showEvents(temp_history);
                 $(".records_results").append(hist_record);
-            }
+            }*/
         
     
-/*
-            var temp_history = records[tempnum].swim_history;
-            console.log(temp_history);//array is correct
-            var showEvents = function (records) {
-                console.log("I am " + records);
-                var swim_template = $('.records_template').clone();
-                var date_elem = swim_template.find('.event_date');
-                date_elem.text("date should go here" + records.eventDate);
-                return swim_template;
-            }
-            var hist_record = showEvents(temp_history);
-            $(".records_results").append(hist_record);
-
-            $.each(temp_history, function (tempnum, records) {
-                
-                console.log("boo");
-                $(".records_results").append(hist_record);
-            });*/
 
             //console.log(records[i].name);
             for (var e = 0; e < records[tempnum].swim_history.length; e++) {

@@ -39,6 +39,43 @@ function displayRecords(records) {
     for (var i = 0; i < records.length; i++) {
         if (records[i].name === current_swimr) {
             var tempnum = i;
+            //$('.records_template').clone().appendTo(".records_results");
+            
+            
+            for (var e = 0; e < records[tempnum].swim_history.length; e++) {
+                var temp_history = records[tempnum].swim_history;
+                console.log(temp_history);//array is correct
+                var showEvents = function (records) {
+                    console.log("I am " + records);
+                    var swim_template = $('.records_template').clone();
+                    var name_elem = swim_template.find('.event_name');
+                    name_elem.text("name should go here " + records[e].eventName);
+                    return swim_template;
+                }
+                var hist_record = showEvents(temp_history);
+                $(".records_results").append(hist_record);
+            }
+        
+    
+/*
+            var temp_history = records[tempnum].swim_history;
+            console.log(temp_history);//array is correct
+            var showEvents = function (records) {
+                console.log("I am " + records);
+                var swim_template = $('.records_template').clone();
+                var date_elem = swim_template.find('.event_date');
+                date_elem.text("date should go here" + records.eventDate);
+                return swim_template;
+            }
+            var hist_record = showEvents(temp_history);
+            $(".records_results").append(hist_record);
+
+            $.each(temp_history, function (tempnum, records) {
+                
+                console.log("boo");
+                $(".records_results").append(hist_record);
+            });*/
+
             //console.log(records[i].name);
             for (var e = 0; e < records[tempnum].swim_history.length; e++) {
                 //console.log(records[tempnum].swim_history[e]);
@@ -56,6 +93,9 @@ function displayRecords(records) {
                     '<button class="btn_remove_event">Remove Event</button>' +
                     '</li>'
                 );
+
+
+
             }
         }
     }
@@ -102,7 +142,6 @@ $(document).ready(function () {
         //var swimrname = $($(this).parent()).parent().attr("value");
         console.log(current_swimr);
         displayRecords(temp_storage);
-        //$(".event_time").min="00:00:00.00";
     });
 
 
@@ -165,9 +204,9 @@ $(document).ready(function () {
             var tempnum = i;
             //console.log(temp_storage[i].name);
             for (var e = 0; e < temp_storage[tempnum].swim_history.length; e++) {
-                console.log(temp_storage[tempnum].swim_history[e]);
-                console.log(temp_storage[tempnum].swim_history[e].eventName);
-                console.log(event_del_name);
+                //console.log(temp_storage[tempnum].swim_history[e]);
+                //console.log(temp_storage[tempnum].swim_history[e].eventName);
+                //console.log(event_del_name);
                 if (event_del_name == temp_storage[tempnum].swim_history[e].eventName) {
                     //var history_position = e;
                     console.log(temp_storage[tempnum].swim_history[e]);

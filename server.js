@@ -12,7 +12,7 @@ app.use(express.static('public'));
 
 //Connect to the db
 var runServer = function(callback) {
-    mongoose.connect(config.DATABASE_URL, function(err) {
+    mongoose.connect(config.MONGODB_URI, function(err) {
         if (err && callback) {
             return callback(err);
         }

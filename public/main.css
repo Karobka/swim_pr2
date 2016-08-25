@@ -1,7 +1,25 @@
-.add_record {
-    display: none;
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
+header {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.add_record,
 .hidden {
     display: none;
 }
+
+.page_wrap {
+    background-color: darkblue;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+

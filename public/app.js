@@ -139,6 +139,8 @@ $(document).ready(function () {
 
     $(".btn_user_close").click(function(event) {
         $(".add_user_wrap").css("display", "none");
+        $(".swimrs_wrap").css("display", "block");
+        $(".btn_")
     });
 
     //Swimmer/User DELETE
@@ -209,7 +211,7 @@ $(document).ready(function () {
         //Hide forms
         $(".add_record_wrap").css("display", "none");
         //Show swim records again
-        $(".records_results").css("display", "inline-block");
+        $(".records_wrap").css("display", "inline-block");
     });
 
     function delete_temp_event(temp_storage, event_del_name){
@@ -235,15 +237,12 @@ $(document).ready(function () {
     //Show records for swimr
     $("ul").on("click", ".btn_show_records", function () {
         //show add event button
-        $(".btn_show_create_form").css("display", "block");
-        //$(".swimrs_wrap").slideUp("slow");
         $(".swimrs_wrap").css("display", "none");
         $(".add_record_data").css("display", "block");
         current_swimr = $(this).text();
         $(".btn_swimr_menu").text(current_swimr);
         $(".btn_swimr_menu").css("display", "inline");
-        //$(".records_results").slideDown("slow");
-        $(".records_results").css("display", "inline-block");
+        $(".records_wrap").css("display", "inline-block");
         //current_swimr = $($(this).parent()).parent().attr("value");
         //var swimrname = $($(this).parent()).parent().attr("value");
         console.log(current_swimr);
@@ -254,34 +253,31 @@ $(document).ready(function () {
     $(".btn_swimr_menu").on("click", function() {
         //$(".swimrs_wrap").slideDown("slow");
         $(".swimrs_wrap").css("display", "block");
-        //$(".records_results").slideUp("slow");
-        $(".records_results").css("display", "none");
+        $(".records_wrap").css("display", "none");
         $(".btn_swimr_menu").css("display", "none");
         //make sure add user form is hidden
         $(".add_user_wrap").css("display", "none");
         //hide new event form
         $(".add_record_wrap").css("display", "none");
-        //hide new event button
-        $(".btn_show_create_form").css("display", "none");
     })
 
     //Click to show add user form
     $(".btn_add_user").on("click", function() {
         $(".add_user_wrap").css("display", "block");
+        $(".swimrs_wrap").css("display", "none");
     });
 
     //Click to cancel/close add event form
     $(".btn_event_close").on("click", function() {
         $(".add_record_wrap").css("display", "none");
-        $(".records_results").css("display", "inline-block");
+        $(".records_wrap").css("display", "inline-block");
     });
 
 
     //open new event form
     $(".btn_show_create_form").on("click", function() {
-        $(".records_results").css("display", "none");
+        $(".records_wrap").css("display", "none");
         $(".add_record_wrap").css("display", "inline-block");
-        $(".btn_show_create_form").css("display", "none");
     });
 
     //Delete swim record event for swimr

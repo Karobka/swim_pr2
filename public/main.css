@@ -32,7 +32,7 @@ h1 {
 .add_record_wrap,
 .hidden_wrap,
 .btn_swimr_menu,
-.btn_show_create_form{
+.records_wrap{
     display: none;
 }
 

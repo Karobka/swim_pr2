@@ -150,13 +150,24 @@ $(document).ready(function () {
 
     //Show records for swimr
     $("ul").on("click", ".btn_show_records", function () {
+        $(".swimrs_wrap").slideUp("slow");
         $(".add_record_data").css("display", "block");
         current_swimr = $(this).text();
+        $(".btn_swimr_menu").text(current_swimr);
+        $(".btn_swimr_menu").css("display", "inline");
+        $(".records_results").slideDown("slow");
         //current_swimr = $($(this).parent()).parent().attr("value");
         //var swimrname = $($(this).parent()).parent().attr("value");
         console.log(current_swimr);
         displayRecords(temp_storage);
     });
+
+    //Click swimr name to go back to menu
+    $(".btn_swimr_menu").on("click", function() {
+        $(".swimrs_wrap").slideDown("slow");
+        $(".records_results").slideUp("slow");
+        $(".btn_swimr_menu").hide();
+    })
 
 
 

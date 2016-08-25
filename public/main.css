@@ -12,7 +12,8 @@ header {
 }
 
 .add_record_data,
-.hidden_wrap {
+.hidden_wrap,
+.btn_swimr_menu {
     display: none;
 }
 

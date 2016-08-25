@@ -16,51 +16,58 @@
     <div class="page_wrap">
 
         <div class="forms_wrap">
+            
             <!-- ADD User Form -->
-            <form action="" class="add_user">
-                <label for="">
-                    <input type="text" class="swimr_name" name="swimr_name" placeholder="Swimmer's Name" required>
-                </label>
-                <button type="submit" value="Submit">Add A User</button>
-            </form>
+            <div class="add_user">
+                <form action="" class="add_user">
+                    <label for="">
+                        <input type="text" class="swimr_name" name="swimr_name" placeholder="Swimmer's Name" required>
+                    </label>
+                    <button type="submit" value="Submit">Add A User</button>
+                </form>
+            </div>
 
             <!-- ADD Record Form -->
-            <form action="" class="add_record">
-                <label for="">
-                    <input type="text" class="event_name" name="event_name" placeholder="Event Name">
-                </label>
-                <label for="">
-                    <input type="date" class="event_date" name="event_date" placeholder="Date">
-                </label>
-                <label for="">
-                    <input type="number" class="event_distance" name="event_distance" placeholder="Distance">
-                </label>
-                <label for="">
-                    <select name="stroke" class="event_stroke">
-                        <option value="im">IM</option>
-                        <option value="freestyle">freestyle</option>
-                        <option value="backstroke">backstroke</option>
-                        <option value="butterfly">butterfly</option>
-                        <option value="breaststroke">breaststroke</option>
-                    </select>
-                </label>
-                <label for="">
-                    <input type="text" class="event_time" name="event_time" placeholder="Time">
-                </label>
-                <label for="">
-                    <input type="text" class="event_rank" name="event_rank" placeholder="Rank">
-                </label>
-                <button type="submit" value="add_swimrecord">Add Event For Selected Swimmer</button>
-            </form>
+            <div class="add_record_wrap">
+                <form action="" class="add_record_data">
+                    <label for="">
+                        <input type="text" class="event_name" name="event_name" placeholder="Event Name">
+                    </label>
+                    <label for="">
+                        <input type="date" class="event_date" name="event_date" placeholder="Date">
+                    </label>
+                    <label for="">
+                        <input type="number" class="event_distance" name="event_distance" placeholder="Distance">
+                    </label>
+                    <label for="">
+                        <select name="stroke" class="event_stroke">
+                            <option value="im">IM</option>
+                            <option value="freestyle">freestyle</option>
+                            <option value="backstroke">backstroke</option>
+                            <option value="butterfly">butterfly</option>
+                            <option value="breaststroke">breaststroke</option>
+                        </select>
+                    </label>
+                    <label for="">
+                        <input type="text" class="event_time" name="event_time" placeholder="Time">
+                    </label>
+                    <label for="">
+                        <input type="text" class="event_rank" name="event_rank" placeholder="Rank">
+                    </label>
+                    <button type="submit" value="add_swimrecord">Add Event For Selected Swimmer</button>
+                </form><!--add_record_data-->
+            </div><!--add_record_wrap-->
         </div><!--forms_wrap-->
 
         <!-- Swimmer List -->
-        <ul class="swimr_list">
+        <div class="swimrs_wrap">
+            <ul class="swimr_list_data">
 
-        </ul>
+            </ul>
+        </div>
 
         <!-- Swimmer Name Template -->
-        <div class="hidden">
+        <div class="hidden_wrap">
             <div class="user_template">
                 <button class="btn_show_records"></button>
             </div>
@@ -72,7 +79,7 @@
         <div class="records_results"></div>
 
         <!-- Records Template -->
-        <div class="hidden">
+        <div class="hidden_wrap">
             <div class="records_template">
                 <ul class="swimr_records">
                     <li class="event_date"></li>
@@ -84,7 +91,7 @@
                     <button class="btn_remove_event">Remove Event</button>
                 </ul>
             </div>
-        </div><!--hidden-->
+        </div><!--hidden_wrap-->
     </div><!--wrapper-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

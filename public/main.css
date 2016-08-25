@@ -11,13 +11,13 @@ header {
     text-align: center;
 }
 
-.add_record,
-.hidden {
+.add_record_data,
+.hidden_wrap {
     display: none;
 }
 
 .page_wrap {
-    background-color: darkblue;
+    background-color: #016dab;
     width: 60%;
     margin-left: auto;
     margin-right: auto;

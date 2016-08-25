@@ -7,7 +7,7 @@ var event_del_name;
 
 //New User template maker function
 function newUser(newname) {
-    var user_template = $('.hidden .user_template').clone();
+    var user_template = $('.hidden_wrap .user_template').clone();
     var name_elem = user_template.find('.user_name');
     var name_elem = user_template.find('.btn_show_records');
     name_elem.text(newname);
@@ -16,13 +16,13 @@ function newUser(newname) {
 
 //function that displays records from the temp storage
 function display(users) {
-    //$(".swimr_list").children().remove();
+    //$(".swimr_list_data").children().remove();
     for (var index in users){
         //newUser(users[index].name);
         var made_newuser = newUser(users[index].name);
-        $(".swimr_list").append(made_newuser);
+        $(".swimr_list_data").append(made_newuser);
 
-        /*$(".swimr_list").append(
+        /*$(".swimr_list_data").append(
                 '<li class="swimr_record" value="' + users[index].name + '">' + 
                     users[index].name +
                     '<div>' +
@@ -33,18 +33,18 @@ function display(users) {
             );*/
     }
     //var made_newuser = newUser(users);
-    //$(".swimr_list").append(made_newuser);
+    //$(".swimr_list_data").append(made_newuser);
 }
 
 //ajax call to get all users
 function retrieveUsers() {
     $.ajax('/users').done(function (users) {
-        $(".swimr_list").children().remove();
+        $(".swimr_list_data").children().remove();
         console.log(users);
         display(users);
         //newUser(users);
         //var made_newuser = newUser(users);
-        //$(".swimr_list").append(made_newuser);
+        //$(".swimr_list_data").append(made_newuser);
         //display(users);
         //assign results array to temp_storage variable
         temp_storage = users;
@@ -64,7 +64,7 @@ function displayRecords(records) {
             for (var e = 0; e < records[tempnum].swim_history.length; e++) {
                 var showEvents = function (e, temp_history) {
                     console.log("I am " + e);
-                    var swim_template = $('.hidden .records_template').clone();
+                    var swim_template = $('.hidden_wrap .records_template').clone();
 
                     var date_elem = swim_template.find('.event_date');
                     date_elem.text(temp_history[e].eventDate);
@@ -122,7 +122,7 @@ $(document).ready(function () {
         $(".swimr_name").val("");
         
         var made_newuser = newUser(newname);
-        $(".swimr_list").append(made_newuser);
+        $(".swimr_list_data").append(made_newuser);
 
         //ajax call
         $.ajax({
@@ -150,7 +150,7 @@ $(document).ready(function () {
 
     //Show records for swimr
     $("ul").on("click", ".btn_show_records", function () {
-        $(".add_record").css("display", "block");
+        $(".add_record_data").css("display", "block");
         current_swimr = $(this).text();
         //current_swimr = $($(this).parent()).parent().attr("value");
         //var swimrname = $($(this).parent()).parent().attr("value");
@@ -184,7 +184,7 @@ $(document).ready(function () {
 
 
     //Add new swim record event for swimr
-    $(".add_record").submit(function(event) {
+    $(".add_record_data").submit(function(event) {
         event.preventDefault();
         //console.log($("select.event_stroke").val());
         tempswimrecord = new SwimRecord($(".event_name").val(), $(".event_date").val(), $("select.event_stroke").val(), $(".event_distance").val(), $(".event_time").val(), $(".event_rank").val());

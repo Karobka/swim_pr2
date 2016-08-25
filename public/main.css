@@ -11,16 +11,43 @@ header {
     text-align: center;
 }
 
-.add_record_data,
-.hidden_wrap,
+h1 {
+    text-align: right;
+}
+
 .btn_swimr_menu {
+    float: left;
+}
+.add_user_wrap,
+.swimrs_wrap {
+    text-align: center;
+}
+
+.swimr_list_data {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.add_user_wrap,
+.add_record_wrap,
+.hidden_wrap,
+.btn_swimr_menu,
+.btn_show_create_form{
     display: none;
 }
 
-.page_wrap {
+.page_content_wrap {
     background-color: #016dab;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.btn_show_records {
+    width: 100px;
+}
+
+.btn_add_user {
+    cursor: pointer;
 }
 

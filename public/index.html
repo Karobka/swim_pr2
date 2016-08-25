@@ -16,17 +16,16 @@
         </section>
     </header>
 
-    <div class="page_wrap">
-
+    <div class="page_content_wrap">
         <div class="forms_wrap">
-            
             <!-- ADD User Form -->
-            <div class="add_user">
+            <div class="add_user_wrap">
                 <form action="" class="add_user">
                     <label for="">
                         <input type="text" class="swimr_name" name="swimr_name" placeholder="Swimmer's Name" required>
                     </label>
-                    <button type="submit" value="Submit">Add A User</button>
+                    <button type="submit" value="Submit">Add Swimmer</button>
+                    <button class="btn_user_close" type="reset" value="Reset">Cancel</button>
                 </form>
             </div>
 
@@ -58,20 +57,19 @@
                         <input type="text" class="event_rank" name="event_rank" placeholder="Rank">
                     </label>
                     <button type="submit" value="add_swimrecord">Add Event For Selected Swimmer</button>
+                    <button class="btn_event_close" type="reset" value="Reset">Cancel</button>
                 </form><!--add_record_data-->
             </div><!--add_record_wrap-->
         </div><!--forms_wrap-->
-
-        <!--
-            When user clicks on swimmer name or Add button
-            Swimmer List should slide up and fade out.
-        -->
 
         <!-- Swimmer List -->
         <div class="swimrs_wrap">
             <ul class="swimr_list_data">
 
             </ul>
+            <span class="btn_add_user">
+                <i class="fa fa-plus-square-o" aria-hidden="true"></i>Add User
+            </span>
         </div>
 
         <!-- Swimmer Name Template -->
@@ -84,7 +82,11 @@
 
 
         <!-- Records Results go here -->
-        <div class="records_results"></div>
+        <div>
+            <button class="btn_show_create_form">New Event</button>
+            <div class="records_results">
+            </div>
+        </div>
 
         <!-- Records Template -->
         <div class="hidden_wrap">

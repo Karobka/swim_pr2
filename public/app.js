@@ -144,15 +144,18 @@ $(document).ready(function () {
     });
 
     //Swimmer/User DELETE
-    $("ul").on("click", ".btn_deleteswimr", function (event) {
+    $("div").on("click", ".btn_del_user", function (event) {
         //var tempid = $($(this).parent()).parent().attr("value");
-        var swimrname = $($(this).parent()).parent().attr("value");
-        console.log("you clicked an item with name of " + swimrname);
+        var swimrname = current_swimr;
+        console.log("you clicked delete for " + swimrname);
         $.ajax({
             url: "/users",
             method: "DELETE",
             data: { name: swimrname }
         }).done(retrieveUsers);
+        $(".records_wrap").css("display", "none");
+        $(".btn_swimr_menu").css("display", "none");
+        $(".swimrs_wrap").css("display", "block");
     });
 
     
@@ -211,7 +214,7 @@ $(document).ready(function () {
         //Hide forms
         $(".add_record_wrap").css("display", "none");
         //Show swim records again
-        $(".records_wrap").css("display", "inline-block");
+        $(".records_wrap").css("display", "block");
     });
 
     function delete_temp_event(temp_storage, event_del_name){
@@ -235,14 +238,14 @@ $(document).ready(function () {
     }
 
     //Show records for swimr
-    $("ul").on("click", ".btn_show_records", function () {
+    $("section").on("click", ".btn_show_records", function () {
         //show add event button
         $(".swimrs_wrap").css("display", "none");
         $(".add_record_data").css("display", "block");
         current_swimr = $(this).text();
         $(".btn_swimr_menu").text(current_swimr);
         $(".btn_swimr_menu").css("display", "inline");
-        $(".records_wrap").css("display", "inline-block");
+        $(".records_wrap").css("display", "block");
         //current_swimr = $($(this).parent()).parent().attr("value");
         //var swimrname = $($(this).parent()).parent().attr("value");
         console.log(current_swimr);
@@ -270,7 +273,7 @@ $(document).ready(function () {
     //Click to cancel/close add event form
     $(".btn_event_close").on("click", function() {
         $(".add_record_wrap").css("display", "none");
-        $(".records_wrap").css("display", "inline-block");
+        $(".records_wrap").css("display", "block");
     });
 
 

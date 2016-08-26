@@ -135,6 +135,7 @@ $(document).ready(function () {
         }).done(retrieveUsers);
         current_swimr = newname;
         displayRecords(temp_storage);
+        $(".swimrs_wrap").css("display", "block");
     });
 
     $(".btn_user_close").click(function(event) {

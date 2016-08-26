@@ -1,3 +1,91 @@
-.add_record {
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+h1 {
+    text-align: right;
+}
+
+.btn_swimr_menu {
+    float: left;
+}
+.add_user_wrap,
+.swimrs_wrap {
+    text-align: center;
+}
+
+.swimr_list_data {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.add_user_wrap,
+.add_record_wrap,
+.hidden_wrap,
+.btn_swimr_menu,
+.records_wrap{
     display: none;
 }
+
+.page_content_wrap {
+    background-color: #5385c1;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button {
+    width: 100px;
+    height: 25px;
+    
+}
+
+.btn_add_user {
+    cursor: pointer;
+}
+
+.column_labels li{
+    display: inline-block;
+    margin: 0 13px;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.swimr_records {
+    list-style-type: none;
+}
+
+.swimr_records li {
+    display: inline-block;
+    margin: 0 10px;
+}
+.btn_remove_event {
+    float: right;
+}
+
+.records_template {
+    border-bottom: solid black 1px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.records_results {
+    border-top: solid black 1px;
+}
+
+.user_template {
+    margin-bottom: 5px;
+}
+

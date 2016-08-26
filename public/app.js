@@ -5,12 +5,24 @@ var current_swimr;
 var temp_storage;
 var event_del_name;
 
+//New User template maker function
+function newUser(newname) {
+    var user_template = $('.hidden_wrap .user_template').clone();
+    var name_elem = user_template.find('.user_name');
+    var name_elem = user_template.find('.btn_show_records');
+    name_elem.text(newname);
+    return user_template;
+}
 
 //function that displays records from the temp storage
 function display(users) {
-    //$(".swimr_list").children().remove();
+    //$(".swimr_list_data").children().remove();
     for (var index in users){
-        $(".swimr_list").append(
+        //newUser(users[index].name);
+        var made_newuser = newUser(users[index].name);
+        $(".swimr_list_data").append(made_newuser);
+
+        /*$(".swimr_list_data").append(
                 '<li class="swimr_record" value="' + users[index].name + '">' + 
                     users[index].name +
                     '<div>' +
@@ -18,14 +30,22 @@ function display(users) {
                         '<button class="btn_show_records">Select Swimmer</button>' +
                     '</div>' +
                 '</li>'
-            );
+            );*/
     }
+    //var made_newuser = newUser(users);
+    //$(".swimr_list_data").append(made_newuser);
 }
 
+//ajax call to get all users
 function retrieveUsers() {
     $.ajax('/users').done(function (users) {
-        $(".swimr_list").children().remove();
+        $(".swimr_list_data").children().remove();
+        console.log(users);
         display(users);
+        //newUser(users);
+        //var made_newuser = newUser(users);
+        //$(".swimr_list_data").append(made_newuser);
+        //display(users);
         //assign results array to temp_storage variable
         temp_storage = users;
         console.log(temp_storage);
@@ -35,27 +55,35 @@ function retrieveUsers() {
 
 //display event records
 function displayRecords(records) {
-    $(".swimr_records").children().remove();
+    $(".oldswimr_records").children().remove();
+    $(".records_results").children().remove();
     for (var i = 0; i < records.length; i++) {
         if (records[i].name === current_swimr) {
             var tempnum = i;
-            //console.log(records[i].name);
+            var temp_history = records[tempnum].swim_history;
             for (var e = 0; e < records[tempnum].swim_history.length; e++) {
-                //console.log(records[tempnum].swim_history[e]);
-                $(".swimr_records").append(
-                    '<li value="' + records[tempnum].swim_history[e].eventName + '">' +
-                    '<span class="event_name">' +
-                    records[tempnum].swim_history[e].eventName +
-                    '</span>' + ' ' +
-                    '<span>' +
-                    records[tempnum].swim_history[e].eventStroke + ' ' +
-                    '</span>' +
-                    records[tempnum].swim_history[e].eventDistance + ' ' +
-                    records[tempnum].swim_history[e].eventTime + ' ' +
-                    records[tempnum].swim_history[e].eventRank + ' ' +
-                    '<button class="btn_remove_event">Remove Event</button>' +
-                    '</li>'
-                );
+                var showEvents = function (e, temp_history) {
+                    console.log("I am " + e);
+                    var swim_template = $('.hidden_wrap .records_template').clone();
+
+                    var date_elem = swim_template.find('.event_date');
+                    date_elem.text(temp_history[e].eventDate);
+                    var name_elem = swim_template.find('.event_name');
+                    name_elem.text(temp_history[e].eventName);
+                    var name_attr = swim_template.find()
+                    var distance_elem = swim_template.find('.event_distance');
+                    distance_elem.text(temp_history[e].eventDistance);
+                    var stroke_elem = swim_template.find('.event_stroke');
+                    stroke_elem.text(temp_history[e].eventStroke);
+                    var time_elem = swim_template.find('.event_time');
+                    time_elem.text(temp_history[e].eventTime);
+                    var rank_elm = swim_template.find('.event_rank');
+                    rank_elm.text(temp_history[e].eventRank);
+
+                    return swim_template;
+                }
+                var hist_record = showEvents(e, temp_history);
+                $(".records_results").append(hist_record);
             }
         }
     }
@@ -69,7 +97,7 @@ $(document).ready(function () {
     //Auto get records on page load
     retrieveUsers();
 
-    //ADD user
+/*    //CREATE user
     $(".add_user").submit(function (event) {
         event.preventDefault();
         var newname = $(".swimr_name").val();
@@ -81,32 +109,58 @@ $(document).ready(function () {
             },
             method: "POST"
         }).done(retrieveUsers);
+        
+
+    });*/
+
+
+
+    //CREATE user on click
+    $(".add_user").submit(function (event) {
+        event.preventDefault();
+        var newname = $(".swimr_name").val();
+        $(".swimr_name").val("");
+        var made_newuser = newUser(newname);
+        //hide add user form
+        $(".add_user_wrap").css("display", "none");
+        $(".swimr_list_data").append(made_newuser);
+
+        //ajax call
+        $.ajax({
+            url: "/users",
+            data: {
+                name: newname
+            },
+            method: "POST"
+        }).done(retrieveUsers);
+        current_swimr = newname;
+        displayRecords(temp_storage);
+    });
+
+    $(".btn_user_close").click(function(event) {
+        $(".add_user_wrap").css("display", "none");
+        $(".swimrs_wrap").css("display", "block");
+        $(".btn_")
     });
 
     //Swimmer/User DELETE
-    $("ul").on("click", ".btn_deleteswimr", function (event) {
+    $("div").on("click", ".btn_del_user", function (event) {
         //var tempid = $($(this).parent()).parent().attr("value");
-        var swimrname = $($(this).parent()).parent().attr("value");
-        console.log("you clicked an item with name of " + swimrname);
+        var swimrname = current_swimr;
+        console.log("you clicked delete for " + swimrname);
         $.ajax({
             url: "/users",
             method: "DELETE",
             data: { name: swimrname }
         }).done(retrieveUsers);
+        $(".records_wrap").css("display", "none");
+        $(".btn_swimr_menu").css("display", "none");
+        $(".swimrs_wrap").css("display", "block");
     });
 
-    //Show records for swimr
-    $("ul").on("click", ".btn_show_records", function () {
-        $(".add_record").css("display", "block");
-        current_swimr = $($(this).parent()).parent().attr("value");
-        //var swimrname = $($(this).parent()).parent().attr("value");
-        console.log(current_swimr);
-        displayRecords(temp_storage);
-        //$(".event_time").min="00:00:00.00";
-    });
+    
 
-
-    //Push new record to temp storage
+    //Push new swim record to temp storage
     function pushtostorage(temprecords, newrecord) {
         for (var i = 0; i < temprecords.length; i++) {
             if (temprecords[i].name === current_swimr) {
@@ -128,10 +182,10 @@ $(document).ready(function () {
     }
 
 
-    //Add new swim record event for swimr
-    $(".add_record").submit(function(event) {
+    //Add new swim record event
+    $(".add_record_data").submit(function(event) {
         event.preventDefault();
-        console.log($("select.event_stroke").val());
+        //console.log($("select.event_stroke").val());
         tempswimrecord = new SwimRecord($(".event_name").val(), $(".event_date").val(), $("select.event_stroke").val(), $(".event_distance").val(), $(".event_time").val(), $(".event_rank").val());
         //console.log(tempswimrecord);
         pushtostorage(temp_storage, tempswimrecord);
@@ -157,6 +211,10 @@ $(document).ready(function () {
         $(".event_distance").val("");
         $(".event_time").val("");
         $(".event_rank").val("");
+        //Hide forms
+        $(".add_record_wrap").css("display", "none");
+        //Show swim records again
+        $(".records_wrap").css("display", "block");
     });
 
     function delete_temp_event(temp_storage, event_del_name){
@@ -165,9 +223,9 @@ $(document).ready(function () {
             var tempnum = i;
             //console.log(temp_storage[i].name);
             for (var e = 0; e < temp_storage[tempnum].swim_history.length; e++) {
-                console.log(temp_storage[tempnum].swim_history[e]);
-                console.log(temp_storage[tempnum].swim_history[e].eventName);
-                console.log(event_del_name);
+                //console.log(temp_storage[tempnum].swim_history[e]);
+                //console.log(temp_storage[tempnum].swim_history[e].eventName);
+                //console.log(event_del_name);
                 if (event_del_name == temp_storage[tempnum].swim_history[e].eventName) {
                     //var history_position = e;
                     console.log(temp_storage[tempnum].swim_history[e]);
@@ -179,10 +237,58 @@ $(document).ready(function () {
         }
     }
 
+    //Show records for swimr
+    $("section").on("click", ".btn_show_records", function () {
+        //show add event button
+        $(".swimrs_wrap").css("display", "none");
+        $(".add_record_data").css("display", "block");
+        current_swimr = $(this).text();
+        $(".btn_swimr_menu").text(current_swimr);
+        $(".btn_swimr_menu").css("display", "inline");
+        $(".records_wrap").css("display", "block");
+        //current_swimr = $($(this).parent()).parent().attr("value");
+        //var swimrname = $($(this).parent()).parent().attr("value");
+        console.log(current_swimr);
+        displayRecords(temp_storage);
+    });
+
+    //Click swimr name to go back to menu
+    $(".btn_swimr_menu").on("click", function() {
+        //$(".swimrs_wrap").slideDown("slow");
+        $(".swimrs_wrap").css("display", "block");
+        $(".records_wrap").css("display", "none");
+        $(".btn_swimr_menu").css("display", "none");
+        //make sure add user form is hidden
+        $(".add_user_wrap").css("display", "none");
+        //hide new event form
+        $(".add_record_wrap").css("display", "none");
+    })
+
+    //Click to show add user form
+    $(".btn_add_user").on("click", function() {
+        $(".add_user_wrap").css("display", "block");
+        $(".swimrs_wrap").css("display", "none");
+    });
+
+    //Click to cancel/close add event form
+    $(".btn_event_close").on("click", function() {
+        $(".add_record_wrap").css("display", "none");
+        $(".records_wrap").css("display", "block");
+    });
+
+
+    //open new event form
+    $(".btn_show_create_form").on("click", function() {
+        $(".records_wrap").css("display", "none");
+        $(".add_record_wrap").css("display", "inline-block");
+    });
+
     //Delete swim record event for swimr
-    $("ul").on("click", ".btn_remove_event", function(event) {
+    $("div").on("click", ".btn_remove_event", function(event) {
         console.log("You clicked for delete " + $(this).parent().text());
-        event_del_name = $(this).parent().attr("value");
+        console.log($(this).parent().find(".event_name").text());
+        //event_del_name = $(this).parent().attr("value");
+        event_del_name = $(this).parent().find(".event_name").text();
         delete_temp_event(temp_storage, event_del_name);
         $.ajax({
             url: "/user/history",
@@ -193,7 +299,7 @@ $(document).ready(function () {
             }
         }).done(retrieveUsers);
         displayRecords(temp_storage);
-        console.log("you tried to delete a swim record");
+        console.log("you deleted a swim record");
     });
 
 });

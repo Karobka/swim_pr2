@@ -32,6 +32,7 @@ h1 {
 }
 
 /** hide some things **/
+.confirm_del_user,
 .add_user_wrap,
 .add_record_wrap,
 .hidden_wrap,
@@ -102,12 +103,16 @@ button:hover {
     background: #8fe0a6;
 }
 
+/** Danger Button Styling **/
+.btn_show_del_user,
 .btn_event_close,
 .btn_remove_event,
 .btn_del_user {
     background: #e4cbd7;
 }
 
+/** Danger Button Hover Styling **/
+.btn_show_del_user:hover,
 .btn_event_clost:hover,
 .btn_remove_event:hover,
 .btn_del_user:hover {

@@ -149,6 +149,18 @@ $(document).ready(function () {
         $(".swimrs_wrap").css("display", "block");
     });
 
+    //Confirm User DELETE
+    $("div").on("click", ".btn_show_del_user", function() {
+        $(".btn_show_del_user").css("display", "none");
+        $(".confirm_del_user").css("display", "inline-block");
+    });
+
+    //Cancel User DELETE
+    $("div").on("click", ".btn_cancel", function() {
+        $(".confirm_del_user").css("display", "none");
+        $(".btn_show_del_user").css("display", "inline-block");
+    });
+
     //Swimmer/User DELETE
     $("div").on("click", ".btn_del_user", function (event) {
         //var tempid = $($(this).parent()).parent().attr("value");
@@ -260,6 +272,8 @@ $(document).ready(function () {
 
     //Click swimr name to go back to menu
     $(".btn_swimr_menu").on("click", function() {
+        $(".confirm_del_user").css("display", "none");
+        $(".btn_show_del_user").css("display", "inline-block");
         $(".swimrs_wrap").css("display", "block");
         $(".records_wrap").css("display", "none");
         $(".btn_swimr_menu").css("display", "none");
@@ -284,12 +298,16 @@ $(document).ready(function () {
 
     //open new event form
     $(".btn_show_create_form").on("click", function() {
+        $(".confirm_del_user").css("display", "none");
+        $(".btn_show_del_user").css("display", "inline-block");
         $(".records_wrap").css("display", "none");
         $(".add_record_wrap").css("display", "inline-block");
     });
 
     //Delete swim record event for swimr
     $("tbody").on("click", ".btn_remove_event", function(event) {
+        $(".confirm_del_user").css("display", "none");
+        $(".btn_show_del_user").css("display", "inline-block");
         //console.log("You clicked for delete " + $(this).parent().parent().text());
         console.log($(this).parent().parent().find(".event_name").text());
         //event_del_name = $(this).parent().attr("value");

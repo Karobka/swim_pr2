@@ -8,17 +8,16 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
         <title>SwimPR</title>
     </head>
-    <body>
-
+<body>
+<div class="container_wrap">
     <header>
-        <section class="menubar_wrap">
             <button class="btn_swimr_menu"></button>
             <h1>SwimPR</h1>
-        </section>
     </header>
 
-    <div class="page_content_wrap">
+    
         <div class="forms_wrap">
+
             <!-- ADD User Form -->
             <div class="add_user_wrap">
                 <form action="" class="add_user">
@@ -59,9 +58,12 @@
                     </label>
                     <button type="submit" value="add_swimrecord">Add Event For Selected Swimmer</button>
                     <button class="btn_event_close" type="reset" value="Reset">Cancel</button>
-                </form><!--add_record_data-->
-            </div><!--add_record_wrap-->
-        </div><!--forms_wrap-->
+                </form>
+                <!--add_record_data-->
+            </div>
+            <!--add_record_wrap-->
+        </div>
+        <!--forms_wrap-->
 
         <!-- Swimmer List -->
         <div class="swimrs_wrap">
@@ -69,12 +71,51 @@
             <section class="swimr_list_data">
 
             </section>
-            <span class="btn_add_user">
-                <i class="fa fa-plus-square-o" aria-hidden="true"></i>Add User
-            </span>
+            <button class="btn_add_user">
+                <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                Add User
+            </button>
+        </div>
+
+        <!-- Records Results go here -->
+        <div class="records_wrap">
+            <button class="btn_show_create_form">New Event</button>
+            <table class="event_table">
+                <tr class="event_labels">
+                    <th>Event Date</th>
+                    <th>Event Name</th>
+                    <th>Event Distance</th>
+                    <th>Event Stroke</th>
+                    <th>My Time</th>
+                    <th>My Placment</th>
+                </tr>
+                <tbody class="records_table">
+                    <!--<tr class="event-values">
+                        <td class="event_date"></td>
+                        <td class="event_name"></td>
+                        <td class="event_distance"></td>
+                        <td class="event_stroke"></td>
+                        <td class="event_time"></td>
+                        <td class="event_rank"></td>
+                        <td>
+                            <button class="button">Remove</button>
+                        </td>
+                    </tr>-->
+                </tbody>
+            </table>
+
+            <button class="btn_del_user">Delete This Swimmer</button>
+        
+
         </div>
 
 
+
+
+
+
+
+        <!-----  TEMPLATES  ------>
 
         <!-- Swimmer Name Template -->
         <div class="hidden_wrap">
@@ -85,25 +126,25 @@
 
 
 
-        <!-- Records Results go here -->
-        <div class="records_wrap">
-            <button class="btn_show_create_form">New Event</button>
-            <ul class="column_labels">
-                <li>Event Date</li>
-                <li>Event Name</li>
-                <li>Event Distance</li>
-                <li>Event Stroke</li>
-                <li>My Time</li>
-                <li>My Placment</li>
-            </ul>
-            <div class="records_results">
-            </div>
-            <button class="btn_del_user">Delete Swimmer</button>
-        </div>
-
         <!-- Records Template -->
         <div class="hidden_wrap">
-            <div class="records_template">
+            <table>
+                <tbody>
+                <tr class="event_values">
+                    <td class="event_date"></td>
+                    <td class="event_name"></td>
+                    <td class="event_distance"></td>
+                    <td class="event_stroke"></td>
+                    <td class="event_time"></td>
+                    <td class="event_rank"></td>
+                    <td>
+                        <button class="button btn_remove_event">Remove Event</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!--<div class="records_template">
                 <ul class="swimr_records">
                     <li class="event_date"></li>
                     <li class="event_name"></li>
@@ -112,9 +153,12 @@
                     <li class="event_time"></li>
                     <li class="event_rank"></li>
                     <button class="btn_remove_event">Remove Event</button>
-                </ul>
-            </div>
+                </ul>-->
+                
+            </div><!--records_template-->
         </div><!--hidden_wrap-->
+
+
     </div><!--wrapper-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

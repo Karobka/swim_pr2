@@ -80,8 +80,38 @@ button:hover {
     cursor: pointer;
 }
 
-.btn_add_user {
-    cursor: pointer;
+ 
+
+.btn_swimr_menu {
+    background: #cbd0e4;
+}
+
+.btn_swimr_menu:hover {
+    background: #9dace8;
+}
+
+.btn_add_user,
+.add_swim_record,
+.btn_show_create_form {
+    background: #cbe4d2;
+}
+
+.btn_add_user:hover,
+.add_swim_record:hover,
+.btn_show_create_form:hover {
+    background: #8fe0a6;
+}
+
+.btn_event_close,
+.btn_remove_event,
+.btn_del_user {
+    background: #e4cbd7;
+}
+
+.btn_event_clost:hover,
+.btn_remove_event:hover,
+.btn_del_user:hover {
+    background: #d27d90;
 }
 
 .records_template {

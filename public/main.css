@@ -9,7 +9,6 @@ body {
 }
 
 header {
-    width: 60%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -32,6 +31,7 @@ h1 {
     padding-left: 0;
 }
 
+/** hide some things **/
 .add_user_wrap,
 .add_record_wrap,
 .hidden_wrap,
@@ -40,52 +40,113 @@ h1 {
     display: none;
 }
 
-.page_content_wrap {
-    background-color: #5385c1;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
+.container_wrap {
+    width: 80%;
+    margin: 0 auto;
+}
+
+input {
+    border: 1px solid #afafaf;
+    padding: 20px;
+}
+
+/** set inputs and fields to match **/
+input,
+button,
+select {
+    font-size: 15px;
+    padding: 15px;
+}
+
+select {
+    border: none;
+    background-color: #f1f1f1;
+    height: 50px;
+    box-sizing: border-box;
 }
 
 button {
-    width: 100px;
-    height: 25px;
-    
+    border: 0;
+    background: #fff;
+    border: 1px solid #afafaf;
+    margin-left: 2px;
+    text-transform: uppercase;
 }
 
-.btn_add_user {
+button:hover {
+    background: #afafaf;
+    border: 1px solid #999;
+    color: #fff;
     cursor: pointer;
 }
 
-.column_labels li{
-    display: inline-block;
-    margin: 0 13px;
-    list-style-type: none;
-    padding-left: 0;
+ 
+
+.btn_swimr_menu {
+    background: #cbd0e4;
 }
 
-.swimr_records {
-    list-style-type: none;
+.btn_swimr_menu:hover {
+    background: #9dace8;
 }
 
-.swimr_records li {
-    display: inline-block;
-    margin: 0 10px;
+.btn_add_user,
+.add_swim_record,
+.btn_show_create_form {
+    background: #cbe4d2;
 }
-.btn_remove_event {
-    float: right;
+
+.btn_add_user:hover,
+.add_swim_record:hover,
+.btn_show_create_form:hover {
+    background: #8fe0a6;
+}
+
+.btn_event_close,
+.btn_remove_event,
+.btn_del_user {
+    background: #e4cbd7;
+}
+
+.btn_event_clost:hover,
+.btn_remove_event:hover,
+.btn_del_user:hover {
+    background: #d27d90;
 }
 
 .records_template {
     border-bottom: solid black 1px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.records_results {
-    border-top: solid black 1px;
+    margin: 0 auto;
 }
 
 .user_template {
     margin-bottom: 5px;
 }
 
+/**TABLE styles**/
+
+.event_table {
+    width: 100%;
+    margin: 20px 0 20px 0;
+}
+
+.event_table td {
+    text-align: center;
+    border: 1px solid #afafaf;
+    box-sizing: border-box;
+    padding: 10px 10px 10px 20px;
+}
+
+.event_values td:last-child {
+    border: 0;
+    padding: 0 !important;
+    margin: 0;
+    vertical-align: bottom;
+}
+
+.event_table .event_labels {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: #eaeaea;
+    font-size: 13px;
+}

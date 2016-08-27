@@ -3,6 +3,10 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var config = require('./config');
 var app = express();
+//get our user models
+var User = require('./models/user');
+//get our event models
+var Event = require('./models/event');
 
 //body-parse the requests
 app.use(bodyParser.json());
@@ -34,8 +38,6 @@ if (require.main === module) {
     });
 };
 
-//get our user models
-var User = require('./models/user');
 
 
 /**
@@ -104,6 +106,8 @@ app.delete('/users', function(req, res) {
 /**
  * SWIM record endpoints
  */
+
+//NEED TO MAKE THIS ONLY ACCEPT UNIQUE EVENTNAMES
 
 //CREATE SWIM record endpoint
 app.post('/user/history', function(req, res) {

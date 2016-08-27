@@ -9,7 +9,6 @@ body {
 }
 
 header {
-    width: 60%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -32,6 +31,7 @@ h1 {
     padding-left: 0;
 }
 
+/** hide some things **/
 .add_user_wrap,
 .add_record_wrap,
 .hidden_wrap,
@@ -41,18 +41,36 @@ h1 {
 }
 
 .container_wrap {
-    width: 1120px;
+    width: 80%;
     margin: 0 auto;
+}
+
+input {
+    border: 1px solid #afafaf;
+    padding: 20px;
+}
+
+/** set inputs and fields to match **/
+input,
+button,
+select {
+    font-size: 15px;
+    padding: 15px;
+}
+
+select {
+    border: none;
+    background-color: #f1f1f1;
+    height: 50px;
+    box-sizing: border-box;
 }
 
 button {
     border: 0;
-    padding: 20px;
     background: #fff;
     border: 1px solid #afafaf;
     margin-left: 2px;
     text-transform: uppercase;
-    font-size: 11px;
 }
 
 button:hover {
@@ -79,6 +97,7 @@ button:hover {
 
 .event_table {
     width: 100%;
+    margin: 20px 0 20px 0;
 }
 
 .event_table td {

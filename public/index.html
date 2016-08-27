@@ -15,7 +15,6 @@
             <h1>SwimPR</h1>
     </header>
 
-    
         <div class="forms_wrap">
 
             <!-- ADD User Form -->
@@ -43,6 +42,7 @@
                     </label>
                     <label for="">
                         <select name="stroke" class="event_stroke">
+                            <option value="" disabled selected>Stroke..</option>
                             <option value="im">IM</option>
                             <option value="freestyle">freestyle</option>
                             <option value="backstroke">backstroke</option>
@@ -56,7 +56,7 @@
                     <label for="">
                         <input type="text" class="event_rank" name="event_rank" placeholder="Rank">
                     </label>
-                    <button type="submit" value="add_swimrecord">Add Event For Selected Swimmer</button>
+                    <button type="submit" value="add_swimrecord">Add Event</button>
                     <button class="btn_event_close" type="reset" value="Reset">Cancel</button>
                 </form>
                 <!--add_record_data-->
@@ -73,7 +73,7 @@
             </section>
             <button class="btn_add_user">
                 <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-                Add User
+                Add Swimmer
             </button>
         </div>
 

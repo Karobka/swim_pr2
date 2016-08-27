@@ -20,7 +20,7 @@ function display(users) {
     for (var index in users){
         //newUser(users[index].name);
         var made_newuser = newUser(users[index].name);
-        $(".swimr_list_data").append(made_newuser);
+        $(".swimr_list_data").prepend(made_newuser);
 
         /*$(".swimr_list_data").append(
                 '<li class="swimr_record" value="' + users[index].name + '">' + 
@@ -147,7 +147,6 @@ $(document).ready(function () {
     $(".btn_user_close").click(function(event) {
         $(".add_user_wrap").css("display", "none");
         $(".swimrs_wrap").css("display", "block");
-        $(".btn_")
     });
 
     //Swimmer/User DELETE
@@ -250,7 +249,7 @@ $(document).ready(function () {
         $(".swimrs_wrap").css("display", "none");
         $(".add_record_data").css("display", "block");
         current_swimr = $(this).text();
-        $(".btn_swimr_menu").text(current_swimr);
+        $(".btn_swimr_menu").html("<i class='fa fa-chevron-left' aria-hidden='true'></i> &nbsp &nbsp &nbsp"  + current_swimr);
         $(".btn_swimr_menu").css("display", "inline");
         $(".records_wrap").css("display", "block");
         //current_swimr = $($(this).parent()).parent().attr("value");
@@ -261,7 +260,6 @@ $(document).ready(function () {
 
     //Click swimr name to go back to menu
     $(".btn_swimr_menu").on("click", function() {
-        //$(".swimrs_wrap").slideDown("slow");
         $(".swimrs_wrap").css("display", "block");
         $(".records_wrap").css("display", "none");
         $(".btn_swimr_menu").css("display", "none");

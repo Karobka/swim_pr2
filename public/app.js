@@ -93,6 +93,9 @@ function displayRecords(records) {
             }
         }
     }
+    /** run stackable table plugin */
+    $(".event_table").stacktable();
+
 }
 
 
@@ -100,24 +103,14 @@ function displayRecords(records) {
 
 $(document).ready(function () {
 
+
+
+
+
     //Auto get records on page load
     retrieveUsers();
 
-/*    //CREATE user
-    $(".add_user").submit(function (event) {
-        event.preventDefault();
-        var newname = $(".swimr_name").val();
-        $(".swimr_name").val("");
-        $.ajax({
-            url: "/users",
-            data: {
-                name: newname
-            },
-            method: "POST"
-        }).done(retrieveUsers);
-        
 
-    });*/
 
 
 
@@ -325,6 +318,7 @@ $(document).ready(function () {
         console.log("you deleted a swim record");
     });
 
+    
 
 
 });

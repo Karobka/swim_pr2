@@ -155,3 +155,17 @@ button:hover {
     background: #eaeaea;
     font-size: 13px;
 }
+
+/** table row striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+
+
+.stacktable.large-only { display: table; }
+.stacktable.small-only { display: none; }
+@media screen and (max-width: 900px){
+      .stacktable.large-only { display: none; }
+  .stacktable.small-only { display: table; }
+
+}

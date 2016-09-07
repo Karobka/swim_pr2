@@ -1,7 +1,4 @@
-
-
 var current_swimr;
-
 var temp_storage;
 var event_del_name;
 
@@ -21,19 +18,7 @@ function display(users) {
         //newUser(users[index].name);
         var made_newuser = newUser(users[index].name);
         $(".swimr_list_data").prepend(made_newuser);
-
-        /*$(".swimr_list_data").append(
-                '<li class="swimr_record" value="' + users[index].name + '">' + 
-                    users[index].name +
-                    '<div>' +
-                        '<button class="btn_deleteswimr">' + 'Delete Swimmer' + '</button>' +
-                        '<button class="btn_show_records">Select Swimmer</button>' +
-                    '</div>' +
-                '</li>'
-            );*/
     }
-    //var made_newuser = newUser(users);
-    //$(".swimr_list_data").append(made_newuser);
 }
 
 //ajax call to get all users
@@ -239,15 +224,14 @@ $(document).ready(function () {
 
     //Show records for swimr
     $("section").on("click", ".btn_show_records", function () {
-        //show add event button
         $(".swimrs_wrap").css("display", "none");
         $(".add_record_data").css("display", "block");
         current_swimr = $(this).text();
         $(".btn_swimr_menu").html("<i class='fa fa-chevron-left' aria-hidden='true'></i> &nbsp &nbsp &nbsp"  + current_swimr);
         $(".btn_swimr_menu").css("display", "inline");
         $(".records_wrap").css("display", "block");
-        //current_swimr = $($(this).parent()).parent().attr("value");
-        //var swimrname = $($(this).parent()).parent().attr("value");
+        $(".confirm_del_user").css("display", "none");
+        $(".btn_show_del_user").css("display", "inline-block");
         console.log(current_swimr);
         displayRecords(temp_storage);
     });
@@ -263,6 +247,7 @@ $(document).ready(function () {
         $(".add_user_wrap").css("display", "none");
         //hide new event form
         $(".add_record_wrap").css("display", "none");
+        $(".confirm_del_user").css("display", "none");
     })
 
     //Click to show add user form

@@ -93,8 +93,6 @@ function displayRecords(records) {
             }
         }
     }
-    /** run stackable table plugin */
-    $(".event_table").stacktable();
 
 }
 
@@ -102,17 +100,8 @@ function displayRecords(records) {
 
 
 $(document).ready(function () {
-
-
-
-
-
     //Auto get records on page load
     retrieveUsers();
-
-
-
-
 
     //CREATE user on click
     $(".add_user").submit(function (event) {

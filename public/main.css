@@ -162,10 +162,3 @@ tr:nth-of-type(odd) {
 }
 
 
-.stacktable.large-only { display: table; }
-.stacktable.small-only { display: none; }
-@media screen and (max-width: 900px){
-      .stacktable.large-only { display: none; }
-  .stacktable.small-only { display: table; }
-
-}

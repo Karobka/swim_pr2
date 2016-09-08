@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var SuperUserSchema = new mongoose.Schema({
-    username: {
+    superusername: {
         type: String,
         required: true,
         unique: true

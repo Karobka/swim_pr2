@@ -52,19 +52,19 @@ app.post('/superusers', jsonParser, function(req, res) {
     }
     if (!('superusername' in req.body)) {
         return res.status(422).json({
-            message: 'Missing field: username'
+            message: 'Missing field: superusername'
         });
     }
     var superusername = req.body.superusername;
     if (typeof superusername !== 'string') {
         return res.status(422).json({
-            message: 'Incorrect field type: username'
+            message: 'Incorrect field type: superusername'
         });
     }
     superusername = superusername.trim();
     if (superusername === '') {
         return res.status(422).json({
-            message: 'Incorrect field length: username'
+            message: 'Incorrect field length: superusername'
         });
     }
     if (!('password' in req.body)) {

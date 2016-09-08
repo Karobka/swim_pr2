@@ -99,7 +99,7 @@ app.delete('/users', function(req, res) {
                 message: 'Cant delete that...'
             });
         }
-        res.status(201).json(user);
+        res.status(200).json(user);
     });
 });
 

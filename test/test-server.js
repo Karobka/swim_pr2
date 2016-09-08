@@ -33,7 +33,10 @@ describe('SwimPR', function () {
     chai.request('http://localhost:8080')
       .get('/users')
       .end(function (err, res) {
-        //res.body[0].name.should.be.a('string');
+        res.body[0].should.have.property('name');
+        res.body[0].name.should.be.a('string');
+        res.body[0].should.have.property('swim_history');
+        res.body[0].should.have.deep.property('swim_history[0].eventName');
         res.should.have.status(200);
         done();
       });

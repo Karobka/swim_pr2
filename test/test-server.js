@@ -16,7 +16,9 @@ chai.use(chaiHttp);
 
 describe('SwimPR', function () {
     before(function (done) {
-      User.create({ name: 'Tester777'}); //doesnt work...
+      server.runServer(function() {
+        User.create({ name: 'Tester777'}); //doesnt work...
+      });
         done();
   });
   
@@ -25,7 +27,7 @@ describe('SwimPR', function () {
   
 
   it('should list swimmers on GET', function (done) {
-    chai.request('http://localhost:8080')
+    chai.request(app)
       .get('/users')
       .end(function (err, res) {
         res.body[0].should.have.property('name');
@@ -38,7 +40,7 @@ describe('SwimPR', function () {
   });
 
   it('should add a swimmer on POST', function (done) {
-    chai.request('http://localhost:8080')
+    chai.request(app)
       .post('/users')
       .send({'name': 'TesterTom'})
       .end(function (err, res) {
@@ -49,18 +51,20 @@ describe('SwimPR', function () {
   });
   
   it('should delete a swimmer on DELETE', function (done) {
-    chai.request('http://localhost:8080')
+    chai.request(app)
       .delete('/users')
-      .send({'name': 'TesterTom'})
+      .send({name: 'TesterTom'})
       .end(function (err, res) {
         res.should.have.status(200);
         done();
       });
   });
 
-  after(function (done) {
+ /* after(function (done) {
+    server.runServer(function() {
       User.remove({name: 'Tester777'});
       User.remove({name: 'TesterTom'});
+    });
       done();
-  });
+  });*/
 });

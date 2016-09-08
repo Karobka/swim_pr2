@@ -71,8 +71,9 @@ app.post('/users', function(req, res) {
     });
 });
 
-//UPDATE USER endpoint
-app.put('/users', function(req, res) {
+//UPDATE USER endpoint  NOT USING IT
+
+/*app.put('/users', function(req, res) {
     User.findOneAndUpdate(
         {"name" : req.body.name},
         {$set: {"name" : req.body.nameupdate}},
@@ -86,7 +87,7 @@ app.put('/users', function(req, res) {
             res.status(201).json(userupdate);
         }
     );
-});
+});*/
 
 //DELETE USER endpoint
 app.delete('/users', function(req, res) {

@@ -15,19 +15,20 @@ var storage = config.DATABASE_URL; //how to test database??
 chai.use(chaiHttp);
 
 describe('SwimPR', function () {
-/*  before(function (done) {
-    User.create(
-      { "name": "Tester",
-      swim_history: [] },
-      function () {
+    before(function (done) {
+      console.log("before");
+      User.create(
+        { "name": "Tester77"}
+        );
         done();
-      });
   });
-  after(function (done) {
-    User.remove(function () {
-      done();
-    });
-  });*/
+  
+after(function (done) {
+    User.remove({name: "Tester777"});
+    done();
+  });
+  
+  
 
   it('should list swimmers on GET', function (done) {
     chai.request('http://localhost:8080')
@@ -45,7 +46,7 @@ describe('SwimPR', function () {
   it('should add a swimmer on POST', function (done) {
     chai.request('http://localhost:8080')
       .post('/users')
-      .send({'name': 'StupidCat'})
+      .send({'name': 'StupidCat778'})
       .end(function (err, res) {
         res.should.have.status(201);
         /*res.body.should.have.property('name');*/
@@ -61,8 +62,6 @@ describe('SwimPR', function () {
         done();
       });
   });
-
-  it
 
   
 });

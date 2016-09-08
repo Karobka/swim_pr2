@@ -71,7 +71,7 @@ app.post('/users', function(req, res) {
     });
 });
 
-//UPDATE USER endpoint  NOT USING IT
+//UPDATE USER endpoint  NOT USING THIS
 
 /*app.put('/users', function(req, res) {
     User.findOneAndUpdate(
@@ -89,6 +89,7 @@ app.post('/users', function(req, res) {
     );
 });*/
 
+
 //DELETE USER endpoint
 app.delete('/users', function(req, res) {
     User.findOneAndRemove({
@@ -105,7 +106,7 @@ app.delete('/users', function(req, res) {
 
 
 /**
- * SWIM record endpoints
+ * SWIM RECORD endpoints
  */
 
 //NEED TO MAKE THIS ONLY ACCEPT UNIQUE EVENTNAMES
@@ -132,31 +133,13 @@ app.post('/user/history', function(req, res) {
     function(err, historyupdate) {
         if (err) {
             return res.status(500).json({
-                message: 'You oops forgot to plug something in...'
+                message: 'You forgot to plug something in...'
             });
         }
         res.status(201).json(historyupdate);
     }
     );
 });
-
-/*//READ SWIM record endpoint
-app.get('/user/history', function(req, res) {
-    User.find({
-        name : req.body.name,
-        swim_history : ['boo']},
-        function(err, swim_history) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Couldnt find swim history...'
-                });
-            }
-            res.status(200).json(swim_history);
-        }
-        //db.students.find( { score: { $gt: 0, $lt: 2 } } )
-        //{ field1: <value>, field2: <value> ... }
-    );
-});*/
 
 
 /**UPDATE SWIM record endpoint

@@ -25,6 +25,7 @@ describe('SwimPR', function () {
   
 after(function (done) {
     User.remove({name: "Tester777"});
+    User.remove({name: "TesterTom"});
     done();
   });
   
@@ -46,7 +47,7 @@ after(function (done) {
   it('should add a swimmer on POST', function (done) {
     chai.request('http://localhost:8080')
       .post('/users')
-      .send({'name': 'StupidCat778'})
+      .send({'name': 'TesterTom'})
       .end(function (err, res) {
         res.should.have.status(201);
         /*res.body.should.have.property('name');*/

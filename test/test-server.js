@@ -16,18 +16,11 @@ chai.use(chaiHttp);
 
 describe('SwimPR', function () {
     before(function (done) {
-      console.log("before");
-      User.create(
-        { "name": "Tester77"}
-        );
+      User.create({ name: 'Tester777'}); //doesnt work...
         done();
   });
   
-after(function (done) {
-    User.remove({name: "Tester777"});
-    User.remove({name: "TesterTom"});
-    done();
-  });
+  
   
   
 
@@ -50,7 +43,7 @@ after(function (done) {
       .send({'name': 'TesterTom'})
       .end(function (err, res) {
         res.should.have.status(201);
-        /*res.body.should.have.property('name');*/
+        res.body.should.have.property('name');
         done();
       });
   });
@@ -58,11 +51,16 @@ after(function (done) {
   it('should delete a swimmer on DELETE', function (done) {
     chai.request('http://localhost:8080')
       .delete('/users')
+      .send({'name': 'TesterTom'})
       .end(function (err, res) {
         res.should.have.status(200);
         done();
       });
   });
 
-  
+  after(function (done) {
+      User.remove({name: 'Tester777'});
+      User.remove({name: 'TesterTom'});
+      done();
+  });
 });

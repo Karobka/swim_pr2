@@ -5,8 +5,11 @@ var config = require('./config');
 var app = express();
 //get our user models
 var User = require('./models/user');
+var SuperUser = require('./models/super-user');
 //get our event models
 var Event = require('./models/event');
+
+var jsonParser = bodyParser.json();
 
 //body-parse the requests
 app.use(bodyParser.json());
@@ -37,6 +40,63 @@ if (require.main === module) {
         }
     });
 };
+
+/**
+ * SUPER USER endpoints
+ */
+app.post('/superusers', jsonParser, function(req, res) {
+    if (!req.body) {
+        return res.status(400).json({
+            message: "No request body"
+        });
+    }
+    if (!('superusername' in req.body)) {
+        return res.status(422).json({
+            message: 'Missing field: username'
+        });
+    }
+    var superusername = req.body.superusername;
+    if (typeof superusername !== 'string') {
+        return res.status(422).json({
+            message: 'Incorrect field type: username'
+        });
+    }
+    superusername = superusername.trim();
+    if (superusername === '') {
+        return res.status(422).json({
+            message: 'Incorrect field length: username'
+        });
+    }
+    if (!('password' in req.body)) {
+        return res.status(422).json({
+            message: 'Missing field: password'
+        });
+    }
+    var password = req.body.password;
+    if (typeof password !== 'string') {
+        return res.status(422).json({
+            message: 'Incorrect field type: password'
+        });
+    }
+    password = password.trim();
+    if (password === '') {
+        return res.status(422).json({
+            message: 'Incorrect field length: password'
+        });
+    }
+    var superuser = new SuperUser({
+        superusername: superusername,
+        password: password
+    });
+    superuser.save(function(err) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal server error'
+            });
+        }
+        return res.status(201).json({});
+    });
+});
 
 
 

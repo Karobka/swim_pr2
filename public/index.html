@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link rel="stylesheet" href="/main.css">
+        <link rel="stylesheet" href="./main.css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
         <title>SwimPR</title>
     </head>
@@ -12,10 +12,30 @@
 <div class="container_wrap">
     <header>
             <button class="btn_swimr_menu"></button>
-            <h1>SwimPR</h1>
+            <h1 class="header_swimpr">SwimPR</h1>
     </header>
 
+    <!-- login stuff -->
+        <div class="login_wrap">
+            <section>
+                <h1>Welcome</h1>
+                <span>to</span><h2>SwimPR</h2>
+                <button type="" value="">Log In</button>
+                <button><i class="fa fa-plus" aria-hidden="true"></i>&nbspNew User</button>
+            </section>
+        </div>
+
         <div class="forms_wrap">
+            <!-- New SuperUser Form -->
+            <section>
+                <form action="">
+                    <label for="">
+                        <input type="text" class="super_user_name" placeholder="User Name">
+                    </label>
+                    <label for="">
+                        <input type="password">
+                    </label>
+                </form>
 
             <!-- ADD User Form -->
             <div class="add_user_wrap">
@@ -64,6 +84,7 @@
             <!--add_record_wrap-->
         </div>
         <!--forms_wrap-->
+
 
         <!-- Swimmer List -->
         <div class="swimrs_wrap">

@@ -44,6 +44,7 @@ if (require.main === module) {
 /**
  * SUPER USER endpoints
  */
+//mongoose.Promise = global.Promise;
 app.post('/superusers', jsonParser, function(req, res) {
     if (!req.body) {
         return res.status(400).json({
@@ -56,12 +57,14 @@ app.post('/superusers', jsonParser, function(req, res) {
         });
     }
     var superusername = req.body.superusername;
+    console.log(superusername + 'step 1');
     if (typeof superusername !== 'string') {
         return res.status(422).json({
             message: 'Incorrect field type: superusername'
         });
     }
     superusername = superusername.trim();
+    console.log(superusername + 'step 2');
     if (superusername === '') {
         return res.status(422).json({
             message: 'Incorrect field length: superusername'
@@ -73,12 +76,14 @@ app.post('/superusers', jsonParser, function(req, res) {
         });
     }
     var password = req.body.password;
+    console.log(password + 'password step 1');
     if (typeof password !== 'string') {
         return res.status(422).json({
             message: 'Incorrect field type: password'
         });
     }
     password = password.trim();
+    console.log(password + 'password step 2');
     if (password === '') {
         return res.status(422).json({
             message: 'Incorrect field length: password'
@@ -88,13 +93,16 @@ app.post('/superusers', jsonParser, function(req, res) {
         superusername: superusername,
         password: password
     });
-    superuser.save(function(err) {
+    console.log(superuser + 'super step 1');
+    superuser.save(function (err) {
         if (err) {
             return res.status(500).json({
-                message: 'Internal server error'
+                message: 'Internal server error while trying to save'
             });
         }
-        return res.status(201).json({});
+        return res.status(201).json({
+            message: 'It worked!!'
+        });
     });
 });
 

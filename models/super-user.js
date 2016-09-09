@@ -12,4 +12,4 @@ var SuperUserSchema = new mongoose.Schema({
 });
 
 var SuperUser = mongoose.model('SuperUser', SuperUserSchema);
-module.exports= SuperUser;
+module.exports = SuperUser;

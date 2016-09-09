@@ -4,10 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "mocha",
-    "startdev": "set NODE_ENV=development&&nodemon server",
-    "startprod": "set NODE_ENV=production&&nodemon server",
-    "start-test": "set NODE_ENV = test && nodemon server"
+    "test": "mocha"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +12,7 @@
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "mongoose": "^4.5.9",
+    "mongoose": "^4.6.0",
     "passport": "^0.3.2",
     "passport-http": "^0.3.0"
   },

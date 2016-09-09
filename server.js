@@ -8,6 +8,7 @@ var User = require('./models/user');
 var SuperUser = require('./models/super-user');
 //get our event models
 var Event = require('./models/event');
+var env = app.get('env');
 
 var jsonParser = bodyParser.json();
 
@@ -19,13 +20,13 @@ app.use(express.static('public'));
 
 //Connect to the db
 var runServer = function(callback) {
-    mongoose.connect(config.MONGODB_URI, function(err) {
+    mongoose.connect(config.MONGODB.URI(env), function(err) {
         if (err && callback) {
             return callback(err);
         }
 
-        app.listen(config.PORT, function() {
-            console.log('Listening on localhost:' + config.PORT);
+        app.listen(config.EXPRESS.PORT(env), function() {
+            console.log('Listening on localhost:' + config.EXPRESS.PORT(env));
             if (callback) {
                 callback();
             }
@@ -96,6 +97,7 @@ app.post('/superusers', jsonParser, function(req, res) {
     console.log(superuser + 'super step 1');
     superuser.save(function (err) {
         if (err) {
+            console.log(err);
             return res.status(500).json({
                 message: 'Internal server error while trying to save'
             });

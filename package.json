@@ -4,7 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "startdev": "set NODE_ENV=development&&nodemon server",
+    "startprod": "set NODE_ENV=production&&nodemon server",
+    "start-test": "set NODE_ENV = test && nodemon server"
   },
   "author": "",
   "license": "ISC",

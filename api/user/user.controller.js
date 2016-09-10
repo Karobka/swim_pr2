@@ -1,9 +1,10 @@
 var User = require('./user.model');
 function Controller() {}
 
-Controller.prototype.getUsers = function(req, res) {
+Controller.prototype.getUsers = function(req, res, next) {
     User.find({}, function(err, users) {
         if (err) {
+            return next(err);
             return res.status(500).json({
                 message: 'Boom!  Internal Server Error'
             });
@@ -13,12 +14,13 @@ Controller.prototype.getUsers = function(req, res) {
 }
 
 
-Controller.prototype.createUser = function(req, res) {
+Controller.prototype.createUser = function(req, res, next) {
     User.create({
         name: req.body.name,
         swim_history: []
     }, function(err, user) {
         if (err) {
+            return next(err);
             return res.status(500).json({
                 message: 'Kaboom! Internal Server Error'
             });
@@ -27,11 +29,12 @@ Controller.prototype.createUser = function(req, res) {
     });
 }
 
-Controller.prototype.deleteUser = function(req, res) {
+Controller.prototype.deleteUser = function(req, res, next) {
     User.findOneAndRemove({
         name: req.body.name
     }, function(err, user) {
         if (err) {
+            return next(err);
             return res.status(500).json({
                 message: 'Cant delete that...'
             });
@@ -40,7 +43,7 @@ Controller.prototype.deleteUser = function(req, res) {
     });
 }
 
-Controller.prototype.addUserEvent = function(req, res) {
+Controller.prototype.addUserEvent = function(req, res, next) {
     req.params.name = req.body.name;
     User.findOneAndUpdate({
             "name": req.body.name
@@ -62,6 +65,7 @@ Controller.prototype.addUserEvent = function(req, res) {
         },
         function(err, newswimevent) {
             if (err) {
+                return next(err);
                 return res.status(500).json({
                     message: 'You forgot to plug something in...'
                 });
@@ -71,7 +75,7 @@ Controller.prototype.addUserEvent = function(req, res) {
     );
 }
 
-Controller.prototype.deleteUserEvent = function(req, res) {
+Controller.prototype.deleteUserEvent = function(req, res, next) {
     req.params.name = req.body.name;
     User.findOneAndUpdate({
             "name": req.body.name
@@ -84,6 +88,7 @@ Controller.prototype.deleteUserEvent = function(req, res) {
         },
         function(err, removedevent) {
             if (err) {
+                return next(err);
                 return res.status(500).json({
                     message: 'Cant delete for some reason...'
                 });

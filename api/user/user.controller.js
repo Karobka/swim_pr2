@@ -60,13 +60,13 @@ Controller.prototype.addUserEvent = function(req, res) {
         }, {
             returnNewDocument: true
         },
-        function(err, historyupdate) {
+        function(err, newswimevent) {
             if (err) {
                 return res.status(500).json({
                     message: 'You forgot to plug something in...'
                 });
             }
-            res.status(201).json(historyupdate);
+            res.status(201).json(newswimevent);
         }
     );
 }
@@ -82,13 +82,13 @@ Controller.prototype.deleteUserEvent = function(req, res) {
                 }
             }
         },
-        function(err, historyupdate) {
+        function(err, removedevent) {
             if (err) {
                 return res.status(500).json({
                     message: 'Cant delete for some reason...'
                 });
             }
-            res.status(201).json(historyupdate);
+            res.status(201).json(removedevent);
         }
     );
 }

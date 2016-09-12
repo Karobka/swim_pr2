@@ -11,8 +11,20 @@ body {
 .header_swimpr {
     text-align: left;
 }
+.wrap_header {
+    background-color: #fff;
+    border-bottom: 6px solid #2abfd4;
+    /*#2abfd4*/
+}
+.wrap_header h1 {
+    margin: 0;
+}
+
 .login_wrap {
     text-align: center;
+    background-color: #eaeaea;
+    border: 1px solid #a9a9a9;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.26)
 }
 
 .btn_swimr_menu {
@@ -29,6 +41,7 @@ body {
 }
 
 /** hide some things **/
+.new_acct_form,
 .confirm_del_user,
 .add_user_wrap,
 .add_record_wrap,
@@ -88,6 +101,7 @@ button:hover {
     background: #9dace8;
 }
 
+.btn,
 .btn_add_user,
 .add_swim_record,
 .btn_show_create_form {

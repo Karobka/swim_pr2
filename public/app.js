@@ -88,6 +88,12 @@ $(document).ready(function () {
     //Auto get records on page load
     retrieveUsers();
 
+    //show form to create new super user
+    $(".btn_new_user").on("click", function(event) {
+        event.preventDefault();
+        $(".new_acct_form").css("display", "block");
+    })
+
     //CREATE user on click
     $(".add_user").submit(function (event) {
         event.preventDefault();

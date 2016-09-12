@@ -9,138 +9,52 @@
         <title>SwimPR</title>
     </head>
 <body>
-<div class="container_wrap">
-    <header>
+    <div class="container_wrap">
+        <header>
             <button class="btn_swimr_menu"></button>
             <h1 class="header_swimpr">SwimPR</h1>
-    </header>
+        </header>
 
-    <!-- login stuff -->
+        <!-- login stuff -->
         <div class="login_wrap">
-            <section>
-                <h1>Welcome</h1>
-                <span>to</span><h2>SwimPR</h2>
-                <button type="" value="">Log In</button>
-                <button><i class="fa fa-plus" aria-hidden="true"></i>&nbspNew User</button>
-            </section>
-        </div>
-
-        <div class="forms_wrap">
-            <!-- New SuperUser Form -->
-            <section>
-                <form action="">
-                    <label for="">
+            <div class="wrap_header">
+                <h1>Welcome to SwimPR</h1>
+            </div>
+            <p>Please log in:</p>
+            <div class="forms_wrap">
+                <!-- New SuperUser Form -->
+                <section>
+                    <form action="">
+                        <label for="">
                         <input type="text" class="super_user_name" placeholder="User Name">
                     </label>
-                    <label for="">
-                        <input type="password">
+                        <label for="">
+                        <input type="password" placeholder="Password">
                     </label>
-                </form>
-
-            <!-- ADD User Form -->
-            <div class="add_user_wrap">
-                <form action="" class="add_user">
-                    <label for="">
-                        <input type="text" class="swimr_name" name="swimr_name" placeholder="Swimmer's Name" required>
-                    </label>
-                    <button type="submit" value="Submit">Add Swimmer</button>
-                    <button class="btn_user_close" type="reset" value="Reset">Cancel</button>
-                </form>
+                        <button class="btn" type="" value="">Log In</button>
+                        <a href="./events.html">Temp Log In</a>
+                    </form>
             </div>
-
-            <!-- ADD Record Form -->
-            <div class="add_record_wrap">
-                <form action="" class="add_record_data">
-                    <label for="">
-                        <input type="text" class="event_name" name="event_name" placeholder="Event Name">
-                    </label>
-                    <label for="">
-                        <input type="date" class="event_date" name="event_date" placeholder="Date">
-                    </label>
-                    <label for="">
-                        <input type="number" class="event_distance" name="event_distance" placeholder="Distance">
-                    </label>
-                    <label for="">
-                        <select name="stroke" class="event_stroke">
-                            <option value="" disabled selected>Stroke..</option>
-                            <option value="im">IM</option>
-                            <option value="freestyle">freestyle</option>
-                            <option value="backstroke">backstroke</option>
-                            <option value="butterfly">butterfly</option>
-                            <option value="breaststroke">breaststroke</option>
-                        </select>
-                    </label>
-                    <label for="">
-                        <input type="text" class="event_time" name="event_time" placeholder="Time">
-                    </label>
-                    <label for="">
-                        <input type="text" class="event_rank" name="event_rank" placeholder="Rank">
-                    </label>
-                    <button type="submit" class="add_swim_record" value="add_swimrecord">Add Event</button>
-                    <button class="btn_event_close" type="reset" value="Reset">Cancel</button>
-                </form>
-                <!--add_record_data-->
-            </div>
-            <!--add_record_wrap-->
-        </div>
-        <!--forms_wrap-->
-
-
-        <!-- Swimmer List -->
-        <div class="swimrs_wrap">
-            <p>Choose a Swimmer:</p>
-            <section class="swimr_list_data">
-
+            <!--forms_wrap-->
+            <section>
+                <p>Or create an account:</p>
+                <button class="btn_new_user"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNew User</button>
             </section>
-            <button class="btn_add_user">
-                <i class="fa fa-plus" aria-hidden="true"></i> &nbsp
-                Add Swimmer
-            </button>
+            <section class="new_acct_form">
+                <form action="">
+                    <label for="">
+                        <input type="text" class="new_super_user_name" placeholder="User Name">
+                    </label>
+                    <label for="">
+                        <input type="password" placeholder="New password">
+                    </label>
+                    <label for="">
+                        <input type="password" placeholder="Confirm password">
+                    </label>
+                        <button class="btn" type="" value="">Create Account</button>
+                    </form>
+            </section>
         </div>
-
-        <!-- Records Results go here -->
-        <div class="records_wrap">
-            <button class="btn_show_create_form">
-                <i class="fa fa-plus" aria-hidden="true"></i> &nbsp
-                New Event
-            </button>
-            <table class="event_table">
-                <tr class="event_labels">
-                    <th>Event Date</th>
-                    <th>Event Name</th>
-                    <th>Event Distance</th>
-                    <th>Event Stroke</th>
-                    <th>My Time</th>
-                    <th>My Placment</th>
-                </tr>
-                <tbody class="records_table">
-                    <!--<tr class="event-values">
-                        <td class="event_date"></td>
-                        <td class="event_name"></td>
-                        <td class="event_distance"></td>
-                        <td class="event_stroke"></td>
-                        <td class="event_time"></td>
-                        <td class="event_rank"></td>
-                        <td>
-                            <button class="button">Remove</button>
-                        </td>
-                    </tr>-->
-                </tbody>
-            </table>
-
-            <button class="btn_show_del_user">Delete This Swimmer</button>
-            <div class="confirm_del_user">
-                <p>Are you sure you want to delete this Swimmer and ALL their records?</p>
-                <button class="btn_del_user">Yes</button>
-                <button class="btn_cancel">No</button>
-            </div>
-        
-
-        </div>
-
-
-
-
 
 
 
@@ -153,42 +67,12 @@
             </div>
         </div>
 
-
-
         <!-- Records Template -->
         <div class="hidden_wrap">
-            <table>
-                <tbody>
-                <tr class="event_values">
-                    <td class="event_date"></td>
-                    <td class="event_name"></td>
-                    <td class="event_distance"></td>
-                    <td class="event_stroke"></td>
-                    <td class="event_time"></td>
-                    <td class="event_rank"></td>
-                    <td>
-                        <button class="button btn_remove_event">Remove Event</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-
-            <!--<div class="records_template">
-                <ul class="swimr_records">
-                    <li class="event_date"></li>
-                    <li class="event_name"></li>
-                    <li class="event_distance"></li>
-                    <li class="event_stroke"></li>
-                    <li class="event_time"></li>
-                    <li class="event_rank"></li>
-                    <button class="btn_remove_event">Remove Event</button>
-                </ul>-->
-                
-            </div><!--records_template-->
-        </div><!--hidden_wrap-->
-
-
-    </div><!--wrapper-->
+        </div>
+        <!--hidden_wrap-->
+    </div>
+    <!--wrapper-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://files-stackablejs.netdna-ssl.com/stacktable.min.js"></script>

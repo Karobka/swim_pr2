@@ -111,9 +111,10 @@ button:hover {
 .btn_add_user,
 .add_swim_record,
 .btn_show_create_form {
-    background: #cbe4d2;
+    background: #9fdc8a;
 }
-
+.btn:hover,
+.btn_new_user:hover,
 .btn_add_user:hover,
 .add_swim_record:hover,
 .btn_show_create_form:hover {

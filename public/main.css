@@ -36,15 +36,20 @@ body {
     border-right: 1px solid #2abfd4;
 }
 .header_swimpr {
-    text-align: left;
     padding: 10px;
 }
 .login_header {
     background-color: #fff;
     border-bottom: 3px solid #2abfd4;
-    /*#2abfd4*/
 }
 .login_header h1 {
+    padding: 15px;
+}
+.swimr_header {
+    /*background-color: #2a6ad4;*/
+    background-color: #eaeaea;
+}
+.swimr_header h2{
     padding: 15px;
 }
 .wrap_header h1 {
@@ -71,8 +76,10 @@ body {
 }
 
 .swimr_list_data {
-    list-style-type: none;
-    padding-left: 0;
+    /*list-style-type: none;
+    padding-left: 0;*/
+    padding-bottom: 15px;
+    border-bottom: 1px solid #a9a9a9;
 }
 
 /** hide some things **/
@@ -88,7 +95,7 @@ body {
 
 .container_wrap {
     width: 80%;
-    margin: 0 auto;
+    margin: 70px auto;
 }
 
 input {
@@ -136,6 +143,9 @@ button:hover {
 
 .btn_swimr_menu:hover {
     background: #9dace8;
+}
+.btn_add_user {
+    margin: 20px;
 }
 
 .btn,
@@ -222,4 +232,8 @@ tr:nth-of-type(odd) {
   background: #eee; 
 }
 
-
+@media screen and (max-width: 900px) {
+    .container_wrap {
+        width: 100%;
+    }
+}

@@ -7,7 +7,7 @@ function newUser(newname) {
     var user_template = $('.hidden_wrap .user_template').clone();
     var name_elem = user_template.find('.user_name');
     var name_elem = user_template.find('.btn_show_records');
-    name_elem.text(newname);
+    name_elem.html('<img class="identavar" src="./identavar.png">' + '&nbsp' + newname);
     return user_template;
 }
 
@@ -83,11 +83,10 @@ function displayRecords(records) {
 
 
 
-
 $(document).ready(function () {
     //Auto get records on page load
     retrieveUsers();
-
+    
     //show form to create new super user
     $(".btn_new_user").on("click", function(event) {
         event.preventDefault();

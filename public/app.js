@@ -5,7 +5,6 @@ var event_del_name;
 //New User template maker function
 function newUser(newname) {
     var user_template = $('.hidden_wrap .user_template').clone();
-    var name_elem = user_template.find('.user_name');
     var name_elem = user_template.find('.btn_show_records');
     name_elem.html('<img class="identavar" src="./identavar.png">' + '&nbsp' + newname);
     return user_template;

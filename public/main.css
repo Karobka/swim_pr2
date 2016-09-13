@@ -1,23 +1,72 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
+
 body {
     font-family: Roboto, 'Open Sans', sans-serif;
 }
-
-header {
-    margin-left: auto;
-    margin-right: auto;
+.header_wrap {
+    /*background-color: #607D8B;*/
+    border-bottom: 3px solid #2abfd4;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+}
+.header_wrap span {
+    display: inline-block;
+    border-right: 1px solid #2abfd4;
+}
+.header_swimpr {
+    padding: 10px;
+}
+.login_header {
+    background-color: #fff;
+    border-bottom: 3px solid #2abfd4;
+}
+.login_header h1 {
+    padding: 15px;
+}
+.swimr_header {
+    /*background-color: #2a6ad4;*/
+    background-color: #eaeaea;
+}
+.swimr_header h2{
+    padding: 15px;
+}
+.wrap_header h1 {
+    margin: 0;
+}
+.swimrs_wrap,
+.login_wrap {
     text-align: center;
+    background-color: #eaeaea;
+    border: 1px solid #a9a9a9;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.26);
 }
-
-h1 {
-    text-align: right;
+.new_acct_form_show,
+.new_acct_form {
+    margin-bottom: 20px;
+    margin-top: 40px;
 }
-
 .btn_swimr_menu {
     float: left;
 }
@@ -27,11 +76,14 @@ h1 {
 }
 
 .swimr_list_data {
-    list-style-type: none;
-    padding-left: 0;
+    /*list-style-type: none;
+    padding-left: 0;*/
+    padding-bottom: 15px;
+    border-bottom: 1px solid #a9a9a9;
 }
 
 /** hide some things **/
+.new_acct_form,
 .confirm_del_user,
 .add_user_wrap,
 .add_record_wrap,
@@ -43,12 +95,14 @@ h1 {
 
 .container_wrap {
     width: 80%;
-    margin: 0 auto;
+    margin: 70px auto;
 }
 
 input {
     border: 1px solid #afafaf;
     padding: 20px;
+    display: block;
+    margin: 10px auto;
 }
 
 /** set inputs and fields to match **/
@@ -90,17 +144,22 @@ button:hover {
 .btn_swimr_menu:hover {
     background: #9dace8;
 }
+.btn_add_user {
+    margin: 20px;
+}
 
+.btn,
 .btn_add_user,
 .add_swim_record,
 .btn_show_create_form {
-    background: #cbe4d2;
+    background: #2abfd4;
 }
-
+.btn:hover,
+.btn_new_user:hover,
 .btn_add_user:hover,
 .add_swim_record:hover,
 .btn_show_create_form:hover {
-    background: #8fe0a6;
+    background: #1d8594;
 }
 
 /** Danger Button Styling **/
@@ -117,6 +176,18 @@ button:hover {
 .btn_remove_event:hover,
 .btn_del_user:hover {
     background: #d27d90;
+}
+.btn_show_records {
+    width: 256px;
+}
+.identavar {
+    width: 48px;
+    vertical-align: middle;
+}
+
+.fa_border {
+    padding-right: 10px;
+    border-right: 1px solid black;
 }
 
 .records_template {
@@ -161,4 +232,8 @@ tr:nth-of-type(odd) {
   background: #eee; 
 }
 
-
+@media screen and (max-width: 900px) {
+    .container_wrap {
+        width: 100%;
+    }
+}

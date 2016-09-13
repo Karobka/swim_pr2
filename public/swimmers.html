@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="./main.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+        <title>SwimPR</title>
+    </head>
+<body>
+<div class="container_wrap">
+    <header>
+            <button class="btn_swimr_menu"></button>
+            <h1>SwimPR</h1>
+    </header>
+
+        <div class="forms_wrap">
+
+            <!-- ADD swimr Form -->
+            <div class="add_user_wrap">
+                <form action="" class="add_user">
+                    <label for="">
+                        <input type="text" class="swimr_name" name="swimr_name" placeholder="Swimmer's Name" required>
+                    </label>
+                    <button type="submit" value="Submit">Add Swimmer</button>
+                    <button class="btn_user_close" type="reset" value="Reset">Cancel</button>
+                </form>
+            </div>
+        </div>
+        <!--forms_wrap-->
+
+        <!-- Swimmer List -->
+        <div class="swimrs_wrap">
+            <p>Choose a Swimmer:</p>
+            <section class="swimr_list_data">
+
+            </section>
+            <button class="btn_add_user">
+                <i class="fa fa-plus" aria-hidden="true"></i> &nbsp
+                Add Swimmer
+            </button>
+        </div>
+
+        <!-----  TEMPLATES  ------>
+
+        <!-- Swimmer Name Template -->
+        <div class="hidden_wrap">
+            <div class="user_template">
+                <a class="btn_show_records" href="./events.html"></a>
+            </div>
+        </div>
+
+    </div><!--wrapper-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://files-stackablejs.netdna-ssl.com/stacktable.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

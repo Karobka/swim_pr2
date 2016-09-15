@@ -45,6 +45,9 @@ body {
 .login_header h1 {
     padding: 15px;
 }
+.login_header span {
+    color: 	#d43f2a;
+}
 .swimr_header {
     /*background-color: #2a6ad4;*/
     background-color: #eaeaea;

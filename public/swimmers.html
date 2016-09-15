@@ -42,6 +42,46 @@
             </button>
         </div>
 
+        <!-- Records Results go here -->
+        <div class="records_wrap">
+            <button class="btn_show_create_form">
+                <i class="fa fa-plus" aria-hidden="true"></i> &nbsp
+                New Event
+            </button>
+            <table class="event_table">
+                <tr class="event_labels">
+                    <th>Event Date</th>
+                    <th>Event Name</th>
+                    <th>Event Distance</th>
+                    <th>Event Stroke</th>
+                    <th>My Time</th>
+                    <th>My Placment</th>
+                </tr>
+                <tbody class="records_table">
+                    <!--<tr class="event-values">
+                        <td class="event_date"></td>
+                        <td class="event_name"></td>
+                        <td class="event_distance"></td>
+                        <td class="event_stroke"></td>
+                        <td class="event_time"></td>
+                        <td class="event_rank"></td>
+                        <td>
+                            <button class="button">Remove</button>
+                        </td>
+                    </tr>-->
+                </tbody>
+            </table>
+
+            <button class="btn_show_del_user">Delete This Swimmer</button>
+            <div class="confirm_del_user">
+                <p>Are you sure you want to delete this Swimmer and ALL their records?</p>
+                <button class="btn_del_user">Yes</button>
+                <button class="btn_cancel">No</button>
+            </div>
+        
+
+        </div>
+
         <!-----  TEMPLATES  ------>
 
         <!-- Swimmer Name Template -->
@@ -54,7 +94,6 @@
     </div><!--wrapper-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://files-stackablejs.netdna-ssl.com/stacktable.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

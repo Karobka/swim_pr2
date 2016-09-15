@@ -4,10 +4,12 @@ var User = require('./user.model');
 var controller = require('./user.controller');
 
 router
-    .get('/', controller.getUsers)
-    .post('/', controller.createUser)
-    .delete('/', controller.deleteUser)
+    .get('/users', controller.getUsers)
+    .post('/users', controller.createUser)
+    .delete('/users', controller.deleteUser)
     .post('/:name/history', controller.addUserEvent)
     .delete('/:name/history', controller.deleteUserEvent);
+    // .post('/:name/history'), controller.addUserEvent);
+    // .delete('/:name/history', controller.deleteUserEvent);
 
 module.exports = router;

@@ -39,27 +39,31 @@
                 <div class="login_header">
                     <h1>Welcome to <span class="red_accent">Swim</span>PR</h1>
                 </div>
-                <p>Please log in:</p>
-                <div class="forms_wrap">
-                    <!-- existing user login -->
-                    <section>
-                        <form action="">
-                            <label for="">
-                            <input type="text" class="super_user_name" placeholder="User Name">
-                        </label>
-                            <label for="">
-                            <input type="password" placeholder="Password">
-                        </label>
-                            <button class="btn" type="" value="">Log In</button>
-                            <a href="./events.html">Temp Log In</a>
-                        </form>
+                <div class="login_data">
+                    <p>Please log in:</p>
+                    <div>
+                        <!-- existing user login -->
+                        <section>
+                            <form action="">
+                                <label for="">
+                                <input type="text" class="super_user_name" placeholder="User Name">
+                            </label>
+                                <label for="">
+                                <input type="password" placeholder="Password">
+                            </label>
+                                <button class="btn" type="" value="">Log In</button>
+                                <a href="./events.html">Temp Log In</a>
+                            </form>
+                    </div>
+                    <div class="new_acct_form_show">
+                        <p>Or create an account:</p>
+                        <button class="btn_new_user"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNew User</button>
+                    </div>
                 </div>
+
                 <!-- New User Form -->
-                <section class="new_acct_form_show">
-                    <p>Or create an account:</p>
-                    <button class="btn_new_user"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNew User</button>
-                </section>
-                <section class="new_acct_form">
+                <div class="new_acct_form">
+                    <p>Please make up some information:</p>
                     <form action="">
                         <label for="">
                             <input type="text" class="new_super_user_name" placeholder="New User Name">
@@ -70,9 +74,9 @@
                         <label for="">
                             <input type="password" placeholder="Confirm password">
                         </label>
-                            <button class="btn" type="" value="">Create Account</button>
+                            <button class="btn btn_submit_newuser" type="" value="">Create Account</button>
                         </form>
-                </section>
+                </div>
             </div>
         </div>
         <!-- icons -->

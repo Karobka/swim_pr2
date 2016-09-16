@@ -71,16 +71,22 @@ $(document).ready(function () {
     retrieveSwimrs();
     console.log(temp_storage);
 
-    //show login options button
+    //show login options
     $(".btn_confirm").on("click", function (event) {
         $(".intro_words").css("display", "none");
         $(".login_wrap").css("display", "block");
     });
 
-    //show form to create new User
+    //show new user form
     $(".btn_new_user").on("click", function (event) {
         event.preventDefault();
+        $(".login_data").css("display", "none");
         $(".new_acct_form").css("display", "block");
+    });
+    //Create new User
+    $(".btn_submit_newuser").on("click", function(event) {
+        event.preventDefault();
+        //ajax create user goes here;
     })
 
     //CREATE Swimr on click

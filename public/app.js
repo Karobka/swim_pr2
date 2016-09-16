@@ -72,7 +72,7 @@ $(document).ready(function () {
     console.log(temp_storage);
 
     //show login options button
-    $(".btn_show_signup").on("click", function (event) {
+    $(".btn_confirm").on("click", function (event) {
         $(".intro_words").css("display", "none");
         $(".login_wrap").css("display", "block");
     });

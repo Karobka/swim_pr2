@@ -192,12 +192,12 @@ button:hover {
     cursor: pointer;
 }
 
- .btn_show_signup {
+.btn_confirm {
      width: 128px;
      background-color: #17c687;
      border-radius: 3px;
      border: 1px solid #104d71;
- }
+}
 
 .btn_swimr_menu {
     background: #cbd0e4;
@@ -301,8 +301,9 @@ tr:nth-of-type(odd) {
   background: #eee; 
 }
 
-@media screen and (max-width: 900px) {
-    .container_wrap {
+
+@media screen and (max-width: 600px) {
+    .login_wrap {
         width: 100%;
     }
 }

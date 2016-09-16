@@ -70,6 +70,13 @@ $(document).ready(function () {
     //Auto get records on page load
     retrieveSwimrs();
     console.log(temp_storage);
+
+    //show login options button
+    $(".btn_show_signup").on("click", function (event) {
+        $(".intro_words").css("display", "none");
+        $(".login_wrap").css("display", "block");
+    });
+
     //show form to create new User
     $(".btn_new_user").on("click", function (event) {
         event.preventDefault();
@@ -90,7 +97,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/users",
             data: {
-                name: newname
+                swimrName: newname
             },
             method: "POST"
         }).done(retrieveSwimrs);

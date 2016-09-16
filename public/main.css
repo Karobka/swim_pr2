@@ -41,11 +41,11 @@ body {
 .header_swimpr {
     padding: 10px;
 }
-.intro_words > section {
+.intro_words {
     line-height: 70px;
 }
-.intro_words {
-    margin: 0 100px;
+.secondary_font {
+    font-family: "Roboto Slab", serif;
 }
 /*.words_right {
     display: inline-block;

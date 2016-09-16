@@ -1,5 +1,7 @@
 var User = require('./user.model');
+var app = require('express');
 function Controller() {}
+
 
 Controller.prototype.getUsers = function (req, res, next) {
   User.find({}, function (err, users) {
@@ -13,11 +15,10 @@ Controller.prototype.getUsers = function (req, res, next) {
   });
 }
 
-
 Controller.prototype.createUser = function (req, res, next) {
   User.create({
-    name: req.body.name,
-    swim_history: []
+    username: req.body.name,
+    /*swim_history: []*/
   }, function (err, user) {
     if (err) {
       return next(err);
@@ -76,6 +77,9 @@ Controller.prototype.addUserEvent = function (req, res, next) {
 }
 
 Controller.prototype.deleteUserEvent = function (req, res, next) {
+  console.log(User);
+  console.log(req.body.name);
+  console.log("event name is " + req.body.eventName);
   req.params.name = req.body.name;
   User.findOneAndUpdate({
     "name": req.body.name

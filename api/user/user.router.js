@@ -8,8 +8,6 @@ router
     .post('/users', controller.createUser)
     .delete('/users', controller.deleteUser)
     .post('/:name/history', controller.addUserEvent)
-    .delete('/:name/history', controller.deleteUserEvent);
-    // .post('/:name/history'), controller.addUserEvent);
-    // .delete('/:name/history', controller.deleteUserEvent);
+    .delete('/:name/history', controller.deleteUserEvent)
 
 module.exports = router;

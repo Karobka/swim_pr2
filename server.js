@@ -14,5 +14,4 @@ app.listen(config.EXPRESS.PORT(env), function() {
     console.log('Listening on localhost:' + config.EXPRESS.PORT(env));
 });
 
-
 exports.app = app;

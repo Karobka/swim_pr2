@@ -48,6 +48,24 @@ body {
 .login_header span {
     color: 	#d43f2a;
 }
+.landing_icon_wrap {
+    text-align: center;
+}
+.landing_icon_data {
+    display: inline-block;
+    /* background-color: #cff3e5; */
+    border: 1px solid #999;
+    text-align: center;
+    margin: 50px;
+    width: 256px;
+    height: 256px;
+    vertical-align: middle;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+}
+.landing_icon_data img {
+    margin-top: 25%;
+}
+
 .swimr_header {
     /*background-color: #2a6ad4;*/
     background-color: #eaeaea;
@@ -73,7 +91,7 @@ body {
 .btn_swimr_menu {
     float: left;
 }
-.add_user_wrap,
+.add_swimr_wrap,
 .swimrs_wrap {
     text-align: center;
 }
@@ -87,8 +105,8 @@ body {
 
 /** hide some things **/
 .new_acct_form,
-.confirm_del_user,
-.add_user_wrap,
+.confirm_del_swimr,
+.add_swimr_wrap,
 .add_record_wrap,
 .hidden_wrap,
 .btn_swimr_menu,
@@ -97,8 +115,8 @@ body {
 }
 
 .container_wrap {
-    width: 80%;
-    margin: 70px auto;
+    /* width: 80%; */
+    margin: 20px 70px;
 }
 
 input {
@@ -147,37 +165,37 @@ button:hover {
 .btn_swimr_menu:hover {
     background: #9dace8;
 }
-.btn_add_user {
+.btn_add_swimr {
     margin: 20px;
 }
 
 .btn,
-.btn_add_user,
+.btn_add_swimr,
 .add_swim_record,
 .btn_show_create_form {
     background: #2abfd4;
 }
 .btn:hover,
 .btn_new_user:hover,
-.btn_add_user:hover,
+.btn_add_swimr:hover,
 .add_swim_record:hover,
 .btn_show_create_form:hover {
     background: #1d8594;
 }
 
 /** Danger Button Styling **/
-.btn_show_del_user,
+.btn_show_del_swimr,
 .btn_event_close,
 .btn_remove_event,
-.btn_del_user {
+.btn_del_swimr {
     background: #e4cbd7;
 }
 
 /** Danger Button Hover Styling **/
-.btn_show_del_user:hover,
+.btn_show_del_swimr:hover,
 .btn_event_clost:hover,
 .btn_remove_event:hover,
-.btn_del_user:hover {
+.btn_del_swimr:hover {
     background: #d27d90;
 }
 .btn_show_records {
@@ -228,6 +246,13 @@ button:hover {
     letter-spacing: 2px;
     background: #eaeaea;
     font-size: 13px;
+}
+footer {
+    border-top: 1px solid #afafaf;
+    text-align: center;
+}
+footer p {
+    margin-top: 25px;
 }
 
 /** table row striping */

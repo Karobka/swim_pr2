@@ -31,7 +31,7 @@ body {
     border-bottom: 3px solid #2abfd4;
     box-shadow: 0 2px 5px rgba(0,0,0,0.26);
 }
-.header_wrap span {
+.header_wrap>span {
     display: inline-block;
     border-right: 1px solid #2abfd4;
 }
@@ -45,11 +45,11 @@ body {
 .login_header h1 {
     padding: 15px;
 }
-.login_header span {
+.red_accent {
     color: 	#d43f2a;
 }
 .gradient_wrap {
-    padding: 128px;
+    padding: 80px;
     background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8);
 }
 .landing_icon_wrap {

@@ -48,6 +48,10 @@ body {
 .login_header span {
     color: 	#d43f2a;
 }
+.gradient_wrap {
+    padding: 128px;
+    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8);
+}
 .landing_icon_wrap {
     text-align: center;
 }
@@ -75,6 +79,10 @@ body {
 }
 .wrap_header h1 {
     margin: 0;
+}
+.login_wrap {
+    width: 512px;
+    margin: auto;
 }
 .swimrs_wrap,
 .login_wrap {
@@ -115,8 +123,6 @@ body {
 }
 
 .container_wrap {
-    /* width: 80%; */
-    margin: 20px 70px;
 }
 
 input {

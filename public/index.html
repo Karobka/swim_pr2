@@ -9,51 +9,53 @@
         <title>SwimPR</title>
     </head>
 <body>
+    <header class="header_wrap">
+            <span>
+                <h1 class="header_swimpr">SwimPR</h1>
+            </span>
+    </header>
     <div class="container_wrap">
-        <header>
-            <button class="btn_swimr_menu"></button>
-            <h1 class="header_swimpr">SwimPR</h1>
-        </header>
-
-        <!-- login stuff -->
-        <div class="login_wrap">
-            <div class="login_header">
-                <h1>Welcome to <span>Swim</span>PR</h1>
-            </div>
-            <p>Please log in:</p>
-            <div class="forms_wrap">
-                <!-- existing user login -->
-                <section>
+        <div class="gradient_wrap">
+            <!-- login stuff -->
+            <div class="login_wrap">
+                <div class="login_header">
+                    <h1>Welcome to <span>Swim</span>PR</h1>
+                </div>
+                <p>Please log in:</p>
+                <div class="forms_wrap">
+                    <!-- existing user login -->
+                    <section>
+                        <form action="">
+                            <label for="">
+                            <input type="text" class="super_user_name" placeholder="User Name">
+                        </label>
+                            <label for="">
+                            <input type="password" placeholder="Password">
+                        </label>
+                            <button class="btn" type="" value="">Log In</button>
+                            <a href="./events.html">Temp Log In</a>
+                        </form>
+                </div>
+                <!-- New SuperUser Form -->
+                <section class="new_acct_form_show">
+                    <p>Or create an account:</p>
+                    <button class="btn_new_user"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNew User</button>
+                </section>
+                <section class="new_acct_form">
                     <form action="">
                         <label for="">
-                        <input type="text" class="super_user_name" placeholder="User Name">
-                    </label>
+                            <input type="text" class="new_super_user_name" placeholder="New User Name">
+                        </label>
                         <label for="">
-                        <input type="password" placeholder="Password">
-                    </label>
-                        <button class="btn" type="" value="">Log In</button>
-                        <a href="./events.html">Temp Log In</a>
-                    </form>
+                            <input type="password" placeholder="New password">
+                        </label>
+                        <label for="">
+                            <input type="password" placeholder="Confirm password">
+                        </label>
+                            <button class="btn" type="" value="">Create Account</button>
+                        </form>
+                </section>
             </div>
-            <!-- New SuperUser Form -->
-            <section class="new_acct_form_show">
-                <p>Or create an account:</p>
-                <button class="btn_new_user"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNew User</button>
-            </section>
-            <section class="new_acct_form">
-                <form action="">
-                    <label for="">
-                        <input type="text" class="new_super_user_name" placeholder="New User Name">
-                    </label>
-                    <label for="">
-                        <input type="password" placeholder="New password">
-                    </label>
-                    <label for="">
-                        <input type="password" placeholder="Confirm password">
-                    </label>
-                        <button class="btn" type="" value="">Create Account</button>
-                    </form>
-            </section>
         </div>
         <!-- icons -->
         <section class="landing_icon_wrap">

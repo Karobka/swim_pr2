@@ -1,4 +1,5 @@
 var User = require('../user/user.model');
+var passport = require('passport');
 function Controller (){}
 
 Controller.prototype.login = function ( req, res, next ) {
@@ -6,6 +7,7 @@ Controller.prototype.login = function ( req, res, next ) {
         successRedirect: '/events',
         failureRedirect: '/login'
     });
+    console.log(req.body);
 }
 
 

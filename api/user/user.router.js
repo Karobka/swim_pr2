@@ -4,10 +4,10 @@ var User = require('./user.model');
 var controller = require('./user.controller');
 
 router
-    .get('/users', controller.getUsers)
-    .post('/users', controller.createUser)
-    .delete('/users', controller.deleteUser)
-    .post('/:name/history', controller.addUserEvent)
-    .delete('/:name/history', controller.deleteUserEvent)
+    .get('/', controller.getUsers)
+    .post('/', controller.createUser)
+    .delete('/', controller.deleteSwimr)
+    .post('/:name/history', controller.addSwimrEvent)
+    .delete('/:name/history', controller.deleteSwimrEvent)
 
 module.exports = router;

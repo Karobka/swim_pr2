@@ -11,7 +11,7 @@ var userSchema = new Schema({
         type: String,
         required: true
     },
-    swimrs: [
+    swimrsarray: [
         {swimrName: String,
             swim_history: [{
                 eventName: {

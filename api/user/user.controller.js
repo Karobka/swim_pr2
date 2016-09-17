@@ -30,7 +30,24 @@ Controller.prototype.createUser = function (req, res, next) {
   });
 }
 
-Controller.prototype.deleteUser = function (req, res, next) {
+Controller.prototype.createSwimr = function ( req, res, next) {
+  User.findOneAndUpdate({
+    username: req.body.username
+  }, {
+    $push: {
+      swimrsarray: {
+        swimrName: req.body.swimr_name
+      }
+    }
+  }, function (err, newSwimr) {
+    if (err) {
+      return next(err);
+    }
+    res.status(201).json(newSimr);
+  })
+}
+
+Controller.prototype.deleteSwimr = function (req, res, next) {
   User.findOneAndRemove({
     name: req.body.name
   }, function (err, user) {
@@ -44,7 +61,7 @@ Controller.prototype.deleteUser = function (req, res, next) {
   });
 }
 
-Controller.prototype.addUserEvent = function (req, res, next) {
+Controller.prototype.addSwimrEvent = function (req, res, next) {
   req.params.name = req.body.name;
   User.findOneAndUpdate({
     name: req.body.name
@@ -76,7 +93,7 @@ Controller.prototype.addUserEvent = function (req, res, next) {
   );
 }
 
-Controller.prototype.deleteUserEvent = function (req, res, next) {
+Controller.prototype.deleteSwimrEvent = function (req, res, next) {
   console.log(User);
   console.log(req.body.name);
   console.log("event name is " + req.body.eventName);

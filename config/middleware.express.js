@@ -6,6 +6,7 @@ var User = require('../api/user/user.model');
 var LocalStrategy = require('passport-local');
 
 module.exports = function (app) {
+    app.use(express.static('public'));
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({
         extended: false
@@ -13,10 +14,10 @@ module.exports = function (app) {
     app.use(session({ secret: 'keyboard cat' }));
     app.use(passport.initialize());
     app.use(passport.session());
-    app.use(express.static('public'));
+
     passport.use(new LocalStrategy(
         function (username, password, done) {
-            SuperUser.findOne({
+            User.findOne({
                 username: username
             }, function (err, user) {
                 if (err) {

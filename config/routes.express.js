@@ -2,7 +2,7 @@ var userRouter = require('../api/user/user.router');
 var authRouter = require('../api/auth/auth.router');
 
 module.exports = function(app) {
-    app.use('/', userRouter);
+    app.use('/users', userRouter);
     app.use('/auth', authRouter);
 
 /* This should be last middleware */

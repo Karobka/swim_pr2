@@ -97,7 +97,20 @@ body {
 .landing_icon_data img {
     margin-top: 15%;
 }
-
+.color_div1 {
+    border-bottom: 10px solid #d43f2a;
+}
+.color_div2 {
+    border-bottom: 10px solid #2a6ad4;
+}
+.color_div3 {
+    border-bottom: 10px solid #d4942a;
+}
+.color_div1,
+.color_div2,
+.color_div3 {
+    margin-top: 5px;
+}
 .swimr_header {
     /*background-color: #2a6ad4;*/
     background-color: #eaeaea;

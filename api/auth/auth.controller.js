@@ -1,21 +1,18 @@
 var User = require('../user/user.model');
-var passport = require('passport');
-function Controller (){}
 
-Controller.prototype.login = function ( req, res, next ) {
-  passport.authenticate('local', {
-        successRedirect: '/events',
-        failureRedirect: '/login'
-    });
-    console.log(req.body);
+function Controller() {}
+
+Controller.prototype.login = function(req, res, next) {
+    console.log('logging in')
+    console.log(req.user);
 }
 
 
-Controller.prototype.create = function (req, res, next) {
-  User.create({
-        username: req.username,
-        password: req.password
-    }, function (err, users) {
+Controller.prototype.create = function(req, res, next) {
+    User.create({
+        username: req.body.username,
+        password: req.body.password
+    }, function(err, user) {
         if (err) {
             return next(err);
         }

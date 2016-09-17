@@ -11,39 +11,43 @@ var userSchema = new Schema({
         type: String,
         required: true
     },
-    swimrsarray: [
-        {swimrName: String,
-            swim_history: [{
-                eventName: {
-                    type: String,
-                    required: true,
-                    unique: true
-                    },
-                eventDate: {
-                    type: Date,
-                    default: Date.now
-                },
-                eventStroke: {
-                    type: String,
-                    required: false,
-                    default: 'none'
-                },
-                eventDistance: {
-                    type: String,
-                    required: false
-                },
-                eventTime: {
-                    type: String,
-                    required: true
-                },
-                eventRank: {
-                    type: String,
-                    required: false
-                }
-            }]
-        }
-    ]
+    swimrsarray: [{
+        swimrName: String,
+        swim_history: [{
+            eventName: {
+                type: String,
+                required: true,
+                unique: true
+            },
+            eventDate: {
+                type: Date,
+                default: Date.now
+            },
+            eventStroke: {
+                type: String,
+                required: false,
+                default: 'none'
+            },
+            eventDistance: {
+                type: String,
+                required: false
+            },
+            eventTime: {
+                type: String,
+                required: true
+            },
+            eventRank: {
+                type: String,
+                required: false
+            }
+        }]
+    }]
 });
 
-module.exports = mongoose.model('User', userSchema);
+userSchema.methods.verifyPassword = function(password) {
+    if(this.password === password) {
+        return true;
+    }
+}
 
+module.exports = mongoose.model('User', userSchema);

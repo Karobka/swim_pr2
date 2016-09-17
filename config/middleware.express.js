@@ -5,21 +5,29 @@ var passport = require('passport');
 var User = require('../api/user/user.model');
 var LocalStrategy = require('passport-local');
 
-module.exports = function (app) {
+module.exports = function(app) {
+
     app.use(express.static('public'));
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({
         extended: false
     }));
-    app.use(session({ secret: 'keyboard cat' }));
+    
+    app.use(session({
+        secret: 'keyboard cat',
+        name: 'swim_pr2_cookie',
+        resave: false,
+        saveUninitialized: false
+    }));
+
     app.use(passport.initialize());
     app.use(passport.session());
 
     passport.use(new LocalStrategy(
-        function (username, password, done) {
+        function(username, password, done) {
             User.findOne({
                 username: username
-            }, function (err, user) {
+            }, function(err, user) {
                 if (err) {
                     return done(err);
                 }
@@ -37,11 +45,13 @@ module.exports = function (app) {
             });
         }
     ));
-    passport.serializeUser(function (user, done) {
+
+    passport.serializeUser(function(user, done) {
         done(null, user.id);
     });
-    passport.deserializeUser(function (id, done) {
-        User.findById(id, function (err, user) {
+
+    passport.deserializeUser(function(id, done) {
+        User.findById(id, function(err, user) {
             done(err, user);
         });
     });

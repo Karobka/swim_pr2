@@ -315,6 +315,37 @@ tr:nth-of-type(odd) {
 }
 
 
+/** event styles */
+.event_wrap {
+    border: 1px solid #104d71;
+    margin: 25px 0 25px 0;
+}
+.event_cell {
+    display: inline-block;
+    width: 200px;
+    background-color: #a9a9a9;
+    padding: 0 25px 5px 25px;
+    margin: 10px 5px;
+}
+.event_cell_title {
+    background-color: #2a6ad4;
+}
+.event_name {
+    text-align: center;
+    border-bottom: 1px solid #104d71;
+}
+.event_data {
+    text-align: center;
+}
+.event_date,
+.event_distance,
+.event_stroke,
+.event_time,
+.event_rank {
+    margin-top: 5%;
+}
+
+
 @media screen and (max-width: 600px) {
     .login_wrap {
         width: 100%;

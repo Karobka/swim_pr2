@@ -70,6 +70,7 @@ body {
     width: 70%;
 }
 .gradient_wrap {
+    height: 460px;
     border-radius: 0 0 10px 10px;
     text-align: center;
     padding: 30px;

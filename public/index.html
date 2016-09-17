@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
         <link rel="stylesheet" href="./main.css">
         <title>SwimPR</title>
     </head>
@@ -14,7 +15,7 @@
                 <h1 class="header_swimpr"><span class="red_accent">Swim</span>PR</h1>
             </span>
     </header>
-    <div class="container_wrap">
+    <div>
         <div class="gradient_wrap">
             <!-- intro words -->
             <div>
@@ -30,7 +31,7 @@
                     <div class="words_right">
                         <p>Sign up today!  Its <b>free</b><!--make this font curly--> and requires no personal
                         information whatsoever.</p>
-                        <button class="btn_confirm">Sign Up</button>
+                        <button class="btn_confirm">Begin Here</button>
                     </div>
                 </section>
             </div>
@@ -51,7 +52,7 @@
                                 <label for="">
                                 <input type="password" placeholder="Password">
                             </label>
-                                <button class="btn" type="" value="">Log In</button>
+                                <button class="btn_submit_login" type="" value="">Log In</button>
                                 <a href="./events.html">Temp Log In</a>
                             </form>
                     </div>
@@ -64,7 +65,7 @@
                 <!-- New User Form -->
                 <div class="new_acct_form">
                     <p>Please make up some information:</p>
-                    <form action="">
+                    <form action="" id="new_user_form">
                         <label for="">
                             <input type="text" class="new_super_user_name" placeholder="New User Name">
                         </label>
@@ -74,7 +75,7 @@
                         <label for="">
                             <input type="password" placeholder="Confirm password">
                         </label>
-                            <button class="btn btn_submit_newuser" type="" value="">Create Account</button>
+                            <button class="btn_form_submit" form="new_user_form" type="submit" value="Submit">Create Account</button>
                         </form>
                 </div>
             </div>

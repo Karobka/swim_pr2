@@ -152,8 +152,6 @@ body {
     display: none;
 }
 
-.container_wrap {
-}
 
 input {
     border: 1px solid #afafaf;
@@ -191,11 +189,12 @@ button:hover {
     color: #fff;
     cursor: pointer;
 }
-
+.btn_form_submit,
+.btn_submit_login,
 .btn_confirm {
      width: 128px;
      background-color: #17c687;
-     border-radius: 3px;
+     border-radius: 2px;
      border: 1px solid #104d71;
 }
 

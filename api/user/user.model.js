@@ -4,14 +4,15 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
     username: {
         type: String,
-        required: true,
-        unique: true
+        unique: true,
+        required: true
     },
     password: {
         type: String,
         required: true
     },
-    swimrsarray: [{
+    swimrsarray: [
+        /*{
         swimrName: String,
         swim_history: [{
             eventName: {
@@ -41,7 +42,7 @@ var userSchema = new Schema({
                 required: false
             }
         }]
-    }]
+    }*/]
 });
 
 userSchema.methods.verifyPassword = function(password) {

@@ -15,21 +15,6 @@ Controller.prototype.getUsers = function (req, res, next) {
   });
 }
 
-Controller.prototype.createUser = function (req, res, next) {
-  User.create({
-    username: req.body.name,
-    /*swim_history: []*/
-  }, function (err, user) {
-    if (err) {
-      return next(err);
-      /*return res.status(500).json({
-        message: 'Kaboom! Internal Server Error'
-      });*/
-    }
-    res.status(201).json(user);
-  });
-}
-
 Controller.prototype.createSwimr = function ( req, res, next) {
   User.findOneAndUpdate({
     username: req.body.username

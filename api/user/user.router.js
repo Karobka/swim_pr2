@@ -4,8 +4,8 @@ var User = require('./user.model');
 var controller = require('./user.controller');
 
 router
-    .get('/', controller.getUsers)
-    .post('/', controller.createUser)
+    /*.get('/', controller.getUsers)
+    .post('/', controller.createUser)*/
     .delete('/', controller.deleteSwimr)
     .post('/:name/history', controller.addSwimrEvent)
     .delete('/:name/history', controller.deleteSwimrEvent)

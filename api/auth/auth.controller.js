@@ -9,6 +9,7 @@ Controller.prototype.login = function(req, res, next) {
 
 
 Controller.prototype.create = function(req, res, next) {
+    console.log("user create is being hit from the auth.controller file");
     User.create({
         username: req.body.username,
         password: req.body.password

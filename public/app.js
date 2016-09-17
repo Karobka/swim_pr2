@@ -67,29 +67,44 @@ function displayRecords(records) {
 
 
 $(document).ready(function () {
-    //Auto get records on page load
+    // Auto get records on page load
     retrieveSwimrs();
     console.log(temp_storage);
 
-    //show login options
+    // show login options
     $(".btn_confirm").on("click", function (event) {
         $(".intro_words").css("display", "none");
         $(".login_wrap").css("display", "block");
     });
 
-    //show new user form
+    // click log in button
+    $(".btn_submit_login").on("click", function (event) {
+        event.preventDefault();
+        var username = $(".user_name").val();
+        var password = $(".user_password").val();
+        $.ajax({
+            url: "/auth/login",
+            method: "POST",
+            data: {
+                username: username,
+                password: password
+            }
+        }).done(console.log("you logged in"));
+    });
+
+    // show new user form
     $(".btn_new_user").on("click", function (event) {
         event.preventDefault();
         $(".login_data").css("display", "none");
         $(".new_acct_form").css("display", "block");
     });
-    //Create new User
+    // Create new User
     $(".btn_submit_newuser").on("click", function(event) {
         event.preventDefault();
         //ajax create user goes here;
     })
 
-    //CREATE Swimr on click
+    // CREATE Swimr on click
     $(".add_swimr").submit(function (event) {
         event.preventDefault();
         var newname = $(".swimr_name").val();

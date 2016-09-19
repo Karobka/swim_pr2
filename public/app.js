@@ -112,7 +112,7 @@ $(document).ready(function () {
     // check that new user password fields match
     $(".input_new_password_confirm").keyup(function () {
         var new_password = $(".input_new_password").val();
-    var new_password_confirm = $(".input_new_password_confirm").val();
+        var new_password_confirm = $(".input_new_password_confirm").val();
         if (new_password != new_password_confirm) {
             $(".btn_form_submit").prop("disabled", true);
             $(".passwords_nomatch").css("display", "inline-block");

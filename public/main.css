@@ -147,10 +147,12 @@ body {
     border: 1px solid #a9a9a9;
     box-shadow: 0 2px 5px rgba(0,0,0,0.26);
 }
-.new_acct_form_show,
-.new_acct_form {
+.new_acct_form_show{
     margin-bottom: 20px;
     margin-top: 40px;
+}
+.new_acct_form {
+    margin-bottom: 20px;
 }
 .btn_swimr_menu {
     float: left;

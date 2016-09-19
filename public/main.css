@@ -61,8 +61,20 @@ body {
 .login_header > h1 {
     padding: 15px;
 }
+.login_error {
+    display: none;
+    color: #d43f2a;
+}
+.passwords_nomatch,
+.passwords_match {
+    display: none;
+}
+.passwords_nomatch,
 .red_accent {
     color: 	#d43f2a;
+}
+.passwords_match {
+    color: #2a6ad4;
 }
 .bottom_border {
     border-bottom: 1px solid black;
@@ -70,7 +82,7 @@ body {
     width: 70%;
 }
 .gradient_wrap {
-    height: 460px;
+    height: 500px;
     border-radius: 0 0 10px 10px;
     text-align: center;
     padding: 30px;

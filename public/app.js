@@ -80,6 +80,7 @@ $(document).ready(function () {
     // click log in button
     $(".btn_submit_login").on("click", function (event) {
         event.preventDefault();
+        $(".login_error").css("display", "none");
         var username = $(".user_name").val();
         var password = $(".user_password").val();
         $.ajax({
@@ -89,7 +90,11 @@ $(document).ready(function () {
                 username: username,
                 password: password
             }
-        }).done(console.log("you logged in"));
+        }).done(console.log("you tried to log in"))
+            .fail(
+                console.log('error with credentials'),
+                $(".login_error").css("display", "inline-block")
+                );
     });
 
     // show new user form
@@ -101,7 +106,23 @@ $(document).ready(function () {
     // Create new User
     $(".btn_submit_newuser").on("click", function(event) {
         event.preventDefault();
-        //ajax create user goes here;
+        //ajax create user goes here!!!!!!;
+    });
+
+    // check that new user password fields match
+    //grey out create button until matching
+    
+    $(".input_new_password_confirm").keyup(function () {
+        var new_password = $(".input_new_password").val();
+    var new_password_confirm = $(".input_new_password_confirm").val();
+        if (new_password != new_password_confirm) {
+            $(".passwords_nomatch").css("display", "inline-block");
+            $(".passwords_match").css("display", "none");
+        } else {
+            $(".btn_form_submit").prop("disabled", false);
+            $(".passwords_nomatch").css("display", "none");
+            $(".passwords_match").css("display", "inline-block");
+        }
     })
 
     // CREATE Swimr on click

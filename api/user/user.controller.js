@@ -4,7 +4,13 @@ function Controller() {}
 
 
 Controller.prototype.getSwimrs = function (req, res, next) {
-  console.log("you made it to the getSwimrs route.");
+  console.log("Congrats you made it to the getSwimrs route.");
+  User.find(
+    req.username,
+    function (err, res, next) {
+      
+    }
+  )
 }
 
 Controller.prototype.createSwimr = function ( req, res, next) {

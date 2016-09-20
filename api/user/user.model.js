@@ -11,8 +11,7 @@ var userSchema = new Schema({
         type: String,
         required: true
     },
-    swimrsarray: [
-        /*{
+    swimrsarray: [{
         swimrName: String,
         swim_history: [{
             eventName: {
@@ -42,7 +41,7 @@ var userSchema = new Schema({
                 required: false
             }
         }]
-    }*/]
+    }]
 });
 
 userSchema.methods.verifyPassword = function(password) {

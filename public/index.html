@@ -68,17 +68,18 @@
                     <p>Please make up some information:</p>
                     <form action="">
                         <label for="">
-                            <input type="text" class="new_super_user_name" placeholder="New User Name">
+                            <input type="text" class="new_user_name" placeholder="New User Name">
                         </label>
                         <label for="">
                             <input type="password" class="input_new_password" placeholder="New password">
                         </label>
-                        <span class="passwords_nomatch">Passwords don't match.</span>
-                        <span class="passwords_match">Passwords match!  You may proceed.</span>
                         <label for="">
                             <input type="password" class="input_new_password_confirm" placeholder="Confirm password">
                         </label>
-                            <button class="btn_form_submit" form="" type="submit" value="Submit" disabled>Create Account</button>
+                            <span class="passwords_nomatch">Passwords don't match.</span>
+                            <span class="passwords_match">Passwords match!  You may proceed.</span>
+                            <span class="new_login_error">Error logging in.  Please try again.</span>
+                            <button class="btn_submit_newuser" form="" type="submit" value="Submit" disabled>Create Account</button>
                         </form>
                 </div>
             </div>

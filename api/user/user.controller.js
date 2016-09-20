@@ -3,16 +3,8 @@ var app = require('express');
 function Controller() {}
 
 
-Controller.prototype.getUsers = function (req, res, next) {
-  User.find({}, function (err, users) {
-    if (err) {
-      return next(err);
-      /*return res.status(500).json({
-        message: 'Boom!  Internal Server Error'
-      });*/
-    }
-    res.status(200).json(users);
-  });
+Controller.prototype.getSwimrs = function (req, res, next) {
+  console.log("you made it to the getSwimrs route.");
 }
 
 Controller.prototype.createSwimr = function ( req, res, next) {

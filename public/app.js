@@ -20,7 +20,10 @@ function displaySwimrs(swimrsarray) {
 
 //  ajax call to get all users
 function retrieveSwimrs() {
-    $.ajax('/users').done(function (swimrs) {
+    $.ajax({
+        url: "/users",
+        method: "GET"
+    }).done(function (swimrs) {
       $(".swimr_list_data").children().remove();
       console.log(swimrs);
       displaySwimrs(swimrs);
@@ -90,11 +93,12 @@ $(document).ready(function () {
                 username: username,
                 password: password
             }
-        }).done(console.log("you tried to log in"))
-            .fail(
-                console.log('error with credentials'),
-                $(".login_error").css("display", "inline-block")
-                );
+        }).done(function () {
+            console.log("you logged in");
+        }).fail(function () {
+            console.log('error with credentials'),
+            $(".login_error").css("display", "block")
+        });
     });
 
     // show new user form
@@ -103,25 +107,40 @@ $(document).ready(function () {
         $(".login_data").css("display", "none");
         $(".new_acct_form").css("display", "block");
     });
-    // Create new User
-    $(".btn_submit_newuser").on("click", function(event) {
-        event.preventDefault();
-        //ajax create user goes here!!!!!!;
-    });
 
     // check that new user password fields match
     $(".input_new_password_confirm").keyup(function () {
         var new_password = $(".input_new_password").val();
         var new_password_confirm = $(".input_new_password_confirm").val();
         if (new_password != new_password_confirm) {
-            $(".btn_form_submit").prop("disabled", true);
-            $(".passwords_nomatch").css("display", "inline-block");
+            $(".btn_submit_newuser").prop("disabled", true);
+            $(".passwords_nomatch").css("display", "block");
             $(".passwords_match").css("display", "none");
         } else {
-            $(".btn_form_submit").prop("disabled", false);
+            $(".btn_submit_newuser").prop("disabled", false);
             $(".passwords_nomatch").css("display", "none");
-            $(".passwords_match").css("display", "inline-block");
+            $(".passwords_match").css("display", "block");
         }
+    });
+
+    // Create new User
+    $(".btn_submit_newuser").on("click", function(event) {
+        event.preventDefault();
+        var newusername = $(".new_user_name").val();
+        var newuserpassword = $(".input_new_password_confirm").val();
+        $.ajax({
+            url: "auth/create",
+            method: "POST",
+            data: {
+                username: newusername,
+                password: newuserpassword
+            }
+        }).done(function(data) {
+            console.log("new user created" + data);
+        }).fail(function (jqXHR, error) {
+                console.log("error new user creation failed"),
+                $(".new_login_error").css("display", "block")
+                });
     });
 
     // CREATE Swimr on click
@@ -137,11 +156,14 @@ $(document).ready(function () {
         //ajax call
         $.ajax({
             url: "/users",
+            method: "POST",
             data: {
                 swimrName: newname
-            },
-            method: "POST"
-        }).done(retrieveSwimrs);
+            }
+        }).done(retrieveSwimrs)
+        .fail(function (jqXHR, error) {
+            consol.log("an error prevented creation of a new swimr");
+        });
         current_swimr = newname;
         displayRecords(temp_storage);
         $(".swimrs_wrap").css("display", "block");

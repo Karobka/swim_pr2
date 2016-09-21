@@ -9,6 +9,50 @@ function newSwimr(newname) {
     name_elem.html('<img class="identavar" src="./identavar.png">' + newname);
     return swimr_template;
 }
+//  create a new swimr
+function createSwimr() {
+    var newname = $(".swimr_name").val();
+    $(".swimr_name").val("");
+    var made_newuser = newSwimr(newname);
+    //hide add swimr form
+    $(".add_swimr_wrap").css("display", "none");
+    $(".swimr_list_data").append(made_newuser);
+    console.log(newname);
+    $.ajax({
+        url: "/users",
+        method: "POST",
+        data: {
+            swimr_name: newname
+        }
+    }).done(retrieveSwimrs, function () {
+        console.log("done creating swimrs");
+    }).fail(function (error) {
+            console.log("an error prevented creation of a new swimr");
+        });
+    current_swimr = newname;
+    displayRecords(temp_storage);
+    $(".swimrs_wrap").css("display", "block");
+}
+
+//  delete a swimr from db
+function deleteSwimr() {
+    var swimrname = current_swimr;
+    console.log("you clicked delete for " + swimrname);
+    $.ajax({
+        url: "/users",
+        method: "DELETE",
+        data: {
+            swimr_name: swimrname
+        }
+    }).done(retrieveSwimrs, function() {
+        console.log("done deleting a swimr " + swimrname);
+    }).fail(function(error) {
+        console.log("error deleting a swimr " + error);
+    });
+    $(".records_wrap").css("display", "none");
+    $(".btn_swimr_menu").css("display", "none");
+    $(".swimrs_wrap").css("display", "block");
+}
 
 //  function that displays Swimrs from the temp storage
 function displaySwimrs(swimrsarray) {
@@ -18,7 +62,7 @@ function displaySwimrs(swimrsarray) {
     }
 }
 
-//  ajax call to get all swimrs
+//  get all swimrs from db
 function retrieveSwimrs() {
     $.ajax({
         url: "/users",
@@ -157,29 +201,7 @@ $(document).ready(function () {
     // CREATE Swimr
     $(".add_swimr").submit(function (event) {
         event.preventDefault();
-        var newname = $(".swimr_name").val();
-        $(".swimr_name").val("");
-        var made_newuser = newSwimr(newname);
-        //hide add swimr form
-        $(".add_swimr_wrap").css("display", "none");
-        $(".swimr_list_data").append(made_newuser);
-        console.log(newname);
-        //ajax call
-        $.ajax({
-            url: "/users",
-            method: "POST",
-            data: {
-                swimr_name: newname
-            }
-        }).done(retrieveSwimrs, function() {
-            console.log("done creating swimrs");
-        })
-        .fail(function (jqXHR, error) {
-            console.log("an error prevented creation of a new swimr");
-        });
-        current_swimr = newname;
-        displayRecords(temp_storage);
-        $(".swimrs_wrap").css("display", "block");
+        createSwimr();
     });
 
     $(".btn_swimr_close").click(function (event) {
@@ -187,7 +209,7 @@ $(document).ready(function () {
         $(".swimrs_wrap").css("display", "block");
     });
 
-    //Confirm Swimr DELETE
+    //  Display confirm Swimr DELETE
     $("div").on("click", ".btn_show_del_swimr", function () {
         $(".btn_show_del_swimr").css("display", "none");
         $(".confirm_del_swimr").css("display", "inline-block");
@@ -202,7 +224,8 @@ $(document).ready(function () {
     //Swimr DELETE
     $("div").on("click", ".btn_del_swimr", function (event) {
         //var tempid = $($(this).parent()).parent().attr("value");
-        var swimrname = current_swimr;
+        deleteSwimr();
+        /*var swimrname = current_swimr;
         console.log("you clicked delete for " + swimrname);
         $.ajax({
             url: "/users",
@@ -211,7 +234,7 @@ $(document).ready(function () {
         }).done(retrieveSwimrs);
         $(".records_wrap").css("display", "none");
         $(".btn_swimr_menu").css("display", "none");
-        $(".swimrs_wrap").css("display", "block");
+        $(".swimrs_wrap").css("display", "block");*/
     });
 
 

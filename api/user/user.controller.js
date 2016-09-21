@@ -38,11 +38,9 @@ Controller.prototype.createSwimr = function ( req, res, next) {
 
 Controller.prototype.deleteSwimr = function (req, res, next) {
   Swimr.findOneAndRemove({
-    query: {
       user_id: req.user._id,
       swimr_name: req.body.swimr_name
-    }
-  }, function (err, swimr) {
+    }, function (err, swimr) {
     if (err) {
       return next(err);
     }

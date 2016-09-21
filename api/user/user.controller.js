@@ -22,10 +22,12 @@ swimmers.find({user_id: req.user.id})*/
 
 
 Controller.prototype.createSwimr = function ( req, res, next) {
-  console.log("you created a swimr");
+  console.log("youre hitting the createswimr route");
+  console.log(req.user._id);
+  console.log(req.body.swimr_name);
   Swimr.create({
     user_id: req.user._id,
-    swimr_name: req.swimr_name
+    swimr_name: req.body.swimr_name
   }, function (err, newSwimr) {
     if (err) {
       return next(err);

@@ -163,17 +163,19 @@ $(document).ready(function () {
         //hide add swimr form
         $(".add_swimr_wrap").css("display", "none");
         $(".swimr_list_data").append(made_newuser);
-
+        console.log(newname);
         //ajax call
         $.ajax({
             url: "/users",
             method: "POST",
             data: {
-                swimrName: newname
+                swimr_name: newname
             }
-        }).done(retrieveSwimrs)
+        }).done(retrieveSwimrs, function() {
+            console.log("done creating swimrs");
+        })
         .fail(function (jqXHR, error) {
-            consol.log("an error prevented creation of a new swimr");
+            console.log("an error prevented creation of a new swimr");
         });
         current_swimr = newname;
         displayRecords(temp_storage);

@@ -22,20 +22,16 @@ swimmers.find({user_id: req.user.id})*/
 
 
 Controller.prototype.createSwimr = function ( req, res, next) {
-  User.findOneAndUpdate({
-    username: req.body.username
-  }, {
-    $push: {
-      swimrsarray: {
-        swimrName: req.body.swimr_name
-      }
-    }
+  console.log("you created a swimr");
+  Swimr.create({
+    user_id: req.user._id,
+    swimr_name: req.swimr_name
   }, function (err, newSwimr) {
     if (err) {
       return next(err);
     }
-    res.status(201).json(newSimr);
-  })
+    res.status(201).json(newSwimr);
+  });
 }
 
 Controller.prototype.deleteSwimr = function (req, res, next) {

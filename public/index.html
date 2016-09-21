@@ -45,12 +45,13 @@
                     <div>
                         <!-- existing user login -->
                             <span class="login_error">Incorrect username or password. Try again.</span>
+                            <span class="login_error_nodata">You must enter a username and password.</span>
                             <form action="">
                                 <label for="">
-                                    <input type="text" class="user_name" placeholder="User Name">
+                                    <input type="text" class="user_name" placeholder="User Name" required>
                                 </label>
                                 <label for="">
-                                    <input type="password" class="user_password" placeholder="Password">
+                                    <input type="password" class="user_password" placeholder="Password" required>
                                 </label>
                                 <button class="btn_submit_login" type="" value="">Log In</button>
                                 

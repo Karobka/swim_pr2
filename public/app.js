@@ -83,22 +83,34 @@ $(document).ready(function () {
     // click log in button
     $(".btn_submit_login").on("click", function (event) {
         event.preventDefault();
-        $(".login_error").css("display", "none");
         var username = $(".user_name").val();
         var password = $(".user_password").val();
-        $.ajax({
-            url: "/auth/login",
-            method: "POST",
-            data: {
-                username: username,
-                password: password
-            }
-        }).done(function () {
-            console.log("you logged in");
-        }).fail(function () {
-            console.log('error with credentials'),
-            $(".login_error").css("display", "block")
-        });
+        console.log(username + ' ' + password);
+        if (username === "" || password === "") {
+            $(".login_error").css("display", "none");
+            $(".login_error_nodata").css("display", "block");
+        }else {
+            console.log("attempting to ajax the house");
+            $(".login_error").css("display", "none");
+            $(".login_error_nodata").css("display", "none");
+            $.ajax({
+                url: "/auth/login",
+                method: "POST",
+                data: {
+                    username: username,
+                    password: password
+                }
+            }).done(function () {
+                console.log("you logged in");
+                //redirect to events.html
+                window.location = "events.html"; 
+                //get list of swimrs
+                //window.cookie
+            }).fail(function (error) {
+                console.log('error with credentials' + error),
+                $(".login_error").css("display", "block");
+            });
+        }
     });
 
     // show new user form

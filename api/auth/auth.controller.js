@@ -3,7 +3,7 @@ var User = require('../user/user.model');
 function Controller() {}
 
 Controller.prototype.login = function(req, res, next) {
-    console.log('logging in')
+    console.log('logging in');
     console.log(req.user);
 }
 

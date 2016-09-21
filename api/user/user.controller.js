@@ -5,13 +5,19 @@ function Controller() {}
 
 Controller.prototype.getSwimrs = function (req, res, next) {
   console.log("Congrats you made it to the getSwimrs route.");
-  User.find(
-    req.username,
-    function (err, res, next) {
-      
+  User.find({
+    username: req.body.username
+  }, function (err, user) {
+    if (err) {
+      return next(err);
     }
-  )
+    res.status(201).json(user);
+  });
 }
+
+/*User.findOne({user_id: req.user.id})
+swimmers.find({user_id: req.user.id})*/
+
 
 Controller.prototype.createSwimr = function ( req, res, next) {
   User.findOneAndUpdate({

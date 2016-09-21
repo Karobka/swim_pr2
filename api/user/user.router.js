@@ -9,7 +9,7 @@ function isLoggedIn (req, res, next) {
         return next();
     }
     res.json({
-        message: "Authentication failed"
+        message: 'Authentication failed'
     }).redirect('/');
 }
 

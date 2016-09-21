@@ -13,12 +13,12 @@ function newSwimr(newname) {
 //  function that displays Swimrs from the temp storage
 function displaySwimrs(swimrsarray) {
     for (var index in swimrsarray) {
-        var made_newswimr = newSwimr(swimrsarray[index].name);
+        var made_newswimr = newSwimr(swimrsarray[index].swimr_name);
         $(".swimr_list_data").prepend(made_newswimr);
     }
 }
 
-//  ajax call to get all users
+//  ajax call to get all swimrs
 function retrieveSwimrs() {
     $.ajax({
         url: "/users",
@@ -154,7 +154,7 @@ $(document).ready(function () {
                 });
     });
 
-    // CREATE Swimr on click
+    // CREATE Swimr
     $(".add_swimr").submit(function (event) {
         event.preventDefault();
         var newname = $(".swimr_name").val();

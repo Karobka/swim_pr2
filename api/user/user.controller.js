@@ -7,13 +7,13 @@ function Controller() {}
 
 Controller.prototype.getSwimrs = function (req, res, next) {
   console.log("Congrats you made it to the getSwimrs route.");
-  User.find({
-    username: req.body.username
-  }, function (err, user) {
+  Swimr.find({
+    user_id: req.user._id
+  }, function (err, swimrs) {
     if (err) {
       return next(err);
     }
-    res.status(201).json(user);
+    res.status(201).json(swimrs);
   });
 }
 
@@ -37,16 +37,16 @@ Controller.prototype.createSwimr = function ( req, res, next) {
 }
 
 Controller.prototype.deleteSwimr = function (req, res, next) {
-  User.findOneAndRemove({
-    name: req.body.name
-  }, function (err, user) {
+  Swimr.findOneAndRemove({
+    query: {
+      user_id: req.user._id,
+      swimr_name: req.body.swimr_name
+    }
+  }, function (err, swimr) {
     if (err) {
       return next(err);
-      /*return res.status(500).json({
-        message: 'Cant delete that...'
-      });*/
     }
-    res.status(200).json(user);
+    res.status(200).json(swimr);
   });
 }
 

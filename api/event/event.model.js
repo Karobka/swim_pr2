@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 
-
 var eventSchema = mongoose.Schema({
     eventName: {
         type: String,
@@ -30,6 +29,4 @@ var eventSchema = mongoose.Schema({
     }
 });
 
-//module.exports = mongoose.model('User', userSchema);
-var Event = mongoose.model('Event', eventSchema);
-module.exports = Event;
+module.exports = mongoose.model('Event', eventSchema);

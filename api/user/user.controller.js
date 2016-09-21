@@ -1,4 +1,6 @@
 var User = require('./user.model');
+var Event = require('../event/event.model');
+var Swimr = require('../swimr/swimr.model');
 var app = require('express');
 function Controller() {}
 

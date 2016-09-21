@@ -85,7 +85,6 @@ $(document).ready(function () {
         event.preventDefault();
         var username = $(".user_name").val();
         var password = $(".user_password").val();
-        console.log(username + ' ' + password);
         if (username === "" || password === "") {
             $(".login_error").css("display", "none");
             $(".login_error_nodata").css("display", "block");

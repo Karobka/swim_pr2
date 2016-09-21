@@ -1,5 +1,5 @@
 var User = require('./user.model');
-var Event = require('../event/event.model');
+var swimrEvent = require('../event/event.model');
 var Swimr = require('../swimr/swimr.model');
 var app = require('express');
 function Controller() {}
@@ -49,31 +49,21 @@ Controller.prototype.deleteSwimr = function (req, res, next) {
 }
 
 Controller.prototype.addSwimrEvent = function (req, res, next) {
-  req.params.name = req.body.name;
-  User.findOneAndUpdate({
-    name: req.body.name
-  }, {
-      $push: {
-        swim_history: {
-          $each: [{
-            eventName: req.body.eventName,
-            eventDate: req.body.eventDate,
-            eventStroke: req.body.eventStroke,
-            eventDistance: req.body.eventDistance,
-            eventTime: req.body.eventTime,
-            eventRank: req.body.eventRank
-          }]
-        }
-      }
-    }, {
-      returnNewDocument: true
-    },
+  //console.log(req);
+  swimrEvent.create({
+    user_id: req.user._id,
+    swimr_name: req.body.swimr_name,
+    eventName: req.body.eventName,
+    eventDate: req.body.eventDate,
+    eventStroke: req.body.eventStroke,
+    eventDistance: req.body.eventDistance,
+    eventTime: req.body.eventTime,
+    eventRank: req.body.eventRank
+  },
     function (err, newswimevent) {
       if (err) {
+        console.log(err.errors);
         return next(err);
-        /*return res.status(500).json({
-          message: 'You forgot to plug something in...'
-        });*/
       }
       res.status(201).json(newswimevent);
     }

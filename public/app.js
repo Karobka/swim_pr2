@@ -223,18 +223,7 @@ $(document).ready(function () {
 
     //Swimr DELETE
     $("div").on("click", ".btn_del_swimr", function (event) {
-        //var tempid = $($(this).parent()).parent().attr("value");
         deleteSwimr();
-        /*var swimrname = current_swimr;
-        console.log("you clicked delete for " + swimrname);
-        $.ajax({
-            url: "/users",
-            method: "DELETE",
-            data: { name: swimrname }
-        }).done(retrieveSwimrs);
-        $(".records_wrap").css("display", "none");
-        $(".btn_swimr_menu").css("display", "none");
-        $(".swimrs_wrap").css("display", "block");*/
     });
 
 
@@ -268,17 +257,21 @@ $(document).ready(function () {
         pushtostorage(temp_storage, tempswimrecord);
         displayRecords(temp_storage);
         $.ajax({
-            url: "/"+current_swimr+"/history", /*do I need the user defined here?*/
+            url: "/users/"+current_swimr+"/history", /*do I need the user defined here?*/
+            method: "POST",
             data: {
-                name: current_swimr,
+                swimr_name: current_swimr,
                 eventName: $(".event_name").val(),
                 eventDate: $(".event_date").val(),
                 eventStroke: $("select.event_stroke").val(),
                 eventDistance: $(".event_distance").val(),
                 eventTime: $(".event_time").val(),
                 eventRank: $(".event_rank").val()
-            },
-            method: "POST"
+            }
+        }).done(function(newevent) {
+            console.log("you made a new event " + newevent);
+        }).fail(function(error) {
+            console.log("error creating event " + error);
         });
         console.log("you tried to add a record");
         //reset forms

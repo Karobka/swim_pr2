@@ -17,7 +17,8 @@ var eventSchema = mongoose.Schema({
     },
     eventDate: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        required: false
     },
     eventStroke: {
         type: String,
@@ -30,7 +31,7 @@ var eventSchema = mongoose.Schema({
     },
     eventTime: {
         type: String,
-        required: true
+        required: false
     },
     eventRank: {
         type: String,

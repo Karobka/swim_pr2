@@ -76,8 +76,54 @@ function retrieveSwimrs() {
     });
 }
 
+// Push new swim record to temp storage
+function pushtostorage(temprecords, newrecord) {
+    for (var i = 0; i < temprecords.length; i++) {
+        if (temprecords[i].name === current_swimr) {
+            var tempnum = i;
+            console.log(temprecords[i].name);
+            temprecords[i].swim_history.unshift(newrecord);
+        }
+    }
+}
 
-//  display event records
+//Temp storage Swim record object constructor
+function SwimRecord(eventName, eventDate, eventStroke, eventDistance, eventTime, eventRank) {
+    this.eventName = eventName;
+    this.eventDate = eventDate;
+    this.eventStroke = eventStroke;
+    this.eventDistance = eventDistance;
+    this.eventTime = eventTime;
+    this.eventRank = eventRank;
+}
+
+//  create swimr event
+function createSwimrEvent() {
+    tempswimrecord = new SwimRecord($(".event_name").val(), $(".event_date").val(), $("select.event_stroke").val(), $(".event_distance").val(), $(".event_time").val(), $(".event_rank").val());
+    console.log(tempswimrecord);
+    pushtostorage(temp_storage, tempswimrecord);
+    displayRecords(temp_storage);
+    $.ajax({
+        url: "/users/" + current_swimr + "/history",
+        method: "POST",
+        data: {
+            swimr_name: current_swimr,
+            eventName: $(".event_name").val(),
+            eventDate: $(".event_date").val(),
+            eventStroke: $("select.event_stroke").val(),
+            eventDistance: $(".event_distance").val(),
+            eventTime: $(".event_time").val(),
+            eventRank: $(".event_rank").val()
+        }
+    }).done(function (newevent) {
+        console.log("you made a new event " + newevent);
+    }).fail(function (error) {
+        console.log("error creating event " + error);
+    });
+    console.log("you tried to add a record");
+}
+        
+//  display swimr events
 function displayRecords(records) {
     $(".records_table").children().remove();
     for (var i = 0; i < records.length; i++) {
@@ -228,52 +274,14 @@ $(document).ready(function () {
 
 
 
-    // Push new swim record to temp storage
-    function pushtostorage(temprecords, newrecord) {
-        for (var i = 0; i < temprecords.length; i++) {
-            if (temprecords[i].name === current_swimr) {
-                var tempnum = i;
-                console.log(temprecords[i].name);
-                temprecords[i].swim_history.unshift(newrecord);
-            }
-        }
-    }
 
-    //Temp storage Swim record object constructor
-    function SwimRecord(eventName, eventDate, eventStroke, eventDistance, eventTime, eventRank) {
-        this.eventName = eventName;
-        this.eventDate = eventDate;
-        this.eventStroke = eventStroke;
-        this.eventDistance = eventDistance;
-        this.eventTime = eventTime;
-        this.eventRank = eventRank;
-    }
+
+
 
     //Add new swim record event
     $(".add_record_data").submit(function (event) {
         event.preventDefault();
-        tempswimrecord = new SwimRecord($(".event_name").val(), $(".event_date").val(), $("select.event_stroke").val(), $(".event_distance").val(), $(".event_time").val(), $(".event_rank").val());
-        console.log(tempswimrecord);
-        pushtostorage(temp_storage, tempswimrecord);
-        displayRecords(temp_storage);
-        $.ajax({
-            url: "/users/"+current_swimr+"/history", /*do I need the user defined here?*/
-            method: "POST",
-            data: {
-                swimr_name: current_swimr,
-                eventName: $(".event_name").val(),
-                eventDate: $(".event_date").val(),
-                eventStroke: $("select.event_stroke").val(),
-                eventDistance: $(".event_distance").val(),
-                eventTime: $(".event_time").val(),
-                eventRank: $(".event_rank").val()
-            }
-        }).done(function(newevent) {
-            console.log("you made a new event " + newevent);
-        }).fail(function(error) {
-            console.log("error creating event " + error);
-        });
-        console.log("you tried to add a record");
+        createSwimrEvent();
         //reset forms
         $(".event_name").val("");
         $(".event_date").val("");

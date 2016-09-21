@@ -62,7 +62,7 @@ Controller.prototype.addSwimrEvent = function (req, res, next) {
   },
     function (err, newswimevent) {
       if (err) {
-        console.log(err.errors);
+        console.log("mongoose model errors " + err.errors);
         return next(err);
       }
       res.status(201).json(newswimevent);

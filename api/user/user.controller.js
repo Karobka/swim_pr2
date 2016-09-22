@@ -71,29 +71,16 @@ Controller.prototype.addSwimrEvent = function (req, res, next) {
 }
 
 Controller.prototype.deleteSwimrEvent = function (req, res, next) {
-  console.log(User);
-  console.log(req.body.name);
-  console.log("event name is " + req.body.eventName);
-  req.params.name = req.body.name;
-  User.findOneAndUpdate({
-    "name": req.body.name
-  }, {
-      $pull: {
-        swim_history: {
-          eventName: req.body.eventName
-        }
-      }
-    },
-    function (err, removedevent) {
-      if (err) {
-        return next(err);
-        /*return res.status(500).json({
-          message: 'Cant delete for some reason...'
-        });*/
-      }
-      res.status(201).json(removedevent);
+  Swimr.findOneAndRemove({
+      user_id: req.user._id,
+      swimr_name: req.body.swimr_name,
+      eventName: req.body.eventName
+    }, function (err, swimr) {
+    if (err) {
+      return next(err);
     }
-  );
+    res.status(200).json(swimr);
+  });
 }
 
 module.exports = Controller.prototype;

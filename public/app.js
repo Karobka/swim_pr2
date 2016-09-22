@@ -126,23 +126,6 @@ function createSwimrEvent() {
     console.log("you tried to add a record");
 }
 
-//  get swimr events from db
-function getSwimEvents() {
-    $.ajax({
-        url: "/users/" + current_swimr + "/history",
-        method: "GET",
-        data: {
-            swimr_name: current_swimr
-        }
-    }).done(function (events) {
-        console.log("you got the swim events for " + current_swimr);
-        temp_event_storage.shift(events);
-        displaySwimEvents(temp_event_storage);
-    }).fail(function(err) {
-        console.log("error getting swimr events from db " + err);
-    });
-}
-        
 //  display swimr events
 function displaySwimEvents(records) {
     console.log("attempting to display swim records");
@@ -150,6 +133,7 @@ function displaySwimEvents(records) {
     $(".records_data").children().remove();
     for (var i = 0; i < records.length; i++) {
         console.log("blah blah blah blah");
+        var tempnum = i;
         var showEvents = function (i, temp_history) {
             console.log("I am " + i);
             var swim_template = $('.hidden_wrap .event_wrap').clone();
@@ -168,11 +152,31 @@ function displaySwimEvents(records) {
             rank_elm.html(temp_history[i].eventRank);
             return swim_template;
         }
-        var hist_record = showEvents(i, temp_event_storage);
+        var hist_record = showEvents(tempnum, temp_event_storage);
         $(".records_data").append(hist_record);
     }
 }
 
+//  get swimr events from db
+function getSwimEvents() {
+    $.ajax({
+        url: "/users/" + current_swimr + "/history",
+        method: "GET",
+        /*data: {
+            swimr_name: current_swimr
+        }*/
+    }).done(function (found_events) {
+        console.log("you requested the swim events for " + current_swimr);
+        found_events.forEach(function(found_item) {
+            temp_event_storage.unshift(found_item);
+        })
+        //temp_event_storage.unshift(found_events);
+        console.log(temp_event_storage);
+        displaySwimEvents(temp_event_storage);
+    }).fail(function(err) {
+        console.log("error getting swimr events from db " + err);
+    });
+}
 // delete temp swimr events
 function delete_temp_event(temp_event_storage, event_del_name) {
     for (var i = 0; i < temp_event_storage.length; i++) {

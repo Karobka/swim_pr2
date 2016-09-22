@@ -50,9 +50,10 @@ Controller.prototype.deleteSwimr = function (req, res, next) {
 
 Controller.prototype.getSwimrEvents = function (req, res, next) {
   console.log("This is the getSwimrsEvents route.");
+  console.log(req);
   swimrEvent.find({
     user_id: req.user._id,
-    swimr_name: req.body.swimr_name
+    swimr_name: req.params.name
   }, function (err, swimrevents) {
     if (err) {
       return next(err);

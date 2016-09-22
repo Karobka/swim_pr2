@@ -7,7 +7,7 @@ var event_del_name;
 function newSwimr(newname) {
     var swimr_template = $('.hidden_wrap .swimr_template').clone();
     var name_elem = swimr_template.find('.btn_show_records');
-    name_elem.html('<img class="identavar" src="./identavar.png">' + newname);
+    name_elem.html(newname);
     return swimr_template;
 }
 //  create a new swimr

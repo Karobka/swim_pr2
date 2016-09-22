@@ -135,9 +135,8 @@ function createSwimrEvent() {
 function displaySwimEvents(records) {
     console.log("attempting to display swim records");
     console.log(records);
-    $(".records_data").children().remove();
+    $(".records_data").empty();
     for (var i = 0; i < records.length; i++) {
-        console.log("blah blah blah blah");
         var tempnum = i;
         var showEvents = function (i, temp_history) {
             console.log("I am " + i);
@@ -343,7 +342,6 @@ $(document).ready(function () {
 
     //Show records for swimr
     $("section").on("click", ".btn_show_records", function () {
-        
         $(".swimrs_wrap").css("display", "none");
         $(".add_record_data").css("display", "block");
         current_swimr = $(this).text();
@@ -360,6 +358,8 @@ $(document).ready(function () {
 
     //Click swimr name to go back to menu
     $(".btn_swimr_menu").on("click", function () {
+        //  empty array
+        temp_event_storage.length = 0;
         $(".confirm_del_swimr").css("display", "none");
         $(".btn_show_del_swimr").css("display", "inline-block");
         $(".swimrs_wrap").css("display", "block");

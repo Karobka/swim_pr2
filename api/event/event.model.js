@@ -15,26 +15,20 @@ var eventSchema = mongoose.Schema({
         unique: true
     },
     eventDate: {
-        type: Date,
-        default: Date.now,
-        required: false
+        type: Date
     },
     eventStroke: {
         type: String,
-        required: false,
         default: 'none'
     },
     eventDistance: {
-        type: String,
-        required: false
+        type: String
     },
     eventTime: {
-        type: String,
-        required: false
+        type: String
     },
     eventRank: {
-        type: String,
-        required: false
+        type: String
     }
 });
 

@@ -3,6 +3,13 @@ var temp_storage = [];
 var temp_event_storage = [];
 var event_del_name;
 
+//  Autofill with current date
+function setCurrentDate() {
+    var date = new Date().toISOString().substring(0, 10);
+    $(".event_date").val(date);
+    console.log(date);
+}
+
 //  New Swimr menu populating function
 function newSwimr(newname) {
     var swimr_template = $('.hidden_wrap .swimr_template').clone();
@@ -103,7 +110,6 @@ function createSwimrEvent() {
         $(".event_time").val(),
         $(".event_rank").val()
     );
-    console.log(tempswimrecord);
     pushtostorage(temp_event_storage, tempswimrecord);
     displaySwimEvents(temp_event_storage);
     $.ajax({
@@ -214,6 +220,8 @@ $(document).ready(function () {
     retrieveSwimrs();
     console.log(temp_storage);
     console.log(temp_event_storage);
+    //  set current date on load
+    setCurrentDate();
 
     // show login options
     $(".btn_confirm").on("click", function (event) {

@@ -37,7 +37,6 @@ function createSwimr() {
             console.log("an error prevented creation of a new swimr");
         });
     current_swimr = newname;
-    displaySwimEvents(temp_storage);
     $(".swimrs_wrap").css("display", "block");
 }
 

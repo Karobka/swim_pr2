@@ -245,10 +245,7 @@ $(document).ready(function () {
                 }
             }).done(function () {
                 console.log("you logged in");
-                //redirect to events.html
-                window.location = "events.html"; 
-                //get list of swimrs
-                //window.cookie
+                window.location = "events.html";
             }).fail(function (error) {
                 console.log('error with credentials' + error),
                 $(".login_error").css("display", "block");
@@ -292,6 +289,7 @@ $(document).ready(function () {
             }
         }).done(function(data) {
             console.log("new user created" + data);
+            window.location = "events.html";
         }).fail(function (jqXHR, error) {
                 console.log("error new user creation failed"),
                 $(".new_login_error").css("display", "block")

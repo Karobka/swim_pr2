@@ -17,7 +17,12 @@ Controller.prototype.create = function(req, res, next) {
         if (err) {
             return next(err);
         }
-        res.status(201).json(user);
+        req.login(user, function(err) {
+            if (err) {
+                return next(err);
+            }
+            return res.redirect("/users")
+        });
     });
 }
 

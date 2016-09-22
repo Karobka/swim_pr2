@@ -48,6 +48,20 @@ Controller.prototype.deleteSwimr = function (req, res, next) {
   });
 }
 
+Controller.prototype.getSwimrEvents = function (req, res, next) {
+  console.log("This is the getSwimrsEvents route.");
+  swimrEvent.find({
+    user_id: req.user._id,
+    swimr_name: req.body.swimr_name
+  }, function (err, swimrevents) {
+    if (err) {
+      return next(err);
+    }
+    console.log("this should be found events " + swimrevents);
+    res.status(201).json(swimrevents);
+  });
+}
+
 Controller.prototype.addSwimrEvent = function (req, res, next) {
   //console.log(req);
   swimrEvent.create({

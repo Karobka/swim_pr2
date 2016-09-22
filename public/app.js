@@ -31,7 +31,7 @@ function createSwimr() {
             console.log("an error prevented creation of a new swimr");
         });
     current_swimr = newname;
-    displayRecords(temp_storage);
+    displaySwimEvents(temp_storage);
     $(".swimrs_wrap").css("display", "block");
 }
 
@@ -55,7 +55,7 @@ function deleteSwimr() {
     $(".swimrs_wrap").css("display", "block");
 }
 
-//  function that displays Swimrs from the temp storage
+//  displays Swimrs from the temp storage
 function displaySwimrs(swimrsarray) {
     for (var index in swimrsarray) {
         var made_newswimr = newSwimr(swimrsarray[index].swimr_name);
@@ -105,7 +105,7 @@ function createSwimrEvent() {
     );
     console.log(tempswimrecord);
     pushtostorage(temp_event_storage, tempswimrecord);
-    displayRecords(temp_event_storage);
+    displaySwimEvents(temp_event_storage);
     $.ajax({
         url: "/users/" + current_swimr + "/history",
         method: "POST",
@@ -125,37 +125,51 @@ function createSwimrEvent() {
     });
     console.log("you tried to add a record");
 }
+
+//  get swimr events from db
+function getSwimEvents() {
+    $.ajax({
+        url: "/users/" + current_swimr + "/history",
+        method: "GET",
+        data: {
+            swimr_name: current_swimr
+        }
+    }).done(function (events) {
+        console.log("you got the swim events for " + current_swimr);
+        temp_event_storage.shift(events);
+        displaySwimEvents(temp_event_storage);
+    }).fail(function(err) {
+        console.log("error getting swimr events from db " + err);
+    });
+}
         
 //  display swimr events
-function displayRecords(records) {
-    $(".records_table").children().remove();
+function displaySwimEvents(records) {
+    console.log("attempting to display swim records");
+    console.log(records);
+    $(".records_data").children().remove();
     for (var i = 0; i < records.length; i++) {
-        if (records[i].name === current_swimr) {
-            var tempnum = i;
-            var temp_history = records[tempnum].swim_history;
-            for (var e = 0; e < records[tempnum].swim_history.length; e++) {
-                var showEvents = function (e, temp_history) {
-                    console.log("I am " + e);
-                    var swim_template = $('.hidden_wrap .event_values').clone();
-                    //var swim_template = $('.hidden_wrap .records_template').clone();
-                    var date_elem = swim_template.find('.event_date');
-                    date_elem.html(temp_history[e].eventDate);
-                    var name_elem = swim_template.find('.event_name');
-                    name_elem.html(temp_history[e].eventName);
-                    var distance_elem = swim_template.find('.event_distance');
-                    distance_elem.html(temp_history[e].eventDistance);
-                    var stroke_elem = swim_template.find('.event_stroke');
-                    stroke_elem.html(temp_history[e].eventStroke);
-                    var time_elem = swim_template.find('.event_time');
-                    time_elem.html(temp_history[e].eventTime);
-                    var rank_elm = swim_template.find('.event_rank');
-                    rank_elm.html(temp_history[e].eventRank);
-                    return swim_template;
-                }
-                var hist_record = showEvents(e, temp_history);
-                $(".records_table").append(hist_record);
-            }
+        console.log("blah blah blah blah");
+        var showEvents = function (i, temp_history) {
+            console.log("I am " + i);
+            var swim_template = $('.hidden_wrap .event_wrap').clone();
+            //var swim_template = $('.hidden_wrap .records_template').clone();
+            var date_elem = swim_template.find('.event_date');
+            date_elem.html(temp_history[i].eventDate);
+            var name_elem = swim_template.find('.event_name');
+            name_elem.html("<h2>" + temp_history[i].eventName + "</h2>");
+            var distance_elem = swim_template.find('.event_distance');
+            distance_elem.html(temp_history[i].eventDistance);
+            var stroke_elem = swim_template.find('.event_stroke');
+            stroke_elem.html(temp_history[i].eventStroke);
+            var time_elem = swim_template.find('.event_time');
+            time_elem.html(temp_history[i].eventTime);
+            var rank_elm = swim_template.find('.event_rank');
+            rank_elm.html(temp_history[i].eventRank);
+            return swim_template;
         }
+        var hist_record = showEvents(i, temp_event_storage);
+        $(".records_data").append(hist_record);
     }
 }
 
@@ -183,7 +197,7 @@ function delete_event(event_del_name) {
         }
     }).done(function (deleted_event) {
         console.log("you deleted an event from the database" + deleted_event);
-        displayRecords(temp_event_storage);
+        displaySwimEvents(temp_event_storage);
     }).fail(function (err) {
             console.log("error deleting swim event " + err);
         });
@@ -324,6 +338,7 @@ $(document).ready(function () {
 
     //Show records for swimr
     $("section").on("click", ".btn_show_records", function () {
+        
         $(".swimrs_wrap").css("display", "none");
         $(".add_record_data").css("display", "block");
         current_swimr = $(this).text();
@@ -334,7 +349,8 @@ $(document).ready(function () {
         $(".confirm_del_swimr").css("display", "none");
         $(".btn_show_del_swimr").css("display", "inline-block");
         console.log(current_swimr);
-        displayRecords(temp_event_storage);
+        getSwimEvents();
+        displaySwimEvents(temp_event_storage);
     });
 
     //Click swimr name to go back to menu

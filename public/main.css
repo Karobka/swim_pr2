@@ -290,33 +290,6 @@ button:hover {
     margin-bottom: 5px;
 }
 
-/**TABLE styles**/
-
-.event_table {
-    width: 100%;
-    margin: 20px 0 20px 0;
-}
-
-.event_table td {
-    text-align: center;
-    border: 1px solid #afafaf;
-    box-sizing: border-box;
-    padding: 10px 10px 10px 20px;
-}
-
-.event_values td:last-child {
-    border: 0;
-    padding: 0 !important;
-    margin: 0;
-    vertical-align: bottom;
-}
-
-.event_table .event_labels {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: #eaeaea;
-    font-size: 13px;
-}
 footer {
     border-top: 1px solid #afafaf;
     text-align: center;
@@ -324,12 +297,6 @@ footer {
 footer p {
     margin-top: 25px;
 }
-
-/** table row striping */
-tr:nth-of-type(odd) { 
-  background: #eee; 
-}
-
 
 /** event styles */
 .event_wrap {

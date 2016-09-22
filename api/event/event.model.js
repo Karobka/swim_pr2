@@ -15,7 +15,7 @@ var eventSchema = mongoose.Schema({
         unique: true
     },
     eventDate: {
-        type: Date
+        type: String
     },
     eventStroke: {
         type: String,

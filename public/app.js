@@ -102,6 +102,7 @@ function SwimRecord(eventName, eventDate, eventStroke, eventDistance, eventTime,
 
 //  create swimr event
 function createSwimrEvent() {
+    console.log("date being submitted " + $(".event_date").val());
     tempswimrecord = new SwimRecord(
         $(".event_name").val(),
         $(".event_date").val(),

@@ -7,7 +7,6 @@ var event_del_name;
 function setCurrentDate() {
     var date = new Date().toISOString().substring(0, 10);
     $(".event_date").val(date);
-    console.log(date);
 }
 
 //  New Swimr menu populating function
@@ -187,20 +186,16 @@ function getSwimEvents() {
 // delete temp swimr events
 function delete_temp_event(temp_event_storage, event_del_name) {
     for (var i = 0; i < temp_event_storage.length; i++) {
-        if (temp_event_storage[i].name === current_swimr) {
-            var tempnum = i;
-            for (var e = 0; e < temp_event_storage[tempnum].swim_history.length; e++) {
-                if (event_del_name == temp_event_storage[tempnum].swim_history[e].eventName) {
-                    temp_event_storage[tempnum].swim_history.splice(e, 1);
-                }
-            }
+        if (temp_event_storage[i].eventName === event_del_name) {
+            console.log("found and will delete " + temp_event_storage[i].eventName);
+            temp_event_storage.splice(i, 1);
         }
     }
 }
 //  delete swimr events from db
 function delete_event(event_del_name) {
     $.ajax({
-        url: "/" + current_swimr + "/history",
+        url: "/users/" + current_swimr + "/history",
         method: "DELETE",
         data: {
             swimr_name: current_swimr,
@@ -210,7 +205,7 @@ function delete_event(event_del_name) {
         console.log("you deleted an event from the database" + deleted_event);
         displaySwimEvents(temp_event_storage);
     }).fail(function (err) {
-            console.log("error deleting swim event " + err);
+            console.log("error deleting swim event ");
         });
 }
 
@@ -402,7 +397,7 @@ $(document).ready(function () {
     });
 
     //Delete swim record event for swimr
-    $("tbody").on("click", ".btn_remove_event", function (event) {
+    $(".records_data").on("click", ".btn_remove_event", function (event) {
         console.log($(this).parent().parent().find(".event_name").text());
         $(".confirm_del_swimr").css("display", "none");
         $(".btn_show_del_swimr").css("display", "inline-block");

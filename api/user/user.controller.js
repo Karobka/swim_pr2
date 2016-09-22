@@ -50,7 +50,7 @@ Controller.prototype.deleteSwimr = function (req, res, next) {
 
 Controller.prototype.getSwimrEvents = function (req, res, next) {
   console.log("This is the getSwimrsEvents route.");
-  console.log(req);
+  //console.log(req);
   swimrEvent.find({
     user_id: req.user._id,
     swimr_name: req.params.name
@@ -86,15 +86,16 @@ Controller.prototype.addSwimrEvent = function (req, res, next) {
 }
 
 Controller.prototype.deleteSwimrEvent = function (req, res, next) {
-  Swimr.findOneAndRemove({
-      user_id: req.user._id,
-      swimr_name: req.body.swimr_name,
-      eventName: req.body.eventName
-    }, function (err, swimr) {
+  swimrEvent.findOneAndRemove({
+    user_id: req.user._id,
+    swimr_name: req.body.swimr_name,
+    eventName: req.body.eventName
+  }, function (err, removed_event) {
     if (err) {
+      console.log("mongoose model errors " + err.errors);
       return next(err);
     }
-    res.status(200).json(swimr);
+    res.status(200).json(removed_event);
   });
 }
 

@@ -44,10 +44,15 @@ body {
 .intro_message {
     display: none;
     background-color: #b9ecda;
-    border: 1px solid black;
-    width: 80%;
+    border: 1px solid #a9a9a9;
+    width: 50%;
     margin: auto;
+    margin-top: 15px;
+    font-size: 150%;
+    padding: 15px;
+    color: #737373;
 }
+
 .intro_words {
     line-height: 70px;
 }
@@ -354,6 +359,13 @@ footer p {
 @media screen and (max-width: 600px) {
     .login_wrap {
         width: 100%;
+    }
+    .intro_message {
+        width: 95%;
+        font-size: 100%;
+    }
+    .container_wrap {
+        width: 95%;
     }
 }
 

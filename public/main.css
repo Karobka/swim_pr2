@@ -141,7 +141,7 @@ body {
     width: 512px;
     margin: auto;
 }
-.swimrs_wrap,
+.container_wrap,
 .login_wrap {
     text-align: center;
     background-color: #eaeaea;
@@ -158,13 +158,12 @@ body {
 .btn_swimr_menu {
     float: left;
 }
-.add_swimr_wrap,
-.swimrs_wrap {
+.add_swimr_wrap{
     text-align: center;
 }
-.swimrs_wrap {
+.container_wrap {
     width: 1024px;
-    margin: auto;
+    margin: 100px auto auto auto;
 }
 .swimr_list_data {
     /*list-style-type: none;
@@ -331,8 +330,8 @@ footer p {
 }
 
 @media screen and (max-width: 1024px) {
-    .swimrs_wrap {
-        width: 100%
+    .container_wrap {
+        width: 80%;
     }
 }
 
@@ -340,4 +339,8 @@ footer p {
     .login_wrap {
         width: 100%;
     }
+}
+
+@media screen and (max-width: 500px{
+    
 }

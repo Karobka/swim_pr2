@@ -13,7 +13,7 @@ function deleteSwimr() {
         data: {
             swimr_name: swimrname
         }
-    }).done(retrieveSwimrs, function () {
+    }).done(function (swimrname) {
         console.log("done deleting a swimr " + swimrname);
         window.location = "swimmers.html";
     }).fail(function (error) {

@@ -43,8 +43,10 @@ body {
 }
 .intro_message {
     display: none;
-    background-color: #17c687;
+    background-color: #b9ecda;
     border: 1px solid black;
+    width: 80%;
+    margin: auto;
 }
 .intro_words {
     line-height: 70px;
@@ -52,6 +54,7 @@ body {
 .secondary_font {
     font-family: "Roboto Slab", serif;
 }
+.swimr_header,
 .login_header {
     background-color: #fff;
     border-radius: 3px;
@@ -125,10 +128,6 @@ body {
 .color_div2,
 .color_div3 {
     margin-top: 5px;
-}
-.swimr_header {
-    /*background-color: #2a6ad4;*/
-    background-color: #eaeaea;
 }
 .swimr_header h2{
     padding: 15px;

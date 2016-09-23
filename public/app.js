@@ -341,7 +341,7 @@ $(document).ready(function () {
         createSwimrEvent();
         //reset forms
         $(".event_name").val("");
-        $(".event_date").val("");
+        setCurrentDate();
         $("select.event_stroke").val("");
         $(".event_distance").val("");
         $(".event_time").val("");

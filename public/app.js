@@ -9,6 +9,15 @@ function setCurrentDate() {
     $(".event_date").val(date);
 }
 
+//  show intro text
+function showIntroMessage(temp_storage) {
+    if (temp_storage.length < 1) {
+        $(".intro_message").css("display", "block");
+    }else {
+        $(".intro_message").css("display", "none");
+    }
+}
+
 //  New Swimr menu populating function
 function newSwimr(newname) {
     var swimr_template = $('.hidden_wrap .swimr_template').clone();
@@ -62,6 +71,7 @@ function deleteSwimr() {
 
 //  displays Swimrs from the temp storage
 function displaySwimrs(swimrsarray) {
+    showIntroMessage(swimrsarray);
     for (var index in swimrsarray) {
         var made_newswimr = newSwimr(swimrsarray[index].swimr_name);
         $(".swimr_list_data").prepend(made_newswimr);
@@ -78,6 +88,7 @@ function retrieveSwimrs() {
       console.log(swimrs);
       displaySwimrs(swimrs);
       temp_storage = swimrs;
+      showIntroMessage(temp_storage);
       console.log(temp_storage);
     });
 }
@@ -216,6 +227,7 @@ $(document).ready(function () {
     console.log(temp_event_storage);
     //  set current date on load
     setCurrentDate();
+    showIntroMessage(temp_storage);
 
     // show login options
     $(".btn_confirm").on("click", function (event) {

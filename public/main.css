@@ -41,18 +41,17 @@ body {
 .header_swimpr {
     padding: 10px;
 }
+.intro_message {
+    display: none;
+    background-color: #17c687;
+    border: 1px solid black;
+}
 .intro_words {
     line-height: 70px;
 }
 .secondary_font {
     font-family: "Roboto Slab", serif;
 }
-/*.words_right {
-    display: inline-block;
-}
-.words_left {
-    display: inline-block;
-}*/
 .login_header {
     background-color: #fff;
     border-radius: 3px;

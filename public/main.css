@@ -162,7 +162,10 @@ body {
 .swimrs_wrap {
     text-align: center;
 }
-
+.swimrs_wrap {
+    width: 1024px;
+    margin: auto;
+}
 .swimr_list_data {
     /*list-style-type: none;
     padding-left: 0;*/
@@ -327,6 +330,11 @@ footer p {
     margin-top: 5%;
 }
 
+@media screen and (max-width: 1024px) {
+    .swimrs_wrap {
+        width: 100%
+    }
+}
 
 @media screen and (max-width: 600px) {
     .login_wrap {

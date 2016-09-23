@@ -132,6 +132,9 @@ body {
 .swimr_header h2{
     padding: 15px;
 }
+.swimr_template {
+    margin: 5px;
+}
 .wrap_header > h1 {
     margin: 0;
 }
@@ -160,6 +163,7 @@ body {
 }
 .add_swimr_wrap{
     text-align: center;
+    margin: 25px;
 }
 .container_wrap {
     width: 1024px;
@@ -220,6 +224,8 @@ button:hover {
     color: #fff;
     cursor: pointer;
 }
+.btn_add_swimr,
+.btn_new_swimr,
 .btn_form_submit,
 .btn_submit_login,
 .btn_confirm {
@@ -227,6 +233,10 @@ button:hover {
      background-color: #17c687;
      border-radius: 2px;
      border: 1px solid #104d71;
+}
+.btn_add_swimr,
+.btn_new_swimr {
+    width: 200px;
 }
 
 .btn_swimr_menu {
@@ -297,6 +307,9 @@ footer {
 }
 footer p {
     margin-top: 25px;
+}
+.lower_footer {
+    margin-top: 7em;
 }
 
 /** event styles */

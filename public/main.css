@@ -163,9 +163,6 @@ body {
 .new_acct_form {
     margin-bottom: 20px;
 }
-.btn_swimr_menu {
-    float: left;
-}
 .add_swimr_wrap{
     text-align: center;
     margin: 25px;
@@ -186,9 +183,7 @@ body {
 .confirm_del_swimr,
 .add_swimr_wrap,
 .add_record_wrap,
-.hidden_wrap,
-.btn_swimr_menu,
-.records_wrap{
+.hidden_wrap{
     display: none;
 }
 
@@ -249,6 +244,7 @@ button:hover {
 
 .btn_swimr_menu {
     background: #cbd0e4;
+    float: left;
 }
 
 .btn_swimr_menu:hover {

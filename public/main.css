@@ -90,6 +90,7 @@ body {
     /*background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8);*/
     background: linear-gradient(141deg, #00648a 0%, #1fc8db 51%, #00648a); 
 }
+
 .subtitles {
     padding: 25px;
 }
@@ -167,7 +168,7 @@ body {
 }
 .container_wrap {
     width: 1024px;
-    margin: 100px auto auto auto;
+    margin: 80px auto auto auto;
 }
 .swimr_list_data {
     /*list-style-type: none;
@@ -237,6 +238,9 @@ button:hover {
 .btn_add_swimr,
 .btn_new_swimr {
     width: 200px;
+}
+.btn_new_swimr {
+    margin: 10px;
 }
 
 .btn_swimr_menu {

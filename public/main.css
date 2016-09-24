@@ -59,11 +59,13 @@ body {
 .secondary_font {
     font-family: "Roboto Slab", serif;
 }
-.swimr_header,
 .login_header {
     background-color: #fff;
     border-radius: 3px;
     border-bottom: 3px solid #2abfd4;
+}
+.swimr_header {
+    background-color: #2abfd4;
 }
 .login_header > h1 {
     padding: 15px;
@@ -224,6 +226,7 @@ button:hover {
     color: #fff;
     cursor: pointer;
 }
+.btn_submit_newuser,
 .btn_add_swimr,
 .btn_new_swimr,
 .btn_form_submit,

@@ -17,9 +17,6 @@ Controller.prototype.getSwimrs = function (req, res, next) {
   });
 }
 
-/*User.findOne({user_id: req.user.id})
-swimmers.find({user_id: req.user.id})*/
-
 
 Controller.prototype.createSwimr = function ( req, res, next) {
   console.log("youre hitting the createswimr route");

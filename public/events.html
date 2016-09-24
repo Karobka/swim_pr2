@@ -14,14 +14,18 @@
                 <h1 class="header_swimpr"><span class="red_accent">Swim</span>PR</h1>
         </span>
     </header>
-    <div class="container_wrap">
+    <div class="events_wrap">
         <button class="btn_swimr_menu"></button>
+        <button class="btn_show_create_form">
+            <i class="fa fa-plus" aria-hidden="true"></i> &nbsp
+            New Event
+        </button>
         <div class="forms_wrap">
             <!-- ADD Record Form -->
             <div class="add_record_wrap">
                 <form action="" class="add_record_data">
                     <label for="">
-                        <input type="text" class="event_name" name="event_name" placeholder="Event Name">
+                        <input type="text" class="event_name" name="event_name" placeholder="Event Name" required>
                     </label>
                     <label for="">
                         <input type="date" class="event_date" name="event_date" placeholder="Date">
@@ -56,14 +60,11 @@
 
         <!-- Records Results go here -->
         <div class="records_wrap">
-            <button class="btn_show_create_form">
-                <i class="fa fa-plus" aria-hidden="true"></i> &nbsp
-                New Event
-            </button>
+            
             <div class="no_records_message">
                 <p>No swim records found...</p>
                 <i class="fa fa-meh-o fa-6" aria-hidden="true"></i>
-                <p>Add one!</p>
+                <p>You should add one!</p>
             </div>
             <div class="records_data">
             </div>

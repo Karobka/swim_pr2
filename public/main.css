@@ -29,6 +29,12 @@ time, mark, audio, video {
 body {
     font-family: Roboto, 'Open Sans', sans-serif;
 }
+.records_wrap {
+    padding: 55px;
+}
+.events_wrap {
+    margin: 25px;
+}
 .header_wrap {
     /*background-color: #607D8B;*/
     border-bottom: 3px solid #27a9bb;
@@ -270,6 +276,9 @@ button:hover {
 .btn_show_create_form:hover {
     background: #1d8594;
 }
+.btn_show_create_form {
+    float: right;
+}
 
 /** Danger Button Styling **/
 .btn_show_del_swimr,
@@ -309,6 +318,7 @@ button:hover {
 }
 .no_records_message {
     display: none;
+    text-align: center;
 }
 .user_template {
     margin-bottom: 5px;

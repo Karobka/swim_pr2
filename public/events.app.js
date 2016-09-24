@@ -77,31 +77,37 @@ function createSwimrEvent() {
 
 //  display swimr events
 function displaySwimEvents(records) {
-    console.log("attempting to display swim records");
-    console.log(records);
-    $(".records_data").empty();
-    for (var i = 0; i < records.length; i++) {
-        var tempnum = i;
-        var showEvents = function (i, temp_history) {
-            console.log("I am " + i);
-            var swim_template = $('.hidden_wrap .event_wrap').clone();
-            //var swim_template = $('.hidden_wrap .records_template').clone();
-            var date_elem = swim_template.find('.event_date');
-            date_elem.html(temp_history[i].eventDate);
-            var name_elem = swim_template.find('.event_name');
-            name_elem.html("<h2>" + temp_history[i].eventName + "</h2>");
-            var distance_elem = swim_template.find('.event_distance');
-            distance_elem.html(temp_history[i].eventDistance);
-            var stroke_elem = swim_template.find('.event_stroke');
-            stroke_elem.html(temp_history[i].eventStroke);
-            var time_elem = swim_template.find('.event_time');
-            time_elem.html(temp_history[i].eventTime);
-            var rank_elm = swim_template.find('.event_rank');
-            rank_elm.html(temp_history[i].eventRank);
-            return swim_template;
+    if (records.length === 0) {
+        $(".records_data").empty();
+        $(".no_records_message").css("display", "block");
+    } else {
+        $(".no_records_message").css("display", "none");
+        console.log("attempting to display swim records");
+        console.log(records);
+        $(".records_data").empty();
+        for (var i = 0; i < records.length; i++) {
+            var tempnum = i;
+            var showEvents = function (i, temp_history) {
+                console.log("I am " + i);
+                var swim_template = $('.hidden_wrap .event_wrap').clone();
+                //var swim_template = $('.hidden_wrap .records_template').clone();
+                var date_elem = swim_template.find('.event_date');
+                date_elem.html(temp_history[i].eventDate);
+                var name_elem = swim_template.find('.event_name');
+                name_elem.html("<h2>" + temp_history[i].eventName + "</h2>");
+                var distance_elem = swim_template.find('.event_distance');
+                distance_elem.html(temp_history[i].eventDistance);
+                var stroke_elem = swim_template.find('.event_stroke');
+                stroke_elem.html(temp_history[i].eventStroke);
+                var time_elem = swim_template.find('.event_time');
+                time_elem.html(temp_history[i].eventTime);
+                var rank_elm = swim_template.find('.event_rank');
+                rank_elm.html(temp_history[i].eventRank);
+                return swim_template;
+            }
+            var hist_record = showEvents(tempnum, temp_event_storage);
+            $(".records_data").append(hist_record);
         }
-        var hist_record = showEvents(tempnum, temp_event_storage);
-        $(".records_data").append(hist_record);
     }
 }
 

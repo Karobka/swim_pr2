@@ -295,12 +295,18 @@ button:hover {
     padding-right: 10px;
     border-right: 1px solid black;
 }
+.fa-6 {
+    font-size: 12em;
+    color: #737373;
+}
 
 .records_template {
     border-bottom: solid black 1px;
     margin: 0 auto;
 }
-
+.no_records_message {
+    display: none;
+}
 .user_template {
     margin-bottom: 5px;
 }

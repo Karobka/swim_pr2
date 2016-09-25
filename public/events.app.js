@@ -196,6 +196,7 @@ $(document).ready(function () {
     $(".btn_event_close").on("click", function () {
         $(".add_record_wrap").css("display", "none");
         $(".records_wrap").css("display", "block");
+        $(".btn_show_create_form").css("display", "inline");
     });
     //open new event form
     $(".btn_show_create_form").on("click", function () {
@@ -204,6 +205,7 @@ $(document).ready(function () {
         $(".btn_show_del_swimr").css("display", "inline-block");
         $(".records_wrap").css("display", "none");
         $(".add_record_wrap").css("display", "inline-block");
+        $(".btn_show_create_form").css("display", "none");
     });
     //Add new swim record event
     $(".add_record_data").submit(function (event) {
@@ -220,6 +222,7 @@ $(document).ready(function () {
         $(".add_record_wrap").css("display", "none");
         //Show swim records again
         $(".records_wrap").css("display", "block");
+        $(".btn_show_create_form").css("display", "inline");
     });
     //Delete swim record event for swimr
     $(".records_data").on("click", ".btn_remove_event", function (event) {

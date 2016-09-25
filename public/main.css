@@ -358,13 +358,13 @@ footer p {
 .event_data {
     text-align: center;
 }
-.event_date,
+/*.event_date,
 .event_distance,
 .event_stroke,
 .event_time,
 .event_rank {
     margin-top: 5%;
-}
+}*/
 
 @media screen and (max-width: 1024px) {
     .container_wrap {

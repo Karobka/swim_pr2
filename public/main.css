@@ -199,7 +199,6 @@ body {
 input {
     border: 1px solid #afafaf;
     padding: 20px;
-    display: block;
     margin: 10px auto;
 }
 
@@ -334,7 +333,9 @@ footer p {
 .lower_footer {
     margin-top: 7em;
 }
-
+.forms_wrap {
+    text-align: center;
+}
 /** event styles */
 .event_wrap {
     border: 1px solid #104d71;
@@ -381,6 +382,9 @@ footer p {
     }
     .container_wrap {
         width: 95%;
+    }
+    input {
+        display: block;
     }
 }
 

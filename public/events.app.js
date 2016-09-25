@@ -199,6 +199,7 @@ $(document).ready(function () {
     });
     //open new event form
     $(".btn_show_create_form").on("click", function () {
+        setCurrentDate();
         $(".confirm_del_swimr").css("display", "none");
         $(".btn_show_del_swimr").css("display", "inline-block");
         $(".records_wrap").css("display", "none");

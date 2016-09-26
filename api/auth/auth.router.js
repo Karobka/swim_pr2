@@ -8,5 +8,6 @@ var passport = require('passport');
 router
     .post('/login', passport.authenticate('local', { successRedirect: '/users', failureRedirect: '/login' }))
     .post('/create', controller.create)
+    .get('/logout', controller.logOut)
 
 module.exports = router;

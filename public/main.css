@@ -231,6 +231,7 @@ button:hover {
     color: #fff;
     cursor: pointer;
 }
+.btn_logout,
 .btn_submit_newuser,
 .btn_add_swimr,
 .btn_new_swimr,
@@ -254,7 +255,10 @@ button:hover {
     background: #cbd0e4;
     float: left;
 }
-
+.btn_logout {
+    float: right;
+    margin: 5px;
+}
 .btn_swimr_menu:hover {
     background: #9dace8;
 }
@@ -263,12 +267,14 @@ button:hover {
 }
 
 .btn,
+.btn_logout,
 .btn_add_swimr,
 .add_swim_record,
 .btn_show_create_form {
     background: #2abfd4;
 }
 .btn:hover,
+.btn_logout:hover,
 .btn_new_user:hover,
 .btn_add_swimr:hover,
 .add_swim_record:hover,
@@ -365,7 +371,9 @@ footer p {
 .event_rank {
     margin-top: 5%;
 }*/
-
+.login_wrap input {
+    display: block;
+}
 @media screen and (max-width: 1024px) {
     .container_wrap {
         width: 80%;

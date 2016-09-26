@@ -177,4 +177,18 @@ $(document).ready(function () {
         $(".swimrs_wrap").css("display", "none");
     });
 
+    //  Log out
+    $(".btn_logout").on("click", function(event) {
+        event.preventDefault();
+        $.ajax({
+            url: "auth/logout",
+            method: "GET"
+        }).done(function() {
+            console.log("You logged out");
+            window.location = "index.html";
+        }).fail(function() {
+            console.log("An error occured trying to log out");
+        });
+    });
+
 });

@@ -8,9 +8,7 @@ function isLoggedIn (req, res, next) {
         console.log('You are authenticated');
         return next();
     }
-    res.json({
-        message: 'Authentication failed'
-    });
+    res.send('Authentication failed.  Please login again.');
 }
 
 

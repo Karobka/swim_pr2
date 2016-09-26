@@ -7,8 +7,10 @@ function isLoggedIn (req, res, next) {
     if (req.user) {
         console.log('You are authenticated');
         return next();
+    }else {
+        res.render('/index.html').send('Please login.');
     }
-    res.send('Authentication failed.  Please login again.');
+    
 }
 
 

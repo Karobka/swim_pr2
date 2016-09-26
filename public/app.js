@@ -13,8 +13,8 @@ function showIntroMessage(temp_storage) {
 
 //  New Swimr menu populating function
 function newSwimr(newname) {
-    var swimr_template = $('.hidden_wrap .swimr_template').clone();
-    var name_elem = swimr_template.find('.btn_show_records');
+    var swimr_template = $(".hidden_wrap .swimr_template").clone();
+    var name_elem = swimr_template.find(".btn_show_records");
     name_elem.html(newname);
     return swimr_template;
 }

@@ -15,7 +15,7 @@ Controller.prototype.logOut = function(req, res) {
 
 
 Controller.prototype.create = function(req, res, next) {
-    console.log("user create is being hit from the auth.controller file");
+    console.log('user create is being hit from the auth.controller file');
     User.create({
         username: req.body.username,
         password: req.body.password
@@ -27,7 +27,7 @@ Controller.prototype.create = function(req, res, next) {
             if (err) {
                 return next(err);
             }
-            return res.redirect("/users")
+            return res.redirect('/users')
         });
     });
 }

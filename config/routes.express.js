@@ -6,9 +6,9 @@ module.exports = function (app) {
     app.use('/users', userRouter);
 
     app.use(function (req, res, next) {
-        res.send('404: Page not Found.  Please try again!', 404);
+        res.status(404).send('404: Page not Found.  Please try again!');
     });
     app.use(function (error, req, res, next) {
-        res.send('500: Internal Server Error.  Please try again!', 500);
+        res.status(500).send('500: Internal Server Error.  Please try again!');
     });
 }

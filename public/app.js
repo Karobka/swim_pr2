@@ -146,7 +146,7 @@ $(document).ready(function () {
             }
         }).done(function (data) {
             console.log("new user created" + data);
-            window.location = "events.html";
+            window.location = "swimmers.html";
         }).fail(function (error) {
             console.log("error new user creation failed"),
                 $(".new_login_error").css("display", "block")

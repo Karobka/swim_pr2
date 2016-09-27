@@ -216,32 +216,42 @@ select {
     height: 50px;
     box-sizing: border-box;
 }
-
 button {
-    border: 0;
-    background: #fff;
-    border: 1px solid #afafaf;
-    margin-left: 2px;
     text-transform: uppercase;
 }
-
 button:hover {
-    background: #afafaf;
-    border: 1px solid #999;
-    color: #fff;
     cursor: pointer;
 }
-.btn_logout,
-.btn_submit_newuser,
-.btn_add_swimr,
-.btn_new_swimr,
-.btn_form_submit,
-.btn_submit_login,
-.btn_confirm {
-     width: 128px;
-     background-color: #17c687;
-     border-radius: 2px;
-     border: 1px solid #104d71;
+/** buttons for new or add **/
+.btn_style_add {
+    width: 128px;
+    background-color: #17c687;
+    border-radius: 2px;
+    border: 1px solid #104d71;
+}
+.btn_style_add:hover {
+    background-color: #14e298;
+}
+
+/** buttons for confirm or login **/
+.btn_style_confirm {
+    background-color: #2abfd4;
+    width: 128px;
+    border-radius: 2px;
+    border: 1px solid #104d71;
+}
+.btn_style_confirm:hover {
+    background-color: #25d6ef;
+    border: 1px solid #104d71;
+}
+.btn_show_records {
+    width: 256px;
+    border-radius: 2px;
+    border: 1px solid #104d71;
+    background-color: #fff;
+}
+.btn_show_records:hover {
+    background-color: #737373;
 }
 .btn_add_swimr,
 .btn_new_swimr {
@@ -250,62 +260,39 @@ button:hover {
 .btn_new_swimr {
     margin: 10px;
 }
-
 .btn_swimr_menu {
-    background: #cbd0e4;
     float: left;
 }
 .btn_logout {
     float: right;
     margin: 5px;
 }
-.btn_swimr_menu:hover {
-    background: #9dace8;
-}
 .btn_add_swimr {
     margin: 20px;
-}
-
-.btn,
-.btn_logout,
-.btn_add_swimr,
-.add_swim_record,
-.btn_show_create_form {
-    background: #2abfd4;
-}
-.btn:hover,
-.btn_logout:hover,
-.btn_new_user:hover,
-.btn_add_swimr:hover,
-.add_swim_record:hover,
-.btn_show_create_form:hover {
-    background: #1d8594;
 }
 .btn_show_create_form {
     float: right;
 }
-
+.btn_cancel {
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 2px;
+    width: 128px;
+}
+.btn_cancel:hover {
+    background-color: #737373;
+}
 /** Danger Button Styling **/
-.btn_show_del_swimr,
-.btn_event_close,
-.btn_remove_event,
-.btn_del_swimr {
-    background: #e4cbd7;
+.btn_danger {
+    background-color: #d27d90;
+    border: 1px solid #000;
+    border-radius: 2px;
+    width: 128px;
 }
 
 /** Danger Button Hover Styling **/
-.btn_show_del_swimr:hover,
-.btn_event_clost:hover,
-.btn_remove_event:hover,
-.btn_del_swimr:hover {
-    background: #d27d90;
-}
-.btn_show_records {
-    width: 256px;
-}
-.identavar {
-    width: 48px;
-    vertical-align: middle;
+.btn_danger:hover {
+    background: #f9829c;
 }
 
 .fa_border {
@@ -364,13 +351,6 @@ footer p {
 .event_data {
     text-align: center;
 }
-/*.event_date,
-.event_distance,
-.event_stroke,
-.event_time,
-.event_rank {
-    margin-top: 5%;
-}*/
 .login_wrap input {
     display: block;
 }

@@ -13,7 +13,6 @@ Controller.prototype.logOut = function(req, res) {
     console.log('logging out');
 }
 
-
 Controller.prototype.create = function(req, res, next) {
     console.log('user create is being hit from the auth.controller file');
     User.create({

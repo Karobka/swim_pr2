@@ -8,11 +8,10 @@ function isLoggedIn (req, res, next) {
         console.log('You are authenticated');
         return next();
     }else {
-        res.render('/index.html').send('Please login.');
+        res.send(err);
     }
     
 }
-
 
 router
     .get('/', isLoggedIn, controller.getSwimrs)

@@ -82,8 +82,6 @@ function displaySwimEvents(records) {
         $(".no_records_message").css("display", "block");
     } else {
         $(".no_records_message").css("display", "none");
-        console.log("attempting to display swim records");
-        console.log(records);
         $(".records_data").empty();
         for (var i = 0; i < records.length; i++) {
             var tempnum = i;
@@ -157,11 +155,12 @@ function delete_event(event_del_name) {
     });
 }
 
+
 $(document).ready(function () {
     setCurrentDate();
     current_swimr = localStorage.getItem("current_swimr");
     getSwimEvents();
-    displaySwimEvents(temp_event_storage); //do I need this if getSwimEvents calls it already
+    displaySwimEvents(temp_event_storage);
 
     //  set button with current swimmers name
     $(".btn_swimr_menu").html(

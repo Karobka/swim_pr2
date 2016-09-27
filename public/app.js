@@ -58,22 +58,23 @@ function retrieveSwimrs() {
         method: "GET"
     }).done(function (swimrs) {
       $(".swimr_list_data").children().remove();
-      console.log(swimrs);
+      //console.log(swimrs);
       displaySwimrs(swimrs);
       temp_storage = swimrs;
       showIntroMessage(temp_storage);
-      console.log(temp_storage);
+      //console.log(temp_storage);
     });
 }
 
 
 
+
 $(document).ready(function () {
     retrieveSwimrs();
-    console.log(temp_storage);
+    //console.log(temp_storage);
     showIntroMessage(temp_storage);
     current_swimr = localStorage.getItem("current_swimr");
-    console.log(current_swimr + " is the swimmer in localstorage");
+    //console.log(current_swimr + " is the swimmer in localstorage");
 
     // show login form
     $(".btn_confirm").on("click", function (event) {

@@ -9,7 +9,7 @@ var swimrSchema = new Schema({
     swimr_name: {
         type: String,
         unique: true,
-        required: true
+        required: [true, 'You must enter a name for your swimmer']
     }
 });
 

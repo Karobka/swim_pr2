@@ -5,11 +5,11 @@ var userSchema = new Schema({
     username: {
         type: String,
         unique: true,
-        required: true
+        required: [true, 'You must enter a username']
     },
     password: {
         type: String,
-        required: true
+        required: [true, 'You must enter a password']
     }
 });
 

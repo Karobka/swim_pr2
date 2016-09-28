@@ -236,7 +236,7 @@ button:hover {
 /** buttons for confirm or login **/
 .btn_style_confirm {
     background-color: #2abfd4;
-    width: 128px;
+    width: 150px;
     border-radius: 2px;
     border: 1px solid #104d71;
 }
@@ -252,6 +252,9 @@ button:hover {
 }
 .btn_show_records:hover {
     background-color: #737373;
+}
+.btn_show_del_swimr {
+    margin-left: 10px;
 }
 .btn_add_swimr,
 .btn_new_swimr {
@@ -293,6 +296,10 @@ button:hover {
 /** Danger Button Hover Styling **/
 .btn_danger:hover {
     background: #f9829c;
+}
+.btn_remove_event {
+    vertical-align: middle;
+    margin-bottom: 20px;
 }
 
 .fa_border {
@@ -336,20 +343,25 @@ footer p {
 }
 .event_cell {
     display: inline-block;
-    width: 200px;
-    background-color: #a9a9a9;
-    padding: 0 25px 5px 25px;
+    width: 172px;
+    background-color: #eaeaea;
+    padding: 0 0px 0px 0px;
     margin: 10px 5px;
+    border-radius: 4px;
 }
 .event_cell_title {
-    background-color: #2a6ad4;
+    background-color: #27a9bb;
 }
 .event_name {
     text-align: center;
     border-bottom: 1px solid #104d71;
+    background-color: #e4e4e4; 
 }
 .event_data {
     text-align: center;
+}
+.event_details {
+    padding: 12px;
 }
 .login_wrap input {
     display: block;

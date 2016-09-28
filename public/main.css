@@ -375,6 +375,12 @@ footer p {
         width: 80%;
     }
 }
+@media screen and (max-width: 1105px) {
+    .btn_remove_event {
+        display: block;
+        margin: auto;
+    }
+}
 
 @media screen and (max-width: 600px) {
     .login_wrap {

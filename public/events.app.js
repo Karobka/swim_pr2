@@ -196,10 +196,12 @@ $(document).ready(function () {
         $(".add_record_wrap").css("display", "none");
         $(".records_wrap").css("display", "block");
         $(".btn_show_create_form").css("display", "inline");
+        $(".delete_swimr_wrap").css("display", "block");
     });
     //open new event form
     $(".btn_show_create_form").on("click", function () {
         setCurrentDate();
+        $(".delete_swimr_wrap").css("display", "none");
         $(".confirm_del_swimr").css("display", "none");
         $(".btn_show_del_swimr").css("display", "inline-block");
         $(".records_wrap").css("display", "none");
@@ -220,6 +222,7 @@ $(document).ready(function () {
         //Hide forms
         $(".add_record_wrap").css("display", "none");
         //Show swim records again
+        $(".delete_swimr_wrap").css("display", "block");
         $(".records_wrap").css("display", "block");
         $(".btn_show_create_form").css("display", "inline");
     });

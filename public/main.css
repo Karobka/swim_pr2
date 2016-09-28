@@ -379,6 +379,7 @@ footer p {
     .btn_remove_event {
         display: block;
         margin: auto;
+        margin-bottom: 10px;
     }
 }
 
@@ -400,7 +401,11 @@ footer p {
         padding-top: 70px;
     }
     .records_wrap {
-        padding: 25px;
+        padding: 0px;
+    }
+    .event_cell {
+        width: 100%;
+        margin: 10px 0px;
     }
 }
 

@@ -301,7 +301,6 @@ button:hover {
     vertical-align: middle;
     margin-bottom: 20px;
 }
-
 .fa_border {
     padding-right: 10px;
     border-right: 1px solid black;
@@ -310,10 +309,15 @@ button:hover {
     font-size: 12em;
     color: #f1f1f1;
 }
-
+.confirm_del_swimr {
+    margin: 0 50px 0 50px;
+}
 .records_template {
     border-bottom: solid black 1px;
     margin: 0 auto;
+}
+.delete_swimr_wrap {
+    text-align: center;
 }
 .no_records_message {
     display: none;
@@ -385,6 +389,12 @@ footer p {
     }
     input {
         display: block;
+    }
+    .delete_swimr_wrap {
+        padding-top: 70px;
+    }
+    .records_wrap {
+        padding: 25px;
     }
 }
 

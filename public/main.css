@@ -350,9 +350,9 @@ footer p {
     display: inline-block;
     width: 172px;
     background-color: #fff;
-    padding: 0 0px 0px 0px;
     margin: 10px 5px;
     border-radius: 4px;
+    border-bottom: 5px solid #27a9bb;
 }
 .event_cell_title {
     background-color: #27a9bb;

@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-        <link rel="stylesheet" href="./main.css">
-        <title>SwimPR</title>
-    </head>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./main.css">
+    <title>SwimPR</title>
+</head>
+
 <body>
     <header class="header_wrap">
-        <span>
-                <h1 class="header_swimpr"><span class="red_accent">Swim</span>PR</h1>
-        </span>
+        <h1 class="header_swimpr"><span class="red_accent">Swim</span>PR</h1>
         <button class="btn_style_add btn_logout">Log Out</button>
     </header>
     <div class="events_wrap">
         <div class="events_spacer">
             <button class="btn_style_add btn_swimr_menu"></button>
             <button class="btn_style_confirm btn_show_create_form">
-                <i class="fa fa-plus" aria-hidden="true"></i> &nbsp
+                <i class="fa fa-plus" aria-hidden="true"></i> &nbsp;
                 New Event
             </button>
             <div class="delete_swimr_wrap">
@@ -31,21 +32,14 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="forms_wrap">
             <!-- ADD Record Form -->
             <div class="add_record_wrap">
-                <form action="" class="add_record_data">
-                    <label for="">
+                <form class="add_record_data">
                         <input type="text" class="event_name" name="event_name" placeholder="Event Name" required>
-                    </label>
-                    <label for="">
-                        <input type="date" class="event_date" name="event_date" placeholder="Date">
-                    </label>
-                    <label for="">
+                        <input type="date" class="event_date" name="event_date">
                         <input type="number" class="event_distance" name="event_distance" placeholder="Distance">
-                    </label>
-                    <label for="">
                         <select name="stroke" class="event_stroke">
                             <option value="" disabled selected>Stroke..</option>
                             <option value="im">IM</option>
@@ -54,13 +48,8 @@
                             <option value="butterfly">butterfly</option>
                             <option value="breaststroke">breaststroke</option>
                         </select>
-                    </label>
-                    <label for="">
                         <input type="text" class="event_time" name="event_time" placeholder="Time">
-                    </label>
-                    <label for="">
                         <input type="text" class="event_rank" name="event_rank" placeholder="Rank">
-                    </label>
                     <div>
                         <button type="submit" class="btn_style_confirm" value="add_swimrecord">Add Event</button>
                         <button class="btn_danger btn_event_close" type="reset" value="Reset">Cancel</button>
@@ -83,14 +72,14 @@
             </div>
         </div>
 
-        <!-----  TEMPLATES  ------>
+        <!--  TEMPLATES  -->
 
         <!-- Records Template -->
         <div class="hidden_wrap">
 
             <div class="event_wrap">
                 <div class="event_name">
-                    <h2></h2>
+                    <h2></h2><!-- leave empty -->
                 </div>
                 <div class="event_data">
                     <div class="event_cell">
@@ -138,4 +127,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="events.app.js"></script>
 </body>
+
 </html>

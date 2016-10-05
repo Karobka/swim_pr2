@@ -36,11 +36,10 @@ body {
     margin: 25px;
 }
 .header_wrap {
-    /*background-color: #607D8B;*/
     border-bottom: 3px solid #27a9bb;
     box-shadow: 0 2px 5px rgba(0,0,0,0.26);
 }
-.header_wrap>span {
+.header_wrap>h1 {
     display: inline-block;
     border-right: 1px solid #2abfd4;
 }

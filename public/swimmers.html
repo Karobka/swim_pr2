@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link rel="stylesheet" href="./main.css">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-        <title>SwimPR</title>
-    </head>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="./main.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
+        crossorigin="anonymous">
+    <title>SwimPR</title>
+</head>
+
 <body>
     <header class="header_wrap">
-        <span>
-                <h1 class="header_swimpr"><span class="red_accent">Swim</span>PR</h1>
-        </span>
+        <h1 class="header_swimpr"><span class="red_accent">Swim</span>PR</h1>
         <button class="btn_style_add btn_logout">Log Out</button>
     </header>
     <div class="container_wrap">
         <div class="forms_wrap">
             <!-- ADD Swimr Form -->
             <div class="add_swimr_wrap">
-                <form action="" class="add_swimr">
-                    <label for="">
+                <form class="add_swimr">
                         <input type="text" class="swimr_name" name="swimr_name" placeholder="Swimmer's Name" required>
-                    </label>
                     <button type="submit" class="btn_style_add btn_new_swimr" value="Submit">Add Swimmer</button>
                     <button class="btn_swimr_close" type="reset" value="Reset">Cancel</button>
                 </form>
             </div>
-
         </div>
         <!--forms_wrap-->
 
@@ -46,15 +44,15 @@
             <section class="swimr_list_data">
             </section>
             <button class="btn_style_confirm btn_add_swimr">
-                <i class="fa fa-plus" aria-hidden="true"></i> &nbsp
+                <i class="fa fa-plus" aria-hidden="true"></i> &nbsp;
                 Add Swimmer
             </button>
         </div>
 
-        
-        
 
-        <!-----  TEMPLATES  ------>
+
+
+        <!--  TEMPLATES  -->
 
         <!-- Swimmer Name Template -->
         <div class="hidden_wrap">
@@ -74,4 +72,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>

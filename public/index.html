@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-        <link rel="stylesheet" href="./main.css">
-        <title>SwimPR</title>
-    </head>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./main.css">
+    <title>SwimPR</title>
+</head>
+
 <body>
     <header class="header_wrap">
-            <span>
-                <h1 class="header_swimpr"><span class="red_accent">Swim</span>PR</h1>
-            </span>
+        <h1 class="header_swimpr"><span class="red_accent">Swim</span>PR</h1>
     </header>
     <div>
         <div class="gradient_wrap">
@@ -25,12 +26,9 @@
                     </div>
                     <div class="words_left">
                         <h2 class="secondary_font"><em>Your</em> app for tracking personal swim records.</h2>
-                        <!--<h3>For <em>you</em>.</h3>
-                        <h3>For your <em>family</em> or your <em>team</em>.</h3>-->
                     </div>
                     <div class="words_right">
-                        <p>Sign up today!  Its <b>free</b><!--make this font curly--> and requires no personal
-                        information whatsoever.</p>
+                        <p>Sign up today! Its <b>free</b> and requires no personal information whatsoever.</p>
                         <button class="btn_style_add btn_confirm">Begin Here</button>
                     </div>
                 </section>
@@ -44,42 +42,32 @@
                     <p>Please log in:</p>
                     <div>
                         <!-- existing user login -->
-                            <span class="login_error">Incorrect username or password. Try again.</span>
-                            <span class="login_error_nodata">You must enter a username and password.</span>
-                            <form action="">
-                                <label for="">
-                                    <input type="text" class="user_name" placeholder="User Name" required>
-                                </label>
-                                <label for="">
-                                    <input type="password" class="user_password" placeholder="Password" required>
-                                </label>
-                                <button class="btn_style_add btn_submit_login" type="" value="">Log In</button>
-                            </form>
+                        <span class="login_error">Incorrect username or password. Try again.</span>
+                        <span class="login_error_nodata">You must enter a username and password.</span>
+                        <form>
+                            <input type="text" class="user_name" placeholder="User Name" required>
+                            <input type="password" class="user_password" placeholder="Password" required>
+                            <button class="btn_style_add btn_submit_login" value="">Log In</button>
+                        </form>
                     </div>
                     <div class="new_acct_form_show">
                         <p>Or create an account:</p>
-                        <button class="btn_style_confirm btn_new_user"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNew User</button>
+                        <button class="btn_style_confirm btn_new_user"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;New User</button>
                     </div>
                 </div>
 
                 <!-- New User Form -->
                 <div class="new_acct_form">
                     <p>Please make up some information:</p>
-                    <form action="">
-                        <label for="">
-                            <input type="text" class="new_user_name" placeholder="New User Name">
-                        </label>
-                        <label for="">
-                            <input type="password" class="input_new_password" placeholder="New password">
-                        </label>
-                        <label for="">
-                            <input type="password" class="input_new_password_confirm" placeholder="Confirm password">
-                        </label>
-                            <span class="passwords_nomatch">Passwords don't match.</span>
-                            <span class="passwords_match">Passwords match!  You may proceed.</span>
-                            <span class="new_login_error">Error logging in.  Please try again.</span>
-                            <button class="btn_style_add btn_submit_newuser" form="" type="submit" value="Submit" disabled>Create Account</button>
-                        </form>
+                    <form>
+                        <input type="text" class="new_user_name" placeholder="New User Name">
+                        <input type="password" class="input_new_password" placeholder="New password">
+                        <input type="password" class="input_new_password_confirm" placeholder="Confirm password">
+                        <span class="passwords_nomatch">Passwords don't match.</span>
+                        <span class="passwords_match">Passwords match!  You may proceed.</span>
+                        <span class="new_login_error">Error logging in.  Please try again.</span>
+                        <button class="btn_style_add btn_submit_newuser" type="submit" value="Submit" disabled>Create Account</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -90,26 +78,26 @@
                 <h2>Nothing that gets in your way.</h2>
             </div>
             <div class="landing_icon_data">
-                <img src="/images/Improve.png" alt="">
+                <img src="/images/Improve.png" alt="Graph Improving">
                 <p>Track and improve your event times.</p>
                 <div class="color_div1"></div>
             </div>
             <div class="landing_icon_data">
-                <img src="/images/First.png" alt="">
+                <img src="/images/First.png" alt="First Place Medal">
                 <p>Hold on to those first place memories.</p>
                 <div class="color_div2"></div>
             </div>
             <div class="landing_icon_data">
-                <img src="/images/Swimmer.png" alt="">
+                <img src="/images/Swimmer.png" alt="Swimming Icon">
                 <p>Keep track of multiple swimmers.</p>
                 <div class="color_div3"></div>
             </div>
         </section>
         <footer>
-                <p>Created by Tim Wright</p>
+            <p>Created by Tim Wright</p>
         </footer>
 
-        <!-----  TEMPLATES  ------>
+        <!--  TEMPLATES  -->
 
         <!-- Swimmer Name Template -->
         <div class="hidden_wrap">
@@ -129,4 +117,5 @@
     <script src="https://files-stackablejs.netdna-ssl.com/stacktable.min.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>

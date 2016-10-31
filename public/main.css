@@ -283,11 +283,7 @@ button:hover {
     background-color: #eaeaea;
     border: 2px solid #27a9bb;
     width: 200px;
-}
-
-/** Danger Button Hover Styling **/
-.btn_danger:hover {
-    background: #f9829c;
+    color: red;
 }
 .btn_remove_event {
     vertical-align: middle;
@@ -317,6 +313,10 @@ button:hover {
 }
 .user_template {
     margin-bottom: 5px;
+}
+.event_date {
+    padding-bottom: 10px;
+    padding-top: 14px;
 }
 
 footer {

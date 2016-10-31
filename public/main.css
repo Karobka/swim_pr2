@@ -81,10 +81,12 @@ body {
 .login_error {
     display: none;
     color: #d43f2a;
+    margin: 10px, 0px;
 }
 .passwords_nomatch,
 .passwords_match {
     display: none;
+    margin: 10px 0px;
 }
 .passwords_nomatch,
 .red_accent {
@@ -169,8 +171,7 @@ body {
     margin-bottom: 20px;
 }
 .login_words {
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin: 10px 0px;
 }
 .new_acct_form {
     margin-bottom: 20px;

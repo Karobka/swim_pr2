@@ -119,11 +119,9 @@ $(document).ready(function () {
         if (new_password != new_password_confirm) {
             $(".btn_submit_newuser").prop("disabled", true);
             $(".passwords_nomatch").css("display", "block");
-            $(".passwords_match").css("display", "none");
         } else {
             $(".btn_submit_newuser").prop("disabled", false);
             $(".passwords_nomatch").css("display", "none");
-            $(".passwords_match").css("display", "block");
         }
     });
 

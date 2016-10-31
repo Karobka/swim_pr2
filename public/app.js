@@ -76,12 +76,6 @@ $(document).ready(function () {
     current_swimr = localStorage.getItem("current_swimr");
     //console.log(current_swimr + " is the swimmer in localstorage");
 
-    // show login form
-    $(".btn_confirm").on("click", function (event) {
-        $(".intro_words").css("display", "none");
-        $(".login_wrap").css("display", "block");
-    });
-
     // click log in button
     $(".btn_submit_login").on("click", function (event) {
         event.preventDefault();

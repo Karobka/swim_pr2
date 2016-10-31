@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=La+Belle+Aurore|Raleway" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
         crossorigin="anonymous">
     <link rel="stylesheet" href="./main.css">
@@ -19,7 +20,7 @@
     <div>
         <div class="gradient_wrap">
             <!-- intro words -->
-            <div>
+            <!--<div>
                 <section class="intro_words">
                     <div class="bottom_border">
                         <h1 class="banner_swimpr">SwimPR</h1>
@@ -32,15 +33,14 @@
                         <button class="btn_style_add btn_confirm">Begin Here</button>
                     </div>
                 </section>
-            </div>
+            </div>-->
             <!-- login stuff -->
             <div class="login_wrap">
                 <div class="login_header">
-                    <h1>Welcome to <span class="red_accent">Swim</span>PR</h1>
+                    <h1>Welcome to <span class="red_accent">Swim</span><span class="pr_accent">PR</h1></span>
                 </div>
                 <div class="login_data">
-                    <p>Please log in:</p>
-                    <div>
+                    <p class="login_words">Please log in:</p>
                         <!-- existing user login -->
                         <span class="login_error">Incorrect username or password. Try again.</span>
                         <span class="login_error_nodata">You must enter a username and password.</span>
@@ -49,16 +49,13 @@
                             <input type="password" class="user_password" placeholder="Password" required>
                             <button class="btn_style_add btn_submit_login" value="">Log In</button>
                         </form>
-                    </div>
-                    <div class="new_acct_form_show">
-                        <p>Or create an account:</p>
+                        <p class="login_words">Or create an account:</p>
                         <button class="btn_style_confirm btn_new_user"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;New User</button>
-                    </div>
                 </div>
 
                 <!-- New User Form -->
                 <div class="new_acct_form">
-                    <p>Please make up some information:</p>
+                    <p class="login_words">Please make up some information:</p>
                     <form>
                         <input type="text" class="new_user_name" placeholder="New User Name">
                         <input type="password" class="input_new_password" placeholder="New password">

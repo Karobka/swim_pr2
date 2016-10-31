@@ -29,6 +29,7 @@ time, mark, audio, video {
 body {
     font-family: Roboto, 'Open Sans', sans-serif;
 }
+
 .records_wrap {
     padding: 55px;
 }
@@ -46,6 +47,11 @@ body {
 .header_swimpr {
     padding: 10px;
 }
+.header_swimpr,
+.pr_accent {
+    font-family: 'Raleway', sans-serif;
+    color: grey;
+}
 .intro_message {
     display: none;
     background-color: #b9ecda;
@@ -57,17 +63,12 @@ body {
     padding: 15px;
     color: #737373;
 }
-
-.intro_words {
-    line-height: 70px;
-}
 .secondary_font {
     font-family: "Roboto Slab", serif;
 }
 .login_header {
     background-color: #fff;
-    border-radius: 3px;
-    border-bottom: 3px solid #2abfd4;
+    border-bottom: 3px solid #27a9bb;
 }
 .swimr_header {
     background-color: #2abfd4;
@@ -89,6 +90,9 @@ body {
 .red_accent {
     color: 	#d43f2a;
 }
+.red_accent {
+    font-family: 'La Belle Aurore', cursive;
+}
 .passwords_match {
     color: #2a6ad4;
 }
@@ -99,11 +103,10 @@ body {
 }
 .gradient_wrap {
     height: 500px;
-    border-radius: 0 0 10px 10px;
     text-align: center;
     padding: 30px;
     /*background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8);*/
-    background: linear-gradient(141deg, #00648a 0%, #1fc8db 51%, #00648a); 
+    /*background: linear-gradient(141deg, #00648a 0%, #1fc8db 51%, #00648a); */
 }
 
 .subtitles {
@@ -151,8 +154,6 @@ body {
     margin: 0;
 }
 .login_wrap {
-    border-radius: 3px;
-    display: none;
     width: 512px;
     margin: auto;
 }
@@ -163,9 +164,13 @@ body {
     border: 1px solid #a9a9a9;
     box-shadow: 0 2px 5px rgba(0,0,0,0.26);
 }
-.new_acct_form_show{
+.btn_new_user,
+.btn_submit_newuser {
     margin-bottom: 20px;
-    margin-top: 40px;
+}
+.login_words {
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .new_acct_form {
     margin-bottom: 20px;
@@ -224,29 +229,25 @@ button:hover {
 /** buttons for new or add **/
 .btn_style_add {
     width: 150px;
-    background-color: #17c687;
-    border-radius: 2px;
-    border: 1px solid #104d71;
+    background-color: #eaeaea;
+    border: 2px solid #27a9bb;
 }
 .btn_style_add:hover {
-    background-color: #14e298;
+    background-color: #cccccc;
 }
 
 /** buttons for confirm or login **/
 .btn_style_confirm {
-    background-color: #2abfd4;
+    background-color: #eaeaea;
     width: 150px;
-    border-radius: 2px;
-    border: 1px solid #104d71;
+    border: 2px solid #27a9bb;
 }
 .btn_style_confirm:hover {
-    background-color: #25d6ef;
-    border: 1px solid #104d71;
+    background-color: #cccccc;
 }
 .btn_show_records {
     width: 256px;
-    border-radius: 2px;
-    border: 1px solid #104d71;
+    border: 2px solid #27a9bb;
     background-color: #fff;
 }
 .btn_show_records:hover {
@@ -278,7 +279,6 @@ button:hover {
 .btn_cancel {
     background-color: #fff;
     border: 1px solid #000;
-    border-radius: 2px;
     width: 200px;
 }
 .btn_cancel:hover {
@@ -288,7 +288,6 @@ button:hover {
 .btn_danger {
     background-color: #d27d90;
     border: 1px solid #000;
-    border-radius: 2px;
     width: 200px;
 }
 
@@ -341,7 +340,7 @@ footer p {
 }
 /** event styles */
 .event_wrap {
-    border: 1px solid #104d71;
+    border: 1px solid #27a9bb;
     margin: 25px 0 50px 0;
     background-color: #d2d2d2;
 }
@@ -350,7 +349,6 @@ footer p {
     width: 172px;
     background-color: #fff;
     margin: 10px 5px;
-    border-radius: 4px;
     border-bottom: 5px solid #27a9bb;
 }
 .event_cell_title {
@@ -358,7 +356,7 @@ footer p {
 }
 .event_name {
     text-align: center;
-    border-bottom: 1px solid #104d71;
+    border-bottom: 1px solid #27a9bb;
     background-color: #e4e4e4; 
 }
 .event_data {

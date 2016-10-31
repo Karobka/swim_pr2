@@ -54,8 +54,6 @@ body {
 }
 .intro_message {
     display: none;
-    background-color: #b9ecda;
-    border: 1px solid #a9a9a9;
     width: 50%;
     margin: auto;
     margin-top: 15px;
@@ -69,9 +67,6 @@ body {
 .login_header {
     background-color: #fff;
     border-bottom: 3px solid #27a9bb;
-}
-.swimr_header {
-    background-color: #2abfd4;
 }
 .login_header > h1 {
     padding: 15px;
@@ -181,14 +176,11 @@ body {
     margin: 25px;
 }
 .container_wrap {
-    width: 1024px;
+    width: 512px;
     margin: 80px auto auto auto;
 }
 .swimr_list_data {
-    /*list-style-type: none;
-    padding-left: 0;*/
     padding-bottom: 15px;
-    border-bottom: 1px solid #a9a9a9;
 }
 
 /** hide some things **/
@@ -243,16 +235,14 @@ button:hover {
     width: 150px;
     border: 2px solid #27a9bb;
 }
-.btn_style_confirm:hover {
+.btn_style_confirm:hover,
+.btn_show_records:hover {
     background-color: #cccccc;
 }
 .btn_show_records {
     width: 256px;
     border: 2px solid #27a9bb;
     background-color: #fff;
-}
-.btn_show_records:hover {
-    background-color: #737373;
 }
 .btn_show_del_swimr {
     margin-left: 10px;
@@ -270,9 +260,12 @@ button:hover {
 .btn_logout {
     float: right;
     margin: 5px;
+    background-color: #fff;
 }
 .btn_add_swimr {
     margin: 20px;
+    border-radius: 50%;
+    width: 50px;
 }
 .btn_show_create_form {
     float: right;

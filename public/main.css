@@ -45,7 +45,7 @@ body {
     border-right: 1px solid #2abfd4;
 }
 .header_swimpr {
-    padding: 10px;
+    padding: 0px 10px;
 }
 .header_swimpr,
 .pr_accent {
@@ -280,8 +280,8 @@ button:hover {
 }
 /** Danger Button Styling **/
 .btn_danger {
-    background-color: #d27d90;
-    border: 1px solid #000;
+    background-color: #eaeaea;
+    border: 2px solid #27a9bb;
     width: 200px;
 }
 

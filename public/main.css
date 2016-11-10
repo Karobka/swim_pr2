@@ -45,7 +45,8 @@ body {
     border-right: 1px solid #2abfd4;
 }
 .header_swimpr {
-    padding: 0px 10px;
+    padding: 30px;
+    line-height: 0;
 }
 .header_swimpr,
 .pr_accent {
@@ -69,7 +70,8 @@ body {
     border-bottom: 3px solid #27a9bb;
 }
 .login_header > h1 {
-    padding: 15px;
+    padding: 40px;
+    line-height: 0;
 }
 .login_error_nodata,
 .new_login_error,
@@ -124,9 +126,6 @@ body {
     vertical-align: middle;
     box-shadow: 0 2px 5px rgba(0,0,0,0.26);
 }
-.landing_icon_data img {
-    margin-top: 15%;
-}
 .color_div1 {
     border-bottom: 10px solid #d43f2a;
 }
@@ -173,7 +172,7 @@ body {
 }
 .add_swimr_wrap{
     text-align: center;
-    margin: 25px;
+    margin: 50px;
 }
 .container_wrap {
     width: 512px;
@@ -276,7 +275,7 @@ button:hover {
     width: 200px;
 }
 .btn_cancel:hover {
-    background-color: #737373;
+    background-color: #cccccc;
 }
 /** Danger Button Styling **/
 .btn_danger {
@@ -284,6 +283,9 @@ button:hover {
     border: 2px solid #27a9bb;
     width: 200px;
     color: red;
+}
+.btn_danger:hover {
+    background-color: #cccccc;
 }
 .btn_remove_event {
     vertical-align: middle;
